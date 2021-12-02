@@ -14878,14 +14878,14 @@ header .navbar-header .navbar-brand {
   }
 }
 header .navbar-header .navbar-brand img {
-  height: 50px;
+  height: 75px;
 }
 @media (min-width: 768px) {
   header .navbar-header .navbar-brand {
     padding: 5px 15px;
   }
   header .navbar-header .navbar-brand img {
-    height: auto;
+    /* height: auto; */
   }
 }
 header .navbar-nav > li > a {
