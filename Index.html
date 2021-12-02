@@ -97,6 +97,21 @@
 				<img src="images/Binus Logo.png" alt="" class="img-responsive hidden-navbar-default">
 			</a>
 
+            <a href="#" class="btn btn-outline-white btn-sm navbar-btn navbar-btn-mobile pull-right visible-xs" data-toggle="modal" data-target="#modalLogin" style="margin-right: 15px"><i class="fa fa-user"></i></a>
+        </div>
+
+        <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-left navbar-primary">
+            <li role="presentation" class="  ">
+                <a href="#" >
+                    Komplain
+                </a>
+            </li>
+            <li role="presentation" class="  ">
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" >
+                    Artikel
+                </a>
+            </li>
 		</div>
 	</div>
 </header>        
@@ -128,13 +143,9 @@
         <label for="classification_complaint" class="choose-classification">Pilih Klasifikasi Permintaan</label>
         <div class="btn-group btn-complaint-type" id="classification_complaint" data-toggle="buttons">
             <label class="btn btn-default">
-                <input type="radio" name="classification_id" value="1" class="sr-only" required /><span>HOTSPOT</span></label>
+                <input type="radio" name="classification_id" value="1" class="sr-only" required /><span>USER</span></label>
             <label class="btn btn-default">
-                <input type="radio" name="classification_id" value="3" class="sr-only" required /><span>PERBAIKAN PC</span></label>
-            <label class="btn btn-default">
-                <input type="radio" name="classification_id" value="2" class="sr-only" required  /><span>TV Wall</span></label>
-            <label class="btn btn-default">
-                <input type="radio" name="classification_id" value="1" class="sr-only" required  /><span>PEMINJAMAN</span></label>
+                <input type="radio" name="classification_id" value="3" class="sr-only" required /><span>KELAS</span></label>
             <label class="btn btn-default">
                 <input type="radio" name="classification_id" value="2" class="sr-only" required  /><span>EVENT</span></label>
         </div>
@@ -221,7 +232,7 @@
                 <input type="hidden" name="longitude" data-toggle="currentLongitude">
                 <input type="hidden" name="origin_latitude">
                 <input type="hidden" name="origin_longitude">
-                                <a class="btn btn-primary" id="submit-complaint" data-attach-loading>LAPOR!</a>            </div>
+                                <a class="btn btn-primary" id="submit-complaint" data-attach-loading>CREATE TICKET</a>            </div>
         </div>
     </div>
 </form>
