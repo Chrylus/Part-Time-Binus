@@ -2,6 +2,7 @@
     include ("connect_database.php");
 
     if(isset($_POST['submit'])) {
+        $txtDate = $_POST['tanggal'];
         $txtNama = $_POST['nama'];
         $txtEmail = $_POST['email'];
         $txtPhone = $_POST['no_Telepon'];
@@ -9,8 +10,8 @@
         $txtProblem = $_POST['problem'];
         $txtImage = $_POST['lampiran'];
     
-        $sql = "INSERT INTO user_complaint (nama, email, no_Telepon, lokasi, problem, lampiran)";
-        $sql .= "VALUES ('$txtNama', '$txtEmail', '$txtPhone', '$txtLocation', '$txtProblem', '$txtImage')";
+        $sql = "INSERT INTO user_complaint (tanggal, nama, email, no_Telepon, lokasi, problem, lampiran)";
+        $sql .= "VALUES ('$txtDate', '$txtNama', '$txtEmail', '$txtPhone', '$txtLocation', '$txtProblem', '$txtImage')";
 
         $hasil = mysqli_query($connection, $sql);
 
@@ -19,7 +20,6 @@
           }
         else {
             echo "Record Created";
-        }  
+        }
     }
 ?>
-
