@@ -80,6 +80,9 @@
                     <div id="search-bar">
 </div>
 
+<?php
+    include "connect_database.php";
+?>
 
 <header class="navbar-fixed-top navbar-inverse ">
 	<div class="container">
@@ -134,20 +137,20 @@
     <div class="container">
         <div class="row">
         <div class="col-md-8 col-md-offset-2 mg-b-40">
-    <form method="POST" action="https://www.lapor.go.id" accept-charset="UTF-8" data-request="complaint::onCreate" class="complaint-form" data-request-flash=""><input name="_session_key" type="hidden" value="H0jzdJd1I0aAdLo6yGIAoXiVQbWLCd9LtHLCP50V"><input name="_token" type="hidden" value="OZPVvzymSbDonv62HUjG7WfRuRGreTmfzpAXIb0A">
+    <form action="connect_class.php" method="POST" class="complaint-form">
     <div class="complaint-form-box">
         <div class="select-complaint">Sampaikan Permintaan Anda</div>
         <center><p><b>Pilih Klasifikasi Permintaan Anda</b></p></center>
         <center>
-            <a href="Index.html" class="button1">User</a>
+            <a href="Index.php" class="button1">User</a>
             <a href="#" class="button1 active">Kelas</a>
-            <a href="event.html" class="button1">Event</a>
+            <a href="event.php" class="button1">Event</a>
         </center>
         <br>
     </div>
     
     <div class="complaint-form-category">
-        <input list="text" name="title" class="form-control" placeholder="Lantai Ruangan *" required>
+        <input list="text" name="lt_ruangan" class="form-control" placeholder="Lantai Ruangan *" required>
         <datalist id="text">
             <option value="Lantai 1">
             <option value="Lantai 2">
@@ -156,17 +159,12 @@
             <option value="Lantai 5">
     </div>
     <div class="complaint-form-category">
-        <input type="text" name="title" class="form-control" placeholder="Nomor Ruangan *" required></textarea>
+        <input type="text" name="no_ruangan" class="form-control" placeholder="Nomor Ruangan *" required></textarea>
     </div>
 
     <div class="complaint-form-footer">
         <div class="row-flex flex-align-between">
-            <!-- HELP Button -->
-            <input type="hidden" name="latitude" data-toggle="currentLatitude">
-            <input type="hidden" name="longitude" data-toggle="currentLongitude">
-            <input type="hidden" name="origin_latitude">
-            <input type="hidden" name="origin_longitude">
-            <a class="btn btn-primary" id="submit-complaint" data-attach-loading>CREATE TICKET</a>            </div>
+            <input class="btn btn-primary" id="submit-complaint" type="submit" value="CREATE TICKET" name="submit">
         </div>
     </div>
 

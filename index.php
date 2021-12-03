@@ -144,8 +144,8 @@
         <center><p><b>Pilih Klasifikasi Permintaan Anda</b></p></center>
         <center>
             <a href="#" class="button1 active">User</a>
-            <a href="kelas.html" class="button1">Kelas</a>
-            <a href="event.html" class="button1">Event</a>
+            <a href="kelas.php" class="button1">Kelas</a>
+            <a href="event.php" class="button1">Event</a>
         </center>
         <br>
     </div>
