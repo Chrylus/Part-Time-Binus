@@ -145,34 +145,18 @@
         </center>
         <br>
     </div>
+    
     <div class="complaint-form-category">
-        <input type="text" name="title" class="form-control" placeholder="Nama *" required></textarea>
+        <input list="text" name="title" class="form-control" placeholder="Lantai Ruangan *" required>
+        <datalist id="text">
+            <option value="Lantai 1">
+            <option value="Lantai 2">
+            <option value="Lantai 3">
+            <option value="Lantai 4">
+            <option value="Lantai 5">
     </div>
     <div class="complaint-form-category">
-        <input type="text" name="title" class="form-control" placeholder="Email *" required></textarea>
-    </div>
-    <div class="complaint-form-category">
-        <input type="text" name="title" class="form-control" placeholder="Nomor Telepon *" required></textarea>
-    </div>
-    <div class="complaint-form-category">
-        <input type="text" name="title" class="form-control" placeholder="Lokasi *" required></textarea>
-    </div>
-    <div class="complaint-form-category">
-        <textarea name="content" id="" rows="6" class="form-control textarea-flex autosize" placeholder="Ketik Masalah Anda *" required></textarea>
-    </div>
-    <label for="classification_complaint" class="choose-classification">Lampiran Masalah</label>
-    <div class="complaint-form-category">
-        <input type="file" name="title" class="form-control" required></textarea>
-    </div>
-
-    <div class="complaint-form-attachments">  
-        <div>
-            class="responsiv-uploader-fileupload style-file-multi is-multi "
-            data-control="fileupload"
-            data-template="#uploaderTemplatefileUploader"
-            data-unique-id="fileUploader"
-            data-file-types=".jpg,.jpeg,.bmp,.png,.webp,.gif,.svg,.js,.map,.ico,.css,.less,.scss,.ics,.odt,.doc,.docx,.ppt,.pptx,.pdf,.swf,.txt,.xml,.ods,.xls,.xlsx,.eot,.woff,.woff2,.ttf,.flv,.wmv,.mp3,.ogg,.wav,.avi,.mov,.mp4,.mpeg,.webm,.mkv,.rar,.xml,.zip">
-        </div>
+        <input type="text" name="title" class="form-control" placeholder="Nomor Ruangan *" required></textarea>
     </div>
 
     <div class="complaint-form-footer">
