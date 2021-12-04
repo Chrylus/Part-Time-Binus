@@ -11,15 +11,17 @@ $password = $_POST['password']; //menampung data yang dikirim dari input passwor
 
 
 //Query input menginput data kedalam tabel anggota
-  $sql="insert into admin (nama,email,password) values
-		('$nama','$email','$password')";
+  $sql="INSERT INTO `admin`( `nama`, `email`, `password`) VALUES ('$nama','$email','$password')";
 
 //Mengeksekusi/menjalankan query diatas	
   $hasil=mysqli_query($koneksi,$sql);
-
+echo"$nama";
+echo"$email";
+echo"$password";
+echo"$hasil";
 //Kondisi apakah berhasil atau tidak
   if ($hasil) {
-	header("location:sukses.php"); 
+	header("location:login.php"); 
   }
 else {
 echo"gagal";
