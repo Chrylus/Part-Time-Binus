@@ -156,10 +156,12 @@
             <option value="Lantai 2">
             <option value="Lantai 3">
             <option value="Lantai 4">
-            <option value="Lantai 5">
     </div>
     <div class="complaint-form-category">
         <input type="text" name="no_ruangan" class="form-control" placeholder="Nomor Ruangan *" required></textarea>
+    </div>
+    <div class="complaint-form-category">
+        <textarea name="problem" id="" rows="6" class="form-control textarea-flex autosize" placeholder="Ketik Masalah Anda *" required></textarea>
     </div>
 
     <div class="complaint-form-footer">

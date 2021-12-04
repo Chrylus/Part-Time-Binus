@@ -150,9 +150,6 @@
         <br>
     </div>
     <div class="complaint-form-category">
-        <input type="date" name="tanggal" class="form-control" placeholder="Tanggal *" required></textarea>
-    </div>
-    <div class="complaint-form-category">
         <input type="text" name="nama" class="form-control" placeholder="Nama *" required></textarea>
     </div>
     <div class="complaint-form-category">
@@ -177,7 +174,6 @@
             <input class="btn btn-primary" id="submit-complaint" type="submit" value="CREATE TICKET" name="submit">
         </div>
     </div>
-
 </form>
 
         <!-- Navbar -->
