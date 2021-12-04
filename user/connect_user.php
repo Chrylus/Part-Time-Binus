@@ -22,9 +22,7 @@
             die ('Query failed');
         }
         else {
-            echo "Record Created";
-            echo "<br>";
-            echo "Ticket anda adalah : " . $x;
+            header("location:index.php?Ticket=$x");
         }
     }
 ?>
