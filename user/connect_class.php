@@ -6,12 +6,12 @@
         $no = $_POST['no_ruangan'];
         $masalah = $_POST['problem'];
     
-        $sql = "INSERT INTO class_complaint (lt_ruangan, no_ruangan, problem)";
-        $sql .= "VALUES ('$lt', '$no', '$masalah')";
+        $sql = "INSERT INTO complaint (nama, email, no_Telepon, lokasi, problem)";
+        $sql .= "VALUES ('Dosen', '-', '-', '$lt - $no', '$masalah')";
 
         $hasil = mysqli_query($connection, $sql);
 
-        $ticket = mysqli_query($connection, "SELECT ticket FROM class_complaint ORDER BY ID DESC LIMIT 1");
+        $ticket = mysqli_query($connection, "SELECT ticket FROM complaint ORDER BY ID DESC LIMIT 1");
         $result = $ticket -> fetch_assoc();
         $x = $result ['ticket'];
 

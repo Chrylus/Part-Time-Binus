@@ -9,12 +9,12 @@
         $txtProblem = $_POST['problem'];
         $txtImage = $_POST['lampiran'];
     
-        $sql = "INSERT INTO user_complaint (nama, email, no_Telepon, lokasi, problem, lampiran)";
+        $sql = "INSERT INTO complaint (nama, email, no_Telepon, lokasi, problem, lampiran)";
         $sql .= "VALUES ('$txtNama', '$txtEmail', '$txtPhone', '$txtLocation', '$txtProblem', '$txtImage')";
 
         $hasil = mysqli_query($connection, $sql);
 
-        $ticket = mysqli_query($connection, "SELECT ticket FROM user_complaint ORDER BY ID DESC LIMIT 1");
+        $ticket = mysqli_query($connection, "SELECT ticket FROM complaint ORDER BY ID DESC LIMIT 1");
         $result = $ticket -> fetch_assoc();
         $x = $result ['ticket'];
 
