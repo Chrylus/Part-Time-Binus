@@ -108,10 +108,6 @@
                     )
                 </script>";
         }
-        /*'Ticket Berhasil Dibuat',
-                        'Mohon Catat Nomor Ticket Anda'
-                        '$Pesan',*/
-        //alert('Ticket Anda Adalah : $Pesan\\nMohon Catat Ticket Anda')
     ?>
 
     <section id="complaint-box">
