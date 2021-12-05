@@ -26,8 +26,7 @@
 												no_telepon = '$_POST[no_Telepon]',
 											 	lokasi = '$_POST[lokasi]',
                                                  problem = '$_POST[problem]',
-                                                 
-                                                 ticket = '$_POST[ticket]',
+                                                 ticket = '$_POST[ticket]'
 											 WHERE ID = '$_GET[ID]'
 										   ");
 			if($edit) //jika edit sukses
@@ -90,19 +89,19 @@
 			if($data)
 			{
 				//Jika data ditemukan, maka data ditampung ke dalam variabel
-				$txtNama = $_POST['nama'];
-                $txtEmail = $_POST['email'];
-                $txtPhone = $_POST['no_Telepon'];
-                $txtLocation = $_POST['lokasi'];
-                $txtProblem = $_POST['problem'];
-                $txtImage = $_POST['lampiran'];
-                $txtTiket = $_POST['ticket'];
+				$txtNama = $data['nama'];
+                $txtEmail = $data['email'];
+                $txtPhone = $data['no_Telepon'];
+                $txtLocation = $data['lokasi'];
+                $txtProblem = $data['problem'];
+                $txtImage = $data['lampiran'];
+                $txtTiket = $data['ticket'];
 			}
 		}
 		else if ($_GET['hal'] == "hapus")
 		{
 			//Persiapan hapus data
-			$hapus = mysqli_query($koneksi, "DELETE FROM complaint WHERE ID = '$_GET[ID]' ");
+			$hapus = mysqli_query($connection, "DELETE FROM complaint WHERE ID = '$_GET[ID]' ");
 			if($hapus){
 				echo "<script>
 						alert('Hapus Data Suksess!!');
@@ -509,7 +508,7 @@
         <label for="classification_complaint" class="choose-classification" value="<?=@$txtImage?>">Lampiran Masalah</label>
  
         <div class="complaint-form-category">
-            <input type="text" name="tiket" class="form-control" placeholder="tiket *" value="<?=@$txtTiket?>" required></textarea>
+            <input type="text" name="ticket" class="form-control" placeholder="tiket *" value="<?=@$txtTiket?>" required></textarea>
         </div>
             <br><br>
 	    	<button type="submit" class="btn btn-success" name="bsimpan">Simpan</button>
@@ -556,7 +555,7 @@
                 <td><?=$data['ticket']?></td>
 	    		<td>
 	    			<a href="datatabel.php?hal=edit&ID=<?=$data['ID']?>" class="btn btn-warning"> Edit </a>
-	    			<a href="datatabel.php?hal=hapus&ID=<?=$data['OD']?>" 
+	    			<a href="datatabel.php?hal=hapus&ID=<?=$data['ID']?>" 
 	    			   onclick="return confirm('Apakah yakin ingin menghapus data ini?')" class="btn btn-danger"> Hapus </a>
 	    		</td>
 	    	</tr>
