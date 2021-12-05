@@ -26,50 +26,49 @@
 												no_telepon = '$_POST[no_Telepon]',
 											 	lokasi = '$_POST[lokasi]',
                                                  problem = '$_POST[problem]',
-                                                 lampiran = '$_POST[lampiran]',
-                                                 tiket = '$_POST[tiket]',
+                                                 
+                                                 ticket = '$_POST[ticket]',
 											 WHERE ID = '$_GET[ID]'
 										   ");
 			if($edit) //jika edit sukses
 			{
 				echo "<script>
 						alert('Edit data suksess!');
-						document.location='index.php';
+						document.location='tester.php';
 				     </script>";
 			}
 			else
 			{
 				echo "<script>
 						alert('Edit data GAGAL!!');
-						document.location='index.php';
+						document.location='tester.php';
 				     </script>";
 			}
 		}
 		else
 		{
 			//Data akan disimpan Baru
-			$simpan = mysqli_query($koneksi, "INSERT INTO complaint (nama, email, no_Telepon, lokasi, problem, lampiran,tiket)
+			$simpan = mysqli_query($connection, "INSERT INTO complaint (nama, email, no_Telepon, lokasi, problem, ticket)
 										  VALUES ('$_POST[nama]', 
 										  		 '$_POST[email]', 
 										  		 '$_POST[no_Telepon]', 
-										  		 '$_POST[lokasii]',
-                                                '$_POST[problem]' ,
-                                                '$_POST[lampiran]',
-                                                '$_POST[tiket]'
+										  		 '$_POST[lokasi]',
+                                                '$_POST[problem]',
+                                                '$_POST[ticket]'
                                                    )
 										 ");
 			if($simpan) //jika simpan sukses
 			{
 				echo "<script>
 						alert('Simpan data suksess!');
-						document.location='index.php';
+						document.location='datatabel.php';
 				     </script>";
 			}
 			else
 			{
 				echo "<script>
 						alert('Simpan data GAGAL!!');
-						document.location='index.php';
+						document.location='tester.php';
 				     </script>";
 			}
 		}
@@ -86,7 +85,7 @@
 		if($_GET['hal'] == "edit")
 		{
 			//Tampilkan Data yang akan diedit
-			$tampil = mysqli_query($koneksi, "SELECT * FROM complaint WHERE ID = '$_GET[ID]' ");
+			$tampil = mysqli_query($connection, "SELECT * FROM complaint WHERE ID = '$_GET[ID]' ");
 			$data = mysqli_fetch_array($tampil);
 			if($data)
 			{
@@ -97,6 +96,7 @@
                 $txtLocation = $_POST['lokasi'];
                 $txtProblem = $_POST['problem'];
                 $txtImage = $_POST['lampiran'];
+                $txtTiket = $_POST['ticket'];
 			}
 		}
 		else if ($_GET['hal'] == "hapus")
@@ -106,7 +106,7 @@
 			if($hapus){
 				echo "<script>
 						alert('Hapus Data Suksess!!');
-						document.location='index.php';
+						document.location='datatabel.php';
 				     </script>";
 			}
 		}
@@ -481,33 +481,40 @@
                 <div class="card mt-3">
 	  <div class="card-header bg-primary text-white">
 	    Form Input Data Mahasiswa
+        <!-- $txtNama = $_POST['nama'];
+                $txtEmail = $_POST['email'];
+                $txtPhone = $_POST['no_Telepon'];
+                $txtLocation = $_POST['lokasi'];
+                $txtProblem = $_POST['problem'];
+                $txtImage = $_POST['lampiran'];
+                $txtTiket = $_POST['ticket']; -->
 	  </div>
 	  <div class="card-body">
 	    <form method="post" action="">
-	    	<div class="form-group">
-	    		<label>Nim</label>
-	    		<input type="text" name="tnim" value="<?=@$vnim?>" class="form-control" placeholder="Input Nim anda disini!" required>
-	    	</div>
-	    	<div class="form-group">
-	    		<label>Nama</label>
-	    		<input type="text" name="tnama" value="<?=@$vnama?>" class="form-control" placeholder="Input Nama anda disini!" required>
-	    	</div>
-	    	<div class="form-group">
-	    		<label>Alamat</label>
-	    		<textarea class="form-control" name="talamat"  placeholder="Input Alamat anda disini!"><?=@$valamat?></textarea>
-	    	</div>
-	    	<div class="form-group">
-	    		<label>Program Studi</label>
-	    		<select class="form-control" name="tprodi">
-	    			<option value="<?=@$vprodi?>"><?=@$vprodi?></option>
-	    			<option value="D3-MI">D3-MI</option>
-	    			<option value="S1-SI">S1-SI</option>
-	    			<option value="S1-TI">S1-TI</option>
-	    		</select>
-	    	</div>
-
+        <div class="complaint-form-category">
+            <input type="text" name="nama" class="form-control" placeholder="Nama *" value="<?=@$txtNama?>" required></textarea>
+        </div>
+        <div class="complaint-form-category">
+            <input type="text" name="email" class="form-control" placeholder="Email *" value="<?=@$txtEmail?>" required></textarea>
+        </div>
+        <div class="complaint-form-category">
+            <input type="text" name="no_Telepon" class="form-control" placeholder="Nomor Telepon *"value="<?=@$txtPhone?>" required></textarea>
+        </div>
+        <div class="complaint-form-category">
+            <input type="text" name="lokasi" class="form-control" placeholder="Lokasi *" value="<?=@$txtlocation?>" required></textarea>
+        </div>
+        <div class="complaint-form-category">
+            <textarea name="problem" id="" rows="6" class="form-control textarea-flex autosize" placeholder="Ketik Masalah Anda *" value="<?=@$txtProblem?>" required></textarea>
+        </div>
+        <label for="classification_complaint" class="choose-classification" value="<?=@$txtImage?>">Lampiran Masalah</label>
+ 
+        <div class="complaint-form-category">
+            <input type="text" name="tiket" class="form-control" placeholder="tiket *" value="<?=@$txtTiket?>" required></textarea>
+        </div>
+            <br><br>
 	    	<button type="submit" class="btn btn-success" name="bsimpan">Simpan</button>
 	    	<button type="reset" class="btn btn-danger" name="breset">Kosongkan</button>
+            <!-- /*tanggal	nama	email	no_Telepon	lokasi	problem	lampiran	ticket	 -->
 
 	    </form>
 	  </div>
@@ -520,31 +527,36 @@
 	    Daftar Mahasiswa
 	  </div>
 	  <div class="card-body">
-	    
+	    <!-- /*tanggal	nama	email	no_Telepon	lokasi	problem	lampiran	ticket	 -->
 	    <table class="table table-bordered table-striped">
 	    	<tr>
 	    		<th>No.</th>
-	    		<th>Nim</th>
+	    		<th>tanggal</th>
 	    		<th>Nama</th>
-	    		<th>Alamat</th>
-	    		<th>Program Studi</th>
-	    		<th>Aksi</th>
+	    		<th>no_telepon</th>
+	    		<th>lokasi</th>
+	    		<th>problem</th>
+                <th>lampiran</th>
+                <th>tiket</th>
 	    	</tr>
 	    	<?php
 	    		$no = 1;
-	    		$tampil = mysqli_query($connection, "SELECT * from tmhs order by id_mhs desc");
+	    		$tampil = mysqli_query($connection, "SELECT * from complaint order by ID desc");
 	    		while($data = mysqli_fetch_array($tampil)) :
 
 	    	?>
 	    	<tr>
 	    		<td><?=$no++;?></td>
-	    		<td><?=$data['nim']?></td>
+	    		<td><?=$data['tanggal']?></td>
 	    		<td><?=$data['nama']?></td>
-	    		<td><?=$data['alamat']?></td>
-	    		<td><?=$data['prodi']?></td>
+	    		<td><?=$data['no_Telepon']?></td>
+	    		<td><?=$data['lokasi']?></td>
+                <td><?=$data['problem']?></td>
+                <td><?=$data['lampiran']?></td>
+                <td><?=$data['ticket']?></td>
 	    		<td>
-	    			<a href="index.php?hal=edit&id=<?=$data['ID']?>" class="btn btn-warning"> Edit </a>
-	    			<a href="index.php?hal=hapus&id=<?=$data['OD']?>" 
+	    			<a href="datatabel.php?hal=edit&ID=<?=$data['ID']?>" class="btn btn-warning"> Edit </a>
+	    			<a href="datatabel.php?hal=hapus&ID=<?=$data['OD']?>" 
 	    			   onclick="return confirm('Apakah yakin ingin menghapus data ini?')" class="btn btn-danger"> Hapus </a>
 	    		</td>
 	    	</tr>
