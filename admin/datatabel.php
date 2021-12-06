@@ -7,7 +7,12 @@
     if(!$connection) {
         die("Database connection failed");
     }
-       
+        //  $txtNama = $_POST['nama'];
+        // $txtEmail = $_POST['email'];
+        // $txtPhone = $_POST['no_Telepon'];
+        // $txtLocation = $_POST['lokasi'];
+        // $txtProblem = $_POST['problem'];
+        // $txtImage = $_POST['lampiran'];
 	//jika tombol simpan diklik
 	if(isset($_POST['bsimpan']))
 	{
@@ -16,14 +21,15 @@
 		{
 			//Data akan di edit
 			$edit = mysqli_query($connection, "UPDATE complaint set
-                                                tanggal_start= '$_POST[tanggal_start]',
-                                                tanggal_end= '$_POST[tanggal_end]',
+                                                tanggal_end='$_POST[tanggal_end]',
 											 	nama = '$_POST[nama]',
 											 	email = '$_POST[email]',
 												no_telepon = '$_POST[no_Telepon]',
 											 	lokasi = '$_POST[lokasi]',
                                                  problem = '$_POST[problem]',
-                                                 ticket = '$_POST[ticket]
+                                                  PIC=  '$_POST[PIC]',
+                                                 ticket = '$_POST[ticket]'
+                                                
 											 WHERE ID = '$_GET[ID]'
 										   ");
 			if($edit) //jika edit sukses
@@ -44,14 +50,13 @@
 		else
 		{
 			//Data akan disimpan Baru
-			$simpan = mysqli_query($connection, "INSERT INTO complaint (tanggal_start,tanggal_end,nama, email, no_Telepon, lokasi, problem, ticket)
-										  VALUES ($_POST[tanggal_start]',
-                                                    $_POST[tanggal_end]',
-                                                '$_POST[nama]', 
+			$simpan = mysqli_query($connection, "INSERT INTO complaint (tanggal_end,nama, email, no_Telepon, lokasi, problem,PIC, ticket)
+										  VALUES ('$_POST[tanggal_end]','$_POST[nama]', 
 										  		 '$_POST[email]', 
 										  		 '$_POST[no_Telepon]', 
 										  		 '$_POST[lokasi]',
                                                 '$_POST[problem]',
+                                                '$_POST[PIC]',
                                                 '$_POST[ticket]'
                                                    )
 										 ");
@@ -88,8 +93,7 @@
 			if($data)
 			{
 				//Jika data ditemukan, maka data ditampung ke dalam variabel
-                 $txttanggal_start=$data['tanggal_start'];
-                 $txttanggal_end=$data['tanggal_end'];
+            
 				$txtNama = $data['nama'];
                 $txtEmail = $data['email'];
                 $txtPhone = $data['no_Telepon'];
@@ -97,7 +101,8 @@
                 $txtProblem = $data['problem'];
                 $txtImage = $data['lampiran'];
                 $txtTiket = $data['ticket'];
-                $txtstatus=$data['status'];
+                 $txtPIC = $data['PIC'];
+                $txtstatuspengerjaan = $data['status'];
 			}
 		}
 		else if ($_GET['hal'] == "hapus")
@@ -493,10 +498,7 @@
 	  <div class="card-body">
 	    <form method="post" action="">
         <div class="complaint-form-category">
-            <input type="text" name="tanggal_start" class="form-control" placeholder="tanggal mulai *" value="<?=@$txttanggal_start?>" required></textarea>
-        </div>
-        <div class="complaint-form-category">
-            <input type="text" name="tanggal_end" class="form-control" placeholder="tanggal selesai *" value="<?=@$txttanggal_end?>" required></textarea>
+            <input type="date" name="tanggal_end" class="form-control" placeholder="tanggal selesai *" value="<?=@$txttanggalselesai?>" required></textarea>
         </div>
         <div class="complaint-form-category">
             <input type="text" name="nama" class="form-control" placeholder="Nama *" value="<?=@$txtNama?>" required></textarea>
@@ -511,16 +513,24 @@
             <input type="text" name="lokasi" class="form-control" placeholder="Lokasi *" value="<?=@$txtLocation?>" required></textarea>
         </div>
         <div class="complaint-form-category">
-            <input type="text" name="problem" class="form-control" placeholder="Problem *" value="<?=@$txtProblem?>" required></textarea>
+            <input type="text" name="problem" class="form-control" placeholder="problem *" value="<?=@$txtProblem?>" required></textarea>
         </div>
         
  
         <div class="complaint-form-category">
             <input type="text" name="ticket" class="form-control" placeholder="tiket *" value="<?=@$txtTiket?>" required></textarea>
         </div>
+        <div class="complaint-form-category">
+            <input type="text" name="PIC" class="form-control" placeholder="PIC *" value="<?=@$txtPIC?>" required></textarea>
+        </div>
+        <div class="complaint-form-category">
+            <input type="text" name="status pengerjaan" class="form-control" placeholder="status pengerjaan *" value="<?=@$txtstatuspengerjaan?>" required></textarea>
+        </div>
             <br><br>
 	    	<button type="submit" class="btn btn-success" name="bsimpan">Simpan</button>
 	    	<button type="reset" class="btn btn-danger" name="breset">Kosongkan</button>
+            <a href="datatabel.php?hal=hapus&ID=<?=$data['ID']?>" 
+	    			   onclick="return confirm('Apakah yakin ingin menghapus data ini?')" class="btn btn-danger"> Hapus </a>
             <!-- /*tanggal	nama	email	no_Telepon	lokasi	problem	lampiran	ticket	 -->
 
 	    </form>
@@ -538,16 +548,17 @@
 	    <table class="table table-bordered table-striped">
 	    	<tr>
 	    		<th>No.</th>
-
 	    		<th>tanggal mulai</th>
                 <th>tanggal selesai</th>
 	    		<th>Nama</th>
 	    		<th>no_telepon</th>
 	    		<th>lokasi</th>
 	    		<th>problem</th>
-                <th>lampiran</th>
-                <th>tiket</th>
-                <th>status</th>
+                <th>lampiran</th> 
+                <th>ticket</th>
+                <th>PIC</th>
+                <th>status_ticket</th>
+                <th>status pengerjaan</th>
 	    	</tr>
 	    	<?php
 	    		$no = 1;
@@ -565,11 +576,12 @@
                 <td><?=$data['problem']?></td>
                 <td><?=$data['lampiran']?></td>
                 <td><?=$data['ticket']?></td>
+                <td><?=$data['PIC']?></td>
+                <td><?=$data['status_ticket']?></td>
                 <td><?=$data['status']?></td>
 	    		<td>
 	    			<a href="datatabel.php?hal=edit&ID=<?=$data['ID']?>" class="btn btn-warning"> Edit </a>
-	    			<a href="datatabel.php?hal=hapus&ID=<?=$data['ID']?>" 
-	    			   onclick="return confirm('Apakah yakin ingin menghapus data ini?')" class="btn btn-danger"> Hapus </a>
+	    			
 	    		</td>
 	    	</tr>
 	    <?php endwhile; //penutup perulangan while ?>
