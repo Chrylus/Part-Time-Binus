@@ -359,7 +359,45 @@
 
                 </nav>
                 <!-- End of Topbar -->
+                <div class="card-header bg-primary text-white">
+	    Form Input Data Mahasiswa
+        <!-- $txtNama = $_POST['nama'];
+                $txtEmail = $_POST['email'];
+                $txtPhone = $_POST['no_Telepon'];
+                $txtLocation = $_POST['lokasi'];
+                $txtProblem = $_POST['problem'];
+                $txtImage = $_POST['lampiran'];
+                $txtTiket = $_POST['ticket']; -->
+	  </div>
+	  <div class="card-body">
+	    <form method="post" action="">
+        <div class="complaint-form-category">
+            <input type="text" name="nama" class="form-control" placeholder="Nama *" value="<?=@$txtNama?>" required></textarea>
+        </div>
+        <div class="complaint-form-category">
+            <input type="text" name="email" class="form-control" placeholder="Email *" value="<?=@$txtEmail?>" required></textarea>
+        </div>
+        <div class="complaint-form-category">
+            <input type="text" name="no_Telepon" class="form-control" placeholder="Nomor Telepon *"value="<?=@$txtPhone?>" required></textarea>
+        </div>
+        <div class="complaint-form-category">
+            <input type="text" name="lokasi" class="form-control" placeholder="Lokasi *" value="<?=@$txtlocation?>" required></textarea>
+        </div>
+        <div class="complaint-form-category">
+            <textarea name="problem" id="" rows="6" class="form-control textarea-flex autosize" placeholder="Ketik Masalah Anda *" value="<?=@$txtProblem?>" required></textarea>
+        </div>
+        <label for="classification_complaint" class="choose-classification" value="<?=@$txtImage?>">Lampiran Masalah</label>
+ 
+        <div class="complaint-form-category">
+            <input type="text" name="ticket" class="form-control" placeholder="tiket *" value="<?=@$txtTiket?>" required></textarea>
+        </div>
+            <br><br>
+	    	<button type="submit" class="btn btn-success" name="bsimpan">Simpan</button>
+	    	<button type="reset" class="btn btn-danger" name="breset">Kosongkan</button>
+            <!-- /*tanggal	nama	email	no_Telepon	lokasi	problem	lampiran	ticket	 -->
 
+	    </form>
+        <br><br>
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
