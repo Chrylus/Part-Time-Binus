@@ -115,42 +115,54 @@
             <div class="row">
             <div class="col-md-8 col-md-offset-2 mg-b-40">
         <form action="connect_user.php" method="POST" class="complaint-form">
-        <div class="complaint-form-box">
-            <div class="select-complaint">Sampaikan Permintaan Anda</div>
-            <center><p><b>Pilih Klasifikasi Permintaan Anda</b></p></center>
-            <center>
-                <a href="#" class="button1 active">User</a>
-                <a href="kelas.php" class="button1">Kelas</a>
-                <a href="event.php" class="button1">Event</a>
-            </center>
-            <br>
-        </div>
-        <div class="complaint-form-category">
-            <input type="text" name="nama" class="form-control" placeholder="Nama *" required></textarea>
-        </div>
-        <div class="complaint-form-category">
-            <input type="text" name="email" class="form-control" placeholder="Email *" required></textarea>
-        </div>
-        <div class="complaint-form-category">
-            <input type="text" name="no_Telepon" class="form-control" placeholder="Nomor Telepon *" required></textarea>
-        </div>
-        <div class="complaint-form-category">
-            <input type="text" name="lokasi" class="form-control" placeholder="Lokasi *" required></textarea>
-        </div>
-        <div class="complaint-form-category">
-            <textarea name="problem" id="" rows="6" class="form-control textarea-flex autosize" placeholder="Ketik Masalah Anda *" required></textarea>
-        </div>
-        <label for="classification_complaint" class="choose-classification">Lampiran Masalah</label>
-        <div class="complaint-form-category">
-            <input type="file" name="lampiran" class="form-control"></textarea>
-        </div>
-
-        <div class="complaint-form-footer">
-            <div class="row-flex flex-align-between">
-                <input class="btn btn-primary" id="submit-complaint" type="submit" value="CREATE TICKET" name="submit" data-target="#data_submit">
+            <div class="complaint-form-box">
+                <div class="select-complaint">Sampaikan Permintaan Anda</div>
+                <center><p><b>Pilih Klasifikasi Permintaan Anda</b></p></center>
+                <center>
+                    <a href="#" class="button1 active">User</a>
+                    <a href="kelas.php" class="button1">Kelas</a>
+                    <a href="event.php" class="button1">Event</a>
+                </center>
+                <br>
             </div>
-        </div>
-    </form>
+            <div class="complaint-form-category">
+                <input type="text" name="nama" class="form-control" placeholder="Nama *" required></textarea>
+            </div>
+            <div class="complaint-form-category">
+                <input type="text" name="email" class="form-control" placeholder="Email *" required></textarea>
+            </div>
+            <div class="complaint-form-category">
+                <input type="text" name="no_Telepon" class="form-control" placeholder="Nomor Telepon *" required></textarea>
+            </div>
+            <div class="complaint-form-category">
+                <input type="text" name="lokasi" class="form-control" placeholder="Lokasi *" required></textarea>
+            </div>
+            <div class="complaint-form-category">
+                <textarea name="problem" id="" rows="6" class="form-control textarea-flex autosize" placeholder="Ketik Masalah Anda *" required></textarea>
+            </div>
+            <label for="classification_complaint" class="choose-classification">Lampiran Masalah</label>
+            <div class="complaint-form-category">
+                <input type="file" name="lampiran" class="form-control"></textarea>
+            </div>
+
+            <div class="complaint-form-footer">
+                <div class="row-flex flex-align-between">
+                    <input class="btn btn-primary" id="submit-complaint" type="submit" value="CREATE TICKET" name="submit" data-target="#data_submit">
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <section id="complaint-box">
+        <div class="container">
+            <div class="row">
+            <div class="col-md-8 col-md-offset-2 mg-b-40">
+            <div class="complaint-form-box">
+                <div class="select-complaint">Status Ticket</div>
+                <center><p><b>Daftar Tabel Ticket yang Sedang Pending</b></p></center>
+                <br>
+            </div>
+    </section>
 
     <!-- Navbar -->
     <script src="https://www.lapor.go.id/combine/412ecc180b60d48eb196db8827c68391-1634533910"></script>
