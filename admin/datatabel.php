@@ -7,12 +7,7 @@
     if(!$connection) {
         die("Database connection failed");
     }
-        //  $txtNama = $_POST['nama'];
-        // $txtEmail = $_POST['email'];
-        // $txtPhone = $_POST['no_Telepon'];
-        // $txtLocation = $_POST['lokasi'];
-        // $txtProblem = $_POST['problem'];
-        // $txtImage = $_POST['lampiran'];
+       
 	//jika tombol simpan diklik
 	if(isset($_POST['bsimpan']))
 	{
@@ -21,12 +16,14 @@
 		{
 			//Data akan di edit
 			$edit = mysqli_query($connection, "UPDATE complaint set
+                                                tanggal_start= '$_POST[tanggal_start]',
+                                                tanggal_end= '$_POST[tanggal_end]',
 											 	nama = '$_POST[nama]',
 											 	email = '$_POST[email]',
 												no_telepon = '$_POST[no_Telepon]',
 											 	lokasi = '$_POST[lokasi]',
                                                  problem = '$_POST[problem]',
-                                                 ticket = '$_POST[ticket]'
+                                                 ticket = '$_POST[ticket]
 											 WHERE ID = '$_GET[ID]'
 										   ");
 			if($edit) //jika edit sukses
@@ -47,8 +44,10 @@
 		else
 		{
 			//Data akan disimpan Baru
-			$simpan = mysqli_query($connection, "INSERT INTO complaint (nama, email, no_Telepon, lokasi, problem, ticket)
-										  VALUES ('$_POST[nama]', 
+			$simpan = mysqli_query($connection, "INSERT INTO complaint (tanggal_start,tanggal_end,nama, email, no_Telepon, lokasi, problem, ticket)
+										  VALUES ($_POST[tanggal_start]',
+                                                    $_POST[tanggal_end]',
+                                                '$_POST[nama]', 
 										  		 '$_POST[email]', 
 										  		 '$_POST[no_Telepon]', 
 										  		 '$_POST[lokasi]',
@@ -89,6 +88,8 @@
 			if($data)
 			{
 				//Jika data ditemukan, maka data ditampung ke dalam variabel
+                 $txttanggal_start=$data['tanggal_start'];
+                 $txttanggal_end=$data['tanggal_end'];
 				$txtNama = $data['nama'];
                 $txtEmail = $data['email'];
                 $txtPhone = $data['no_Telepon'];
@@ -96,6 +97,7 @@
                 $txtProblem = $data['problem'];
                 $txtImage = $data['lampiran'];
                 $txtTiket = $data['ticket'];
+                $txtstatus=$data['status'];
 			}
 		}
 		else if ($_GET['hal'] == "hapus")
@@ -491,6 +493,12 @@
 	  <div class="card-body">
 	    <form method="post" action="">
         <div class="complaint-form-category">
+            <input type="text" name="tanggal_start" class="form-control" placeholder="tanggal mulai *" value="<?=@$txttanggal_start?>" required></textarea>
+        </div>
+        <div class="complaint-form-category">
+            <input type="text" name="tanggal_end" class="form-control" placeholder="tanggal selesai *" value="<?=@$txttanggal_end?>" required></textarea>
+        </div>
+        <div class="complaint-form-category">
             <input type="text" name="nama" class="form-control" placeholder="Nama *" value="<?=@$txtNama?>" required></textarea>
         </div>
         <div class="complaint-form-category">
@@ -500,12 +508,12 @@
             <input type="text" name="no_Telepon" class="form-control" placeholder="Nomor Telepon *"value="<?=@$txtPhone?>" required></textarea>
         </div>
         <div class="complaint-form-category">
-            <input type="text" name="lokasi" class="form-control" placeholder="Lokasi *" value="<?=@$txtlocation?>" required></textarea>
+            <input type="text" name="lokasi" class="form-control" placeholder="Lokasi *" value="<?=@$txtLocation?>" required></textarea>
         </div>
         <div class="complaint-form-category">
-            <textarea name="problem" id="" rows="6" class="form-control textarea-flex autosize" placeholder="Ketik Masalah Anda *" value="<?=@$txtProblem?>" required></textarea>
+            <input type="text" name="problem" class="form-control" placeholder="Problem *" value="<?=@$txtProblem?>" required></textarea>
         </div>
-        <label for="classification_complaint" class="choose-classification" value="<?=@$txtImage?>">Lampiran Masalah</label>
+        
  
         <div class="complaint-form-category">
             <input type="text" name="ticket" class="form-control" placeholder="tiket *" value="<?=@$txtTiket?>" required></textarea>
@@ -530,13 +538,16 @@
 	    <table class="table table-bordered table-striped">
 	    	<tr>
 	    		<th>No.</th>
-	    		<th>tanggal</th>
+
+	    		<th>tanggal mulai</th>
+                <th>tanggal selesai</th>
 	    		<th>Nama</th>
 	    		<th>no_telepon</th>
 	    		<th>lokasi</th>
 	    		<th>problem</th>
                 <th>lampiran</th>
                 <th>tiket</th>
+                <th>status</th>
 	    	</tr>
 	    	<?php
 	    		$no = 1;
@@ -546,13 +557,15 @@
 	    	?>
 	    	<tr>
 	    		<td><?=$no++;?></td>
-	    		<td><?=$data['tanggal']?></td>
+	    		<td><?=$data['tanggal_start']?></td>
+                <td><?=$data['tanggal_end']?></td>
 	    		<td><?=$data['nama']?></td>
 	    		<td><?=$data['no_Telepon']?></td>
 	    		<td><?=$data['lokasi']?></td>
                 <td><?=$data['problem']?></td>
                 <td><?=$data['lampiran']?></td>
                 <td><?=$data['ticket']?></td>
+                <td><?=$data['status']?></td>
 	    		<td>
 	    			<a href="datatabel.php?hal=edit&ID=<?=$data['ID']?>" class="btn btn-warning"> Edit </a>
 	    			<a href="datatabel.php?hal=hapus&ID=<?=$data['ID']?>" 
