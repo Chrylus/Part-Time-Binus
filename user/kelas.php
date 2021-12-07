@@ -40,6 +40,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://www.lapor.go.id/combine/15d6ac0173665e1a9057c30ca8e08f8f-1617850351"></script>
     <script src="https://www.lapor.go.id/themes/lapor/assets/js/zingchart.min.js"></script>
+
+    <link rel ="stylesheet" href = "//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
 </head>
 
 <body class="page-home pd-t-0 ">
@@ -51,18 +55,16 @@
     <header class="navbar-fixed-top navbar-inverse ">
         <div class="container">
             <div class="navbar-header">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
                 <a class="navbar-brand" href="#">
                     <img src="images/Binus Logo.png" alt="" class="img-responsive hidden-navbar-inverse">
                     <img src="images/Binus Logo.png" alt="" class="img-responsive hidden-navbar-default">
                 </a>
-
-                <a href="#" class="btn btn-outline-white btn-sm navbar-btn navbar-btn-mobile pull-right visible-xs" data-toggle="modal" data-target="#modalLogin" style="margin-right: 15px"><i class="fa fa-user"></i></a>
             </div>
 
             <div class="collapse navbar-collapse">
@@ -116,40 +118,112 @@
         <div class="container">
             <div class="row">
             <div class="col-md-8 col-md-offset-2 mg-b-40">
-        <form action="connect_class.php" method="POST" class="complaint-form">
-        <div class="complaint-form-box">
-            <div class="select-complaint">Sampaikan Permintaan Anda</div>
-            <center><p><b>Pilih Klasifikasi Permintaan Anda</b></p></center>
-            <center>
-                <a href="Index.php" class="button1">User</a>
-                <a href="#" class="button1 active">Kelas</a>
-                <a href="event.php" class="button1">Event</a>
-            </center>
-            <br>
-        </div>
-        <div class="complaint-form-category">
-            <input list="text" name="lt_ruangan" class="form-control" placeholder="Lantai Ruangan *" required>
-            <datalist id="text">
-                <option value="Lantai 1">
-                <option value="Lantai 2">
-                <option value="Lantai 3">
-                <option value="Lantai 4">
-        </div>
-        <div class="complaint-form-category">
-            <input type="text" name="no_ruangan" class="form-control" placeholder="Nomor Ruangan *" required></textarea>
-        </div>
-        <div class="complaint-form-category">
-            <textarea name="problem" id="" rows="6" class="form-control textarea-flex autosize" placeholder="Ketik Masalah Anda *" required></textarea>
-        </div>
-        <div class="complaint-form-footer">
-            <div class="row-flex flex-align-between">
-                <input class="btn btn-primary" id="submit-complaint" type="submit" value="CREATE TICKET" name="submit" data-target="#data_submit">
+            <form action="connect_class.php" method="POST" class="complaint-form">
+            <div class="complaint-form-box">
+                <div class="select-complaint">Sampaikan Permintaan Anda</div>
+                <center><p><b>Pilih Klasifikasi Permintaan Anda</b></p></center>
+                <center>
+                    <a href="Index.php" class="button1">User</a>
+                    <a href="#" class="button1 active">Kelas</a>
+                    <a href="event.php" class="button1">Event</a>
+                </center>
+                <br>
+            </div>
+            <div class="complaint-form-category">
+                <input list="text" name="lt_ruangan" class="form-control" placeholder="Lantai Ruangan *" required>
+                <datalist id="text">
+                    <option value="Lantai 1">
+                    <option value="Lantai 2">
+                    <option value="Lantai 3">
+                    <option value="Lantai 4">
+            </div>
+            <div class="complaint-form-category">
+                <input type="text" name="no_ruangan" class="form-control" placeholder="Nomor Ruangan *" required></textarea>
+            </div>
+            <div class="complaint-form-category">
+                <textarea name="problem" id="" rows="6" class="form-control textarea-flex autosize" placeholder="Ketik Masalah Anda *" required></textarea>
+            </div>
+            <div class="complaint-form-footer">
+                <div class="row-flex flex-align-between">
+                    <input class="btn btn-primary" id="submit-complaint" type="submit" value="CREATE TICKET" name="submit" data-target="#data_submit">
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <section id="complaint-box">
+        <div class="container">
+            <div class="row">
+            <div class="col-md-8 col-md-offset-2 mg-b-40">
+            <div class="complaint-form-box">
+                <div class="select-complaint">Status Ticket</div>
+                <!-- <center><p><b>Daftar Tabel Ticket yang Sedang Pending</b></p></center> -->
+                <br>
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <!-- <th>tanggal_mulai</th>
+                                        <th>tanggal_selesai</th>
+                                        <th>Nama</th>
+                                        <th>no_telepon</th>
+                                        <th>Lokasi</th>
+                                        <th>problem</th>
+                                        <th>lampiran</th> -->
+                                        <th>Ticket</th>
+                                        <!-- <th>PIC</th> -->
+                                        <th>Status Ticket</th>
+                                        <!-- <th>status_pengerjaan</th>
+                                        <th>command</th> -->
+                                    </tr>
+                                </thead>
+                                <!-- <tfoot>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>tanggal_mulai</th>
+                                        <th>tanggal_selesai</th>
+                                        <th>Nama</th>
+                                        <th>no_telepon</th>
+                                        <th>Lokasi</th>
+                                        <th>problem</th>
+                                        <th>lampiran</th>
+                                        <th>Ticket</th>
+                                        <th>PIC</th>
+                                        <th>Status Ticket</th>
+                                        <th>status_pengerjaan</th>
+                                        <th>command</th>
+                                    </tr>
+                                </tfoot> -->
+                                <tbody>
+                                    <?php
+                                        $no = 1;
+                                        $tampil = mysqli_query($connection, "SELECT * from complaint WHERE (status_ticket = 'Open' OR status_ticket = 'On Progress') order by ID desc");
+                                        while($data = mysqli_fetch_array($tampil)) :
+                                    ?>
+                                    <tr>
+                                        <td><?=$no++;?></td>
+
+                                        <td><?=$data['ticket']?></td>
+
+                                        <td><?=$data['status_ticket']?></td>
+                                   </tr>
+                                    <?php endwhile; //penutup perulangan while ?>           
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </form>
+    </section>
 
     <!-- Navbar -->
     <script src="https://www.lapor.go.id/combine/412ecc180b60d48eb196db8827c68391-1634533910"></script>
+    <script src= "../admin/js/demo/datatables-demo.js"> </script>
 </body>
 
 </html>
