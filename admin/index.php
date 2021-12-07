@@ -1,5 +1,9 @@
 <?php 
   session_start();
+  if(!isset($_SESSION["id"])){
+    header("location:login.php");
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>SB Admin 2 - Dashboard</title>
 
@@ -66,22 +71,25 @@
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-            <div class="sidebar-heading">
+            <!-- <div class="sidebar-heading">
                 Interface
-            </div>
+            </div> -->
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
+                    <span>Ticket</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <h6 class="collapse-header">Ticket:</h6>
+                        <a class="collapse-item" href="tables.php">All</a>
+                        <a class="collapse-item" href="cards.html">Open</a>
+                        <a class="collapse-item" href="buttons.html">Close</a>
+                        <a class="collapse-item" href="cards.html">On Progress</a>
+                        <a class="collapse-item" href="cards.html">Overdue</a>
                     </div>
                 </div>
             </li>
@@ -104,7 +112,32 @@
                     </div>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="charts.html">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Artikel</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="charts.html">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Event</span></a>
+            </li>
 
+
+            <div class="sidebar-heading">
+                Administrator
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="charts.html">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>PIC</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="charts.html">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Reminder</span></a>
+            </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -140,12 +173,19 @@
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
             </li>
-
+            
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.php">
+            <a class="nav-link" href="tables.php">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>Tables</span></a></a>
+           
+                <!-- <a class="nav-link" href="tables.php">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                    <span>Tables</span></a> -->
+
+
+                    
             </li>
 
             <!-- Divider -->
@@ -231,9 +271,7 @@
                             if (isset($_SESSION["id"])) {              
                            echo($_SESSION['nama']);
                             }
-                            else {
-                            echo "Login";
-                            }
+                            
                             ?>
                                 </span>
                                 <img class="img-profile rounded-circle"
@@ -243,7 +281,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
@@ -254,8 +292,8 @@
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Activity Log
-                                </a>
-                                <div class="dropdown-divider"></div>
+                                </a> -->
+                                <!-- <div class="dropdown-divider"></div> -->
                                 <?php
                                 if (isset($_SESSION["id"])) {              
                             echo '<a href="logout.php" class="dropdown-item"  data-toggle="modal" data-target="#logoutModal">

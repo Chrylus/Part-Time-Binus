@@ -1,5 +1,11 @@
 <?php
-    session_start();
+
+   session_start();
+   if(!isset($_SESSION["id"])){
+     header("location:login.php");
+   }
+ 
+
 	//Koneksi Database
 
     // include '../user/connect_database.php';
@@ -7,13 +13,7 @@
     if(!$connection) {
         die("Database connection failed");
     }
-        //  $txtNama = $_POST['nama'];
-        // $txtEmail = $_POST['email'];
-        // $txtPhone = $_POST['no_Telepon'];
-        // $txtLocation = $_POST['lokasi'];
-        // $txtProblem = $_POST['problem'];
-        // $txtImage = $_POST['lampiran'];
-	//jika tombol simpan diklik
+
 	if(isset($_POST['bsimpan']))
 	{
 		//Pengujian Apakah data akan diedit atau disimpan baru
@@ -176,7 +176,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -262,7 +262,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="tables.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
             </li>
@@ -362,18 +362,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
+                               
                                 <div class="dropdown-divider"></div>
                                 <?php
                                 if (isset($_SESSION["id"])) {              
@@ -394,8 +383,8 @@
 
                 </nav>
                 <!-- End of Topbar -->
-                <div class="card-header bg-primary text-white">
-	    Form Input Data Mahasiswa
+                <div class="card-header  text-white" style="background-color:#0090D1">
+	    Form Input Data
         <!-- $txtNama = $_POST['nama'];
                 $txtEmail = $_POST['email'];
                 $txtPhone = $_POST['no_Telepon'];
@@ -407,7 +396,7 @@
 	  <div class="card-body">
       <form method="post" action="">
         <div class="complaint-form-category">
-            <input type="date" name="tanggal_end" class="form-control" placeholder="tanggal selesai *" value="<?=@$txttanggalselesai?>" required></textarea>
+            <input type="date" name="tanggal_end" class="form-control" placeholder="tanggal selesai *" value="<?=@$txttanggalselesai?>" ></textarea>
         </div>
         <div class="complaint-form-category">
             <input type="text" name="nama" class="form-control" placeholder="Nama *" value="<?=@$txtNama?>" required></textarea>
@@ -446,15 +435,15 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+                    <h1 class="h3 mb-2 text-gray-800">Data Table</h1>
+                    <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p>
+                            href="https://datatables.net">official DataTables documentation</a>.</p> -->
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">All Data</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
