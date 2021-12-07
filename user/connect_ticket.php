@@ -32,16 +32,19 @@ include ("connect_database.php");
 			
 				echo "<p><h3>".$results['ticket']."</h3>".$results['status_ticket']."</p>";
 				// posts results gotten from database(title and text) you can also show id ($results['id'])
+				$x = $results ['status_ticket'];
 			}
 			
 		}
 		else{ // if there is no matching rows do following
 			echo "No results";
+			$x = 'No Results';
 		}
 		
 	}
 	else{ // if query length is less than minimum
 		echo "Minimum length is ".$min_length;
+		$x = 'No Results';
 	}
     header("location:search_ticket.php?Ticket=$x");
 ?>

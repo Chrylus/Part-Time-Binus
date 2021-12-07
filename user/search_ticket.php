@@ -105,8 +105,8 @@
         $Pesan=$_GET['Ticket'];
         echo    "<script type = 'text/javascript'>
                     Swal.fire(
-                        'Nomor Ticket',
-                        'Mohon Catat Nomor Ticket Anda : <b>Ticket Ketemu</b>',
+                        'Status Ticket Anda Adalah',
+                        '<b>$Pesan</b>',
                         'success'
                     )
                 </script>";
@@ -131,7 +131,7 @@
                 <br>
             </div>
             <div class="complaint-form-category">
-                <input type="text" name="query" class="form-control" /> <br>     
+                <input type="text" name="query" class="form-control" required/> <br>     
             </div>
 
             <div class="complaint-form-footer">

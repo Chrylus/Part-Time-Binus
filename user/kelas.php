@@ -120,12 +120,14 @@
             <div class="col-md-8 col-md-offset-2 mg-b-40">
             <form action="connect_class.php" method="POST" class="complaint-form">
             <div class="complaint-form-box">
+            <h5>Tim IT yang bertugas saat ini : [placeholder]</h5> <br>
                 <div class="select-complaint">Sampaikan Permintaan Anda</div>
                 <center><p><b>Pilih Klasifikasi Permintaan Anda</b></p></center>
                 <center>
-                    <a href="Index.php" class="button1">User</a>
+                    <a href="Index.php" class="button1">Office</a>
                     <a href="#" class="button1 active">Kelas</a>
                     <a href="event.php" class="button1">Event</a>
+                    <a href="search_ticket.php" class="button1">Cek Status Ticket</a>
                 </center>
                 <br>
             </div>
@@ -149,76 +151,6 @@
                 </div>
             </div>
         </form>
-    </section>
-
-    <section id="complaint-box">
-        <div class="container">
-            <div class="row">
-            <div class="col-md-8 col-md-offset-2 mg-b-40">
-            <div class="complaint-form-box">
-                <div class="select-complaint">Status Ticket</div>
-                <!-- <center><p><b>Daftar Tabel Ticket yang Sedang Pending</b></p></center> -->
-                <br>
-                <!-- DataTales Example -->
-                <div class="card shadow mb-4">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <!-- <th>tanggal_mulai</th>
-                                        <th>tanggal_selesai</th>
-                                        <th>Nama</th>
-                                        <th>no_telepon</th>
-                                        <th>Lokasi</th>
-                                        <th>problem</th>
-                                        <th>lampiran</th> -->
-                                        <th>Ticket</th>
-                                        <!-- <th>PIC</th> -->
-                                        <th>Status Ticket</th>
-                                        <!-- <th>status_pengerjaan</th>
-                                        <th>command</th> -->
-                                    </tr>
-                                </thead>
-                                <!-- <tfoot>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>tanggal_mulai</th>
-                                        <th>tanggal_selesai</th>
-                                        <th>Nama</th>
-                                        <th>no_telepon</th>
-                                        <th>Lokasi</th>
-                                        <th>problem</th>
-                                        <th>lampiran</th>
-                                        <th>Ticket</th>
-                                        <th>PIC</th>
-                                        <th>Status Ticket</th>
-                                        <th>status_pengerjaan</th>
-                                        <th>command</th>
-                                    </tr>
-                                </tfoot> -->
-                                <tbody>
-                                    <?php
-                                        $no = 1;
-                                        $tampil = mysqli_query($connection, "SELECT * from complaint WHERE (status_ticket = 'Open' OR status_ticket = 'On Progress') order by ID desc");
-                                        while($data = mysqli_fetch_array($tampil)) :
-                                    ?>
-                                    <tr>
-                                        <td><?=$no++;?></td>
-
-                                        <td><?=$data['ticket']?></td>
-
-                                        <td><?=$data['status_ticket']?></td>
-                                   </tr>
-                                    <?php endwhile; //penutup perulangan while ?>           
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
 
     <!-- Navbar -->
