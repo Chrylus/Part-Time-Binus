@@ -1,6 +1,7 @@
 <?php
     include ("connect_database.php");
 
+    // Submit
     function upload(){
         $data = $_FILES;
         //gambar
@@ -27,6 +28,7 @@
         return $nama_file_baru;
     }
     
+    // Insert and View
     if(isset($_POST['submit'])) {
         $txtNama = $_POST['nama'];
         $txtEmail = $_POST['email'];

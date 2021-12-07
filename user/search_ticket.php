@@ -105,8 +105,8 @@
         $Pesan=$_GET['Ticket'];
         echo    "<script type = 'text/javascript'>
                     Swal.fire(
-                        'Ticket Berhasil Dibuat',
-                        'Mohon Catat Nomor Ticket Anda : <b>$Pesan</b>',
+                        'Nomor Ticket',
+                        'Mohon Catat Nomor Ticket Anda : <b>Ticket Ketemu</b>',
                         'success'
                     )
                 </script>";
@@ -117,42 +117,26 @@
         <div class="container">
             <div class="row">
             <div class="col-md-8 col-md-offset-2 mg-b-40">
-        <form action="connect_user.php" method="POST" class="complaint-form" enctype="multipart/form-data">
+        <form action="connect_ticket.php" method="GET" class="complaint-form" enctype="multipart/form-data">
             <div class="complaint-form-box">
                 <h5>Tim IT yang bertugas saat ini : [placeholder]</h5> <br>
                 <div class="select-complaint">Sampaikan Permintaan Anda</div>
                <center><p><b>Pilih Klasifikasi Permintaan Anda</b></p></center>
                 <center>
-                    <a href="#" class="button1 active">Office</a>
+                    <a href="index.php" class="button1">Office</a>
                     <a href="kelas.php" class="button1">Kelas</a>
                     <a href="event.php" class="button1">Event</a>
-                    <a href="search_ticket.php" class="button1">Cek Status Ticket</a>
+                    <a href="#" class="button1 active">Cek Status Ticket</a>
                 </center>
                 <br>
             </div>
             <div class="complaint-form-category">
-                <input type="text" name="nama" class="form-control" placeholder="Nama *" required></textarea>
-            </div>
-            <div class="complaint-form-category">
-                <input type="text" name="email" class="form-control" placeholder="Email *" required></textarea>
-            </div>
-            <div class="complaint-form-category">
-                <input type="text" name="no_Telepon" class="form-control" placeholder="Nomor Telepon *" required></textarea>
-            </div>
-            <div class="complaint-form-category">
-                <input type="text" name="lokasi" class="form-control" placeholder="Lokasi *" required></textarea>
-            </div>
-            <div class="complaint-form-category">
-                <textarea name="problem" id="" rows="6" class="form-control textarea-flex autosize" placeholder="Ketik Masalah Anda *" required></textarea>
-            </div>
-            <label for="classification_complaint" class="choose-classification">Lampiran Masalah</label>
-            <div class="complaint-form-category">
-                <input type="file" name="lampiran" class="form-control" accept="image/*"></textarea>
+                <input type="text" name="query" class="form-control" /> <br>     
             </div>
 
             <div class="complaint-form-footer">
                 <div class="row-flex flex-align-between">
-                    <input class="btn btn-primary" id="submit-complaint" type="submit" value="CREATE TICKET" name="submit" data-target="#data_submit">
+                    <input class="btn btn-primary" id="submit-complaint" type="submit" value="Search" name="submit" data-target="#data_submit">
                 </div>
             </div>
         </form>
