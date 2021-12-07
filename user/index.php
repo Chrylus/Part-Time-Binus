@@ -117,7 +117,7 @@
         <div class="container">
             <div class="row">
             <div class="col-md-8 col-md-offset-2 mg-b-40">
-        <form action="connect_user.php" method="POST" class="complaint-form">
+        <form action="connect_user.php" method="POST" class="complaint-form" enctype="multipart/form-data">
             <div class="complaint-form-box">
                 <div class="select-complaint">Sampaikan Permintaan Anda</div>
                 <center><p><b>Pilih Klasifikasi Permintaan Anda</b></p></center>
@@ -145,7 +145,7 @@
             </div>
             <label for="classification_complaint" class="choose-classification">Lampiran Masalah</label>
             <div class="complaint-form-category">
-                <input type="file" name="lampiran" class="form-control"></textarea>
+                <input type="file" name="lampiran" class="form-control" accept="image/*"></textarea>
             </div>
 
             <div class="complaint-form-footer">
