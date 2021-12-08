@@ -32,7 +32,10 @@ include ("connect_database.php");
 			
 				echo "<p><h3>".$results['ticket']."</h3>".$results['status_ticket']."</p>";
 				// posts results gotten from database(title and text) you can also show id ($results['id'])
-				$x = $results ['status_ticket'];
+				$no_tiket = 'No Ticket : ' . $results ['ticket'] . ' |';
+				$name = 'Nama : ' . $results ['nama'] . ' |';
+				$pic = 'PIC : ' . $results ['PIC'] . ' |';
+				$x = 'Status : ' . $results ['status_ticket'];
 			}
 			
 		}
@@ -46,5 +49,5 @@ include ("connect_database.php");
 		echo "Minimum length is ".$min_length;
 		$x = 'No Results';
 	}
-    header("location:search_ticket.php?Ticket=$x");
+    header("location:search_ticket.php?Ticket=$x&Name=$name&PIC=$pic&No_Ticket=$no_tiket");
 ?>

@@ -103,10 +103,14 @@
     <?php
         if(isset($_GET['Ticket'])){
         $Pesan=$_GET['Ticket'];
+        $Nama=$_GET['Name'];
+        $Person=$_GET['PIC'];
+        $Nomor_Ticket=$_GET['No_Ticket'];
+
         echo    "<script type = 'text/javascript'>
                     Swal.fire(
                         'Status Ticket Anda Adalah',
-                        '<b>$Pesan</b>',
+                        '<b>$Nomor_Ticket</b> <b>$Nama</b> <b>$Person</b> <b>$Pesan</b>',
                         'success'
                     )
                 </script>";

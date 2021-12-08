@@ -338,8 +338,9 @@
                             <td><?=$no++;?></td>
                             <td><?=$data['nama']?></td>
                             <td><?=$data['email']?></td>
+                            <td><?=$data['status']?></td>
                             <td>
-                                <a href="pic.php?hal=edit&id=<?=$data['id']?>" class="btn btn-warning"> . </a>
+                                <a href="pic.php?hal=edit&id=<?=$data['id']?>" class="btn btn-warning">Ubah Status</a>
                             </td>
                             </tr>
                             <?php endwhile; //penutup perulangan while ?>           
