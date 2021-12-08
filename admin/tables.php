@@ -37,14 +37,14 @@
 			{
 				echo "<script>
 						alert('Edit data suksess!');
-						document.location='tester.php';
+						document.location='tables.php';
 				     </script>";
 			}
 			else
 			{
 				echo "<script>
 						alert('Edit data GAGAL!!');
-						document.location='tester.php';
+						document.location='tables.php';
 				     </script>";
 			}
 		}
@@ -65,14 +65,14 @@
 			{
 				echo "<script>
 						alert('Simpan data suksess!');
-						document.location='datatabel.php';
+						document.location='tables.php';
 				     </script>";
 			}
 			else
 			{
 				echo "<script>
 						alert('Simpan data GAGAL!!');
-						document.location='tester.php';
+						document.location='tables.php';
 				     </script>";
 			}
 		}
@@ -113,7 +113,7 @@
 			if($hapus){
 				echo "<script>
 						alert('Hapus Data Suksess!!');
-						document.location='datatabel.php';
+						document.location='tables.php';
 				     </script>";
 			}
 		}
@@ -400,7 +400,7 @@
 	  <div class="card-body">
       <form method="post" action="">
         <div class="complaint-form-category">
-            <input type="date" name="tanggal_end" class="form-control" placeholder="tanggal selesai *" value="<?=@$txttanggalselesai?>" ></textarea>
+            <input type="text" name="tanggal_end" class="form-control" placeholder="tanggal selesai *" value="<?=@$txttanggalselesai?>" ></textarea>
         </div>
         <div class="complaint-form-category">
             <input type="text" name="nama" class="form-control" placeholder="Nama *" value="<?=@$txtNama?>" required></textarea>
@@ -421,7 +421,7 @@
             <input type="text" name="ticket" class="form-control" placeholder="tiket *" value="<?=@$txtTiket?>" required></textarea>
         </div>
         <div class="complaint-form-category">
-            <input type="text" name="PIC" class="form-control" placeholder="PIC *" value="<?=@$txtPIC?>" required></textarea>
+            <input type="text" name="PIC" class="form-control" placeholder="PIC *" value="<?=@$txtPIC?>" ></textarea>
         </div>
         <div class="complaint-form-category">
             <input type="text" name="status pengerjaan" class="form-control" placeholder="status pengerjaan *" value="<?=@$txtstatuspengerjaan?>" required></textarea>
@@ -429,7 +429,7 @@
             <br><br>
 	    	<button type="submit" class="btn btn-success" name="bsimpan">Simpan</button>
 	    	<button type="reset" class="btn btn-danger" name="breset">Kosongkan</button>
-            <a href="datatabel.php?hal=hapus&ID=<?=$data['ID']?>" 
+            <a href="tables.php?hal=hapus&ID=<?=$data['ID']?>" 
 	    			   onclick="return confirm('Apakah yakin ingin menghapus data ini?')" class="btn btn-danger"> Hapus </a>
             <!-- /*tanggal	nama	email	no_Telepon	lokasi	problem	lampiran	ticket	 -->
 
@@ -507,7 +507,7 @@
                 <td><?=$data['status_ticket']?></td>
                 <td><?=$data['status']?></td>
 	    		<td>
-	    			<a href="datatabel.php?hal=edit&ID=<?=$data['ID']?>" class="btn btn-warning"> Edit </a>
+	    			<a href="tables.php?hal=edit&ID=<?=$data['ID']?>" class="btn btn-warning"> Edit </a>
 	    			
 	    		</td>
 	    	</tr>

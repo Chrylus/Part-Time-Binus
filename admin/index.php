@@ -3,7 +3,25 @@
   if(!isset($_SESSION["id"])){
     header("location:login.php");
   }
+  $connection = mysqli_connect('localhost', 'root', '', 'form_it');
 
+$sql="select count(status_ticket) as open from complaint where status_ticket='open'";
+$result=mysqli_query($connection,$sql);
+$data=mysqli_fetch_assoc($result);
+
+$sql1="select count(ticket) as ticket from complaint";
+$result1=mysqli_query($connection,$sql1);
+$data1=mysqli_fetch_assoc($result1);
+
+
+$sql2='select count(ticket) as "On Progress" from complaint where status_ticket="On Progress"';
+$result2=mysqli_query($connection,$sql2);
+$data2=mysqli_fetch_assoc($result2);
+
+
+$sql3="select count(status_ticket) as closed from complaint where status_ticket='closed'";
+$result3=mysqli_query($connection,$sql3);
+$data3=mysqli_fetch_assoc($result3);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +34,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
     <title>SB Admin 2 - Dashboard</title>
 
     <!-- Custom fonts for this template-->
@@ -282,11 +300,11 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Earnings (Monthly)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                               Open Ticket </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $data['open'];?></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        <i class="fas fa-ticket-alt fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -300,11 +318,11 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Earnings (Annual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                                On Progress Ticket</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $data2['On Progress'];?></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        <i class="fas fa-ticket-alt fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -317,23 +335,23 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Closed Ticket
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $data3['closed'];?></div>
                                                 </div>
-                                                <div class="col">
+                                                <!-- <div class="col">
                                                     <div class="progress progress-sm mr-2">
                                                         <div class="progress-bar bg-info" role="progressbar"
                                                             style="width: 50%" aria-valuenow="50" aria-valuemin="0"
                                                             aria-valuemax="100"></div>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                            <i class="fas fa-ticket-alt fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -347,11 +365,11 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Pending Requests</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                                Total Tiket</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $data1['ticket'];?></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        <i class="fas fa-ticket-alt fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -400,28 +418,79 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
+                                    <h6 class="m-0 font-weight-bold text-primary">Status Tiket</h6>
+                                    
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <div class="chart-pie pt-4 pb-2">
-                                        <canvas id="myPieChart"></canvas>
+                                    <div class="chart pt-2 pb-1">
+                                        <canvas id="myChart"></canvas>
                                     </div>
-                                    <div class="mt-4 text-center small">
+                                    <script>
+                                    let myChart = document.getElementById('myChart').getContext('2d');
+
+                                    // Global Options
+                                    Chart.defaults.global.defaultFontFamily = 'Lato';
+                                    Chart.defaults.global.defaultFontSize = 12;
+                                    Chart.defaults.global.defaultFontColor = '#777';
+
+                                    let massPopChart = new Chart(myChart, {
+                                    type:'pie', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+                                    data:{
+                                        labels:['Telat', 'On Progress', 'Tepat Waktu'],
+                                        datasets:[{
+                                        label:'Population',
+                                        data:[
+                                            <?php echo $data['open'];?>,
+                                            <?php echo $data2['On Progress'];?>,
+                                            <?php echo $data3['closed'];?>
+                                            
+                                        ],
+                                        //backgroundColor:'green',
+                                        backgroundColor:[
+                                            'rgba(255, 99, 132, 0.6)',
+                                            'rgba(54, 162, 235, 0.6)',
+                                            'rgba(255, 206, 86, 0.6)',
+                                            'rgba(75, 192, 192, 0.6)',
+                                            'rgba(153, 102, 255, 0.6)',
+                                            'rgba(255, 159, 64, 0.6)',
+                                            'rgba(255, 99, 132, 0.6)'
+                                        ],
+                                        borderWidth:1,
+                                        borderColor:'#777',
+                                        hoverBorderWidth:3,
+                                        hoverBorderColor:'#000'
+                                        }]
+                                    },
+                                    options:{
+                                        // title:{
+                                        // display:true,
+                                        // text:'Placeholder',
+                                        // fontSize:20
+                                        // },
+                                        legend:{
+                                        display:true,
+                                        position:'right',
+                                        labels:{
+                                            fontColor:'#000'
+                                        }
+                                        },
+                                        layout:{
+                                        padding:{
+                                            left:0,
+                                            right:0,
+                                            bottom:0,
+                                            top:0
+                                        }
+                                        },
+                                        tooltips:{
+                                        enabled:true
+                                        }
+                                    }
+                                    });
+                                </script>
+                                    
+                                    <!-- <div class="mt-4 text-center small">
                                         <span class="mr-2">
                                             <i class="fas fa-circle text-primary"></i> Direct
                                         </span>
@@ -431,7 +500,7 @@
                                         <span class="mr-2">
                                             <i class="fas fa-circle text-info"></i> Referral
                                         </span>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
