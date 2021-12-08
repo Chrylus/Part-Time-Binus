@@ -123,7 +123,20 @@
             <div class="col-md-8 col-md-offset-2 mg-b-40">
         <form action="connect_ticket.php" method="GET" class="complaint-form" enctype="multipart/form-data">
             <div class="complaint-form-box">
-                <h5>Tim IT yang bertugas saat ini : [placeholder]</h5> <br>
+                <h5>Tim IT yang bertugas saat ini :
+                <?php
+                    include ("connect_database.php");
+                    $admin = "SELECT * FROM admin WHERE status = 'Online'";
+                    $nama_admin = mysqli_query($connection, $admin);
+                    if (mysqli_num_rows($nama_admin) > 0) {
+                        while ($row = mysqli_fetch_array($nama_admin)) {
+                            echo $row['nama'];
+                            echo " | ";
+                        }
+                    }
+                ?>
+                </h5>
+                <br>
                 <div class="select-complaint">Sampaikan Permintaan Anda</div>
                <center><p><b>Pilih Klasifikasi Permintaan Anda</b></p></center>
                 <center>
