@@ -145,7 +145,10 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+  
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+  
 </head>
 
 <body id="page-top">
@@ -454,36 +457,26 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>no</th>
-                                            <th>tanggal_mulai</th>
-                                            <th>tanggal_selesai</th>
+                                            <th>No</th>
+                                            <th>Ticket</th>
                                             <th>Nama</th>
-                                            <th>no_telepon</th>
-                                            <th>Lokasi</th>
+                                            <th>Tanggal_Masuk</th>
                                             <th>problem</th>
-                                            <th>lampiran</th> 
-                                            <th>ticket</th>
-                                            <th>PIC</th>
-                                            <th>status_ticket</th>
-                                            <th>status_pengerjaan</th>
-                                            <th>command</th>
+                                            <th>No_Telepon</th>
+                                            <th>Lokasi</th>
+                                            <th>Command</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>no</th>
-                                            <th>tanggal_mulai</th>
-                                            <th>tanggal_selesai</th>
+                                            <th>No</th>
+                                            <th>Ticket</th>
                                             <th>Nama</th>
-                                            <th>no_telepon</th>
-                                            <th>Lokasi</th>
+                                            <th>Tanggal_Masuk</th>
                                             <th>problem</th>
-                                            <th>lampiran</th> 
-                                            <th>ticket</th>
-                                            <th>PIC</th>
-                                            <th>status_ticket</th>
-                                            <th>status_pengerjaan</th>
-                                            <th>command</th>
+                                            <th>No_Telepon</th>
+                                            <th>Lokasi</th>
+                                            <th>Command</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -495,17 +488,15 @@
 	    	?>
 	    	<tr>
             <td><?=$no++;?></td>
-	    		<td><?=$data['tanggal_start']?></td>
-                <td><?=$data['tanggal_end']?></td>
+	    		
+                 <td><?=$data['ticket']?></td>
 	    		<td><?=$data['nama']?></td>
+                <td><?=$data['tanggal_start']?></td>
+                <td><?=$data['problem']?></td>
 	    		<td><?=$data['no_Telepon']?></td>
 	    		<td><?=$data['lokasi']?></td>
-                <td><?=$data['problem']?></td>
-                <td> <?=$data['lampiran']?></td>
-                <td><?=$data['ticket']?></td>
-                <td><?=$data['PIC']?></td>
-                <td><?=$data['status_ticket']?></td>
-                <td><?=$data['status']?></td>
+                
+                
 	    		<td>
 	    			<a href="tables.php?hal=edit&ID=<?=$data['ID']?>" class="btn btn-warning"> Edit </a>
 	    			
