@@ -87,27 +87,8 @@
 	if(isset($_GET['hal']))
 	{
 		//Pengujian jika edit Data
-		if($_GET['hal'] == "edit")
-		{
-			//Tampilkan Data yang akan diedit
-			$tampil = mysqli_query($connection, "SELECT * FROM complaint WHERE ID = '$_GET[ID]' ");
-			$data = mysqli_fetch_array($tampil);
-			if($data)
-			{
-				//Jika data ditemukan, maka data ditampung ke dalam variabel
-            
-				$txtNama = $data['nama'];
-                $txtEmail = $data['email'];
-                $txtPhone = $data['no_Telepon'];
-                $txtLocation = $data['lokasi'];
-                $txtProblem = $data['problem'];
-                $txtImage = $data['lampiran'];
-                $txtTiket = $data['ticket'];
-                 $txtPIC = $data['PIC'];
-                $txtstatuspengerjaan = $data['status'];
-			}
-		}
-        else if($_GET['hal'] == "detail"){
+		
+        if($_GET['hal'] == "detail"){
             $detail = mysqli_query($connection, "SELECT * FROM complaint WHERE ID = '$_GET[ID]' ");
 			$data1 = mysqli_fetch_array($detail);
 			if($data1)
@@ -115,6 +96,8 @@
 				//Jika data ditemukan, maka data ditampung ke dalam variabel
             
 				$detNama = $data1['nama'];
+                $detTanggalMulai = $data1['tanggal_start'];
+                $detTanggalEnd = $data1['tanggal_end'];
                 $detEmail = $data1['email'];
                 $detPhone = $data1['no_Telepon'];
                 $detLocation = $data1['lokasi'];
@@ -123,21 +106,11 @@
                 $detTiket = $data1['ticket'];
                  $detPIC = $data1['PIC'];
                 $detstatuspengerjaan = $data1['status'];
-               
+                $detstatusticket=$data1['status_ticket'];
 			}
         
         }
-		else if ($_GET['hal'] == "hapus")
-		{
-			//Persiapan hapus data
-			$hapus = mysqli_query($connection, "DELETE FROM complaint WHERE ID = '$_GET[ID]' ");
-			if($hapus){
-				echo "<script>
-						alert('Hapus Data Suksess!!');
-						document.location='tables.php';
-				     </script>";
-			}
-		}
+
 	}
 
 
@@ -173,6 +146,18 @@
 </head>
 
 
+<script>
+    function loadData(id) {
+        $.ajax({
+            url: "tables.php",
+            method: "POST",
+            data: {get_data: 1, id: id},
+            success: function (response) {
+                console.log(response);
+            }
+        });
+    }
+</script> 
 
 <body id="page-top">
 
@@ -204,7 +189,6 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
             <!-- Nav Item - Dashboard -->
             <li class="nav-item ">
                 <a class="nav-link" href="index.php">
@@ -267,22 +251,13 @@
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Reminder</span></a>
             </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            
-           
-                <!-- <a class="nav-link" href="tables.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a> -->
+  
 
-
-                    
-            </li>
-
-            <!-- Divider -->
-            
+     
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -316,6 +291,7 @@
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         
+
                         
 
                         
@@ -363,74 +339,91 @@
                     </ul>
 
                 </nav>
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-4 text-gray-800">Detail Data</h1>
+ <br>
+ <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Kategori</th>
+      <th scope="col">Data</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Tiket</th>
+      <td><?=$detTiket?></td>
+      
+    </tr>
+    <tr>
+      <th scope="row">Tanggal Mulai</th>
+      <td><?=$detTanggalMulai?></td>
+      
+    </tr>
+    <tr>
+      <th scope="row">Tanggal Selesai</th>
+      <td colspan="2"><?=$detTanggalEnd?></td>
+      
+    </tr>
+    <tr>
+      <th scope="row">Nama</th>
+      <td colspan="2"><?=$detNama?></td>
+      
+    </tr>
+    <tr>
+      <th scope="row">Email</th>
+      <td colspan="2"><?=$detEmail?></td>
+      
+    </tr>
+    <tr>
+      <th scope="row">Lokasi</th>
+      <td colspan="2"><?=$detLocation?></td>
+      
+    </tr>
+    <tr>
+      <th scope="row">Problem</th>
+      <td colspan="2"><?=$detProblem?></td>
+      
+    </tr>
+    <tr>
+      <th scope="row">Lampiran</th>
+      <td colspan="2"><?=$detImage?></td>
+      
+    </tr>
+    <tr>
+      <th scope="row">PIC</th>
+      <td colspan="2"><?=$detPIC?></td>
+      
+    </tr>
+    <tr>
+      <th scope="row">Note</th>
+      <td colspan="2"><?=$detPIC?></td>
+      
+    </tr>
+    <tr>
+      <th scope="row">Klasifikasi</th>
+      <td colspan="2"><?=$detPIC?></td>
+      
+    </tr>
+    <tr>
+      <th scope="row">Status_Pengerjaan</th>
+      <td colspan="2"><?=$detstatuspengerjaan?></td>
+      
+    </tr>
+    <tr>
+      <th scope="row">Status_Ticket</th>
+      <td colspan="2"><?=$detstatusticket?></td>
+      
+    </tr>
+  </tbody>
+</table>
+                </div>
                 <!-- End of Topbar -->
-                <div class="card-header  text-white" style="background-color:#0090D1">
-	    Form Input Data
-        <!-- $txtNama = $_POST['nama'];
-                $txtEmail = $_POST['email'];
-                $txtPhone = $_POST['no_Telepon'];
-                $txtLocation = $_POST['lokasi'];
-                $txtProblem = $_POST['problem'];
-                $txtImage = $_POST['lampiran'];
-                $txtTiket = $_POST['ticket']; -->
-	  </div>
-	  <div class="card-body">
-      <form method="post" action="">
-        <div class="complaint-form-category">
-            <input type="text" name="tanggal_end" class="form-control" placeholder="tanggal selesai *" value="<?=@$txttanggalselesai?>" ></textarea>
-        </div>
-        <div class="complaint-form-category">
-            <input type="text" name="nama" class="form-control" placeholder="Nama *" value="<?=@$txtNama?>" required></textarea>
-        </div>
-        <div class="complaint-form-category">
-            <input type="text" name="email" class="form-control" placeholder="Email *" value="<?=@$txtEmail?>" required></textarea>
-        </div>
-        <div class="complaint-form-category">
-            <input type="text" name="no_Telepon" class="form-control" placeholder="Nomor Telepon *"value="<?=@$txtPhone?>" required></textarea>
-        </div>
-        <div class="complaint-form-category">
-            <input type="text" name="lokasi" class="form-control" placeholder="Lokasi *" value="<?=@$txtLocation?>" required></textarea>
-        </div>
-        <div class="complaint-form-category">
-            <input type="text" name="problem" class="form-control" placeholder="problem *" value="<?=@$txtProblem?>" required></textarea>
-        </div>
-        <div class="complaint-form-category">
-            <input type="text" name="ticket" class="form-control" placeholder="tiket *" value="<?=@$txtTiket?>" required></textarea>
-        </div>
-        <div class="complaint-form-category">
-            <input type="text" name="PIC" class="form-control" placeholder="PIC *" value="<?=@$txtPIC?>" ></textarea>
-        </div>
-        <div class="complaint-form-category">
-            <input type="text" name="status pengerjaan" class="form-control" placeholder="status pengerjaan *" value="<?=@$txtstatuspengerjaan?>" required></textarea>
-        </div>
-            <br><br>
-	    	<button type="submit" class="btn btn-success" name="bsimpan">Simpan</button>
-	    	<button type="reset" class="btn btn-danger" name="breset">Kosongkan</button>
-            <a href="tables.php?hal=hapus&ID=<?=$data['ID']?>" 
-	    			   onclick="return confirm('Apakah yakin ingin menghapus data ini?')" class="btn btn-danger"> Hapus </a>
-            <!-- /*tanggal	nama	email	no_Telepon	lokasi	problem	lampiran	ticket	 -->
-
-	    </form>
-        <div class="modal fade" id="demoModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="modal-title">Please confirm!</h2>
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span>&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
                 
-                <?=$detEmail?>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Confirm</button>
-                </div>
-            </div>
-        </div>
-    </div>
         <br><br>
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
