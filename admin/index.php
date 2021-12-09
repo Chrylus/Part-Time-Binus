@@ -1,28 +1,27 @@
 <?php 
-  session_start();
-  if(!isset($_SESSION["id"])){
-    header("location:login.php");
-  }
-  $connection = mysqli_connect('localhost', 'root', '', 'form_it');
+    session_start();
+    if(!isset($_SESSION["id"])){
+        header("location:login.php");
+    }
+    $connection = mysqli_connect('localhost', 'root', '', 'form_it');
 
-$sql="select count(status_ticket) as open from complaint WHERE (status_ticket='open') AND MONTH (tanggal_start) = MONTH (CURDATE())";
-$result=mysqli_query($connection,$sql);
-$data=mysqli_fetch_assoc($result);
+    $sql="select count(status_ticket) as open from complaint WHERE (status_ticket='open') AND MONTH (tanggal_start) = MONTH (CURDATE()) AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result=mysqli_query($connection,$sql);
+    $data=mysqli_fetch_assoc($result);
 
-$sql1="select count(ticket) as ticket from complaint";
-$result1=mysqli_query($connection,$sql1);
-$data1=mysqli_fetch_assoc($result1);
+    $sql1="select count(ticket) as ticket from complaint";
+    $result1=mysqli_query($connection,$sql1);
+    $data1=mysqli_fetch_assoc($result1);
 
+    $sql2="select count(status_ticket) as 'On Progress' from complaint WHERE (status_ticket='On Progress' OR status_ticket='Hold') AND MONTH (tanggal_start) = MONTH (CURDATE()) AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result2=mysqli_query($connection,$sql2);
+    $data2=mysqli_fetch_assoc($result2);
 
-$sql2="select count(status_ticket) as 'On Progress' from complaint WHERE (status_ticket='On Progress' OR status_ticket='Hold') AND MONTH (tanggal_start) = MONTH (CURDATE())";
-$result2=mysqli_query($connection,$sql2);
-$data2=mysqli_fetch_assoc($result2);
-
-
-$sql3="select count(status_ticket) as closed from complaint WHERE (status_ticket='closed') AND MONTH (tanggal_start) = MONTH (CURDATE())";
-$result3=mysqli_query($connection,$sql3);
-$data3=mysqli_fetch_assoc($result3);
+    $sql3="select count(status_ticket) as closed from complaint WHERE (status_ticket='closed') AND MONTH (tanggal_start) = MONTH (CURDATE()) AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result3=mysqli_query($connection,$sql3);
+    $data3=mysqli_fetch_assoc($result3);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
