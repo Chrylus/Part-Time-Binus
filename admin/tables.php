@@ -437,6 +437,40 @@
             <!-- /*tanggal	nama	email	no_Telepon	lokasi	problem	lampiran	ticket	 -->
 
 	    </form>
+        <div class="modal fade" id="demoModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Please confirm!</h2>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <?php
+                    if(isset($_GET['hal'])){
+                         if($_GET['hal'] == "detail"){
+                            $detail = mysqli_query($connection, "SELECT * FROM complaint WHERE ID = '$_GET[ID]' ");
+                            $data = mysqli_fetch_array($detail);
+                            if($data)
+                            {
+                                //Jika data ditemukan, maka data ditampung ke dalam variabel
+                            echo('$data["ticket"]');
+
+                            }
+                         }
+                         
+                    }
+               
+                  
+                 ?>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
         <br><br>
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -494,12 +528,12 @@
                 <td><?=$data['tanggal_start']?></td>
                 <td><?=$data['problem']?></td>
 	    		<td><?=$data['no_Telepon']?></td>
-	    		<td><?=$data['lokasi']?></td>
+	    		<td><?=$data['lokasi']?> </td>
                 
                 
 	    		<td>
 	    			<a href="tables.php?hal=edit&ID=<?=$data['ID']?>" class="btn btn-warning"> Edit </a>
-	    			
+	    			<a href="tables.php?hal=detail&ID=<?=$data['ID']?>" class="btn btn-warning" data-toggle="modal" data-target="#demoModal">Show Modal</a>
 	    		</td>
 	    	</tr>
 	    <?php endwhile; //penutup perulangan while ?>           

@@ -103,11 +103,11 @@
         if(isset($_GET['Ticket'])){
         $Pesan=$_GET['Ticket'];
         echo    "<script type = 'text/javascript'>
-                    Swal.fire(
+                    Swal.fire({
                         'Ticket Berhasil Dibuat',
                         'Mohon Catat Nomor Ticket Anda : <b>$Pesan</b>',
                         'success'
-                    )
+                    })
                 </script>";
         }
     ?>
