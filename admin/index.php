@@ -131,7 +131,7 @@ $data3=mysqli_fetch_assoc($result3);
             </div>
 
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="pic.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>PIC</span></a>
             </li>

@@ -158,7 +158,7 @@
             <div class="complaint-form-category">
                 <textarea name="problem" id="" rows="6" class="form-control textarea-flex autosize" placeholder="Ketik Masalah Anda *" required></textarea>
             </div>
-            <label for="classification_complaint" class="choose-classification" required>Lampiran Masalah</label>
+            <label for="classification_complaint" class="choose-classification">Lampiran Masalah</label>
             <div class="complaint-form-category">
                 <input type="file" name="lampiran" class="form-control" accept="image/*" required></textarea>
             </div>
