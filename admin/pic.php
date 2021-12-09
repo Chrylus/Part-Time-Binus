@@ -57,26 +57,105 @@
                             die("Database connection failed");
                         }
 
-                        //Pengujian Apakah data akan diedit atau disimpan baru
+                        //Pengujian Apakah data absensi
                         if(isset($_GET['hal']))
                         {
-                            if($_GET['hal'] == "edit")
+                            if($_GET['hal'] == "status")
                             {
                                 //Data akan di edit
-                                $edit = mysqli_query($connection,   "UPDATE admin 
+                                $status = mysqli_query($connection,   "UPDATE admin 
                                                                     SET status = CASE WHEN status = 'Online' THEN 'Offline' ELSE 'Online' END
                                                                     WHERE id = '$_GET[id]'",
                                                                     );
-                                if($edit) //jika edit sukses
+                                if($status) //jika edit sukses
                                 {
                                     echo "<script>
-                                            alert('Edit data Sukses!');
+                                            alert('Absensi Sukses!');
                                         </script>";
                                 }
                                 else
                                 {
                                     echo "<script>
-                                            alert('Edit data Gagal!!');
+                                            alert('Absensi Gagal!!');
+                                        </script>";
+                                }
+                            }
+                            else if($_GET['hal'] == "edit")
+                            {
+                                //Tampilkan Data yang akan diedit
+                                $tampil = mysqli_query($connection, "SELECT * FROM admin WHERE id = '$_GET[id]' ");
+                                $data = mysqli_fetch_array($tampil);
+                                if($data)
+                                {
+                                    //Jika data ditemukan, maka data ditampung ke dalam variabel
+                                
+                                    $txtNama = $data['nama'];
+                                    $txtEmail = $data['email'];
+                                    $txtPassword = $data['password'];
+                                }
+                            }
+                            else if ($_GET['hal'] == "hapus")
+                            {
+                                //Persiapan hapus data
+                                $hapus = mysqli_query($connection, "DELETE FROM admin WHERE id = '$_GET[id]' ");
+                                if($hapus){
+                                    echo "<script>
+                                            alert('Hapus Data Sukses!!');
+                                            document.location='pic.php';
+                                        </script>";
+                                }
+                            }
+                        }
+
+                        if(isset($_POST['bsimpan']))
+                        {
+                            //Pengujian Apakah data akan diedit atau disimpan baru
+                            if($_GET['hal'] == "edit")
+                            {
+                                //Data akan di edit
+                                $edit = mysqli_query($connection, "UPDATE admin set
+                                                                    nama = '$_POST[nama]',
+                                                                    email = '$_POST[email]',
+                                                                    password = '$_POST[password]'
+                                                                WHERE id = '$_GET[id]'
+                                                            ");
+                                if($edit) //jika edit sukses
+                                {
+                                    echo "<script>
+                                            alert('Edit data suksess!');
+                                            document.location='pic.php';
+                                        </script>";
+                                }
+                                else
+                                {
+                                    echo "<script>
+                                            alert('Edit data GAGAL!!');
+                                            document.location='pic.php';
+                                        </script>";
+                                }
+                            }
+                            else
+                            {
+                                //Data akan disimpan Baru
+                                $simpan = mysqli_query($connection, "INSERT INTO admin (nama, email, password, status)
+                                                            VALUES ('$_POST[nama]', 
+                                                                    '$_POST[email]', 
+                                                                    '$_POST[password]', 
+                                                                    'Offline'
+                                                                    )
+                                                            ");
+                                if($simpan) //jika simpan sukses
+                                {
+                                    echo "<script>
+                                            alert('Simpan data suksess!');
+                                            document.location='pic.php';
+                                        </script>";
+                                }
+                                else
+                                {
+                                    echo "<script>
+                                            alert('Simpan data GAGAL!!');
+                                            document.location='pic.php';
                                         </script>";
                                 }
                             }
@@ -217,7 +296,22 @@
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Data Administrator</h1>
                     </div>
-
+                    <div class="card-body">
+                    <form method="post" action="">
+                        <div class="complaint-form-category">
+                            <input type="text" name="nama" class="form-control" placeholder="Nama *" value="<?=@$txtNama?>" required></textarea>
+                        </div>
+                        <div class="complaint-form-category">
+                            <input type="text" name="email" class="form-control" placeholder="Email *" value="<?=@$txtEmail?>" required></textarea>
+                        </div>
+                        <div class="complaint-form-category">
+                            <input type="text" name="password" class="form-control" placeholder="Password   *" value="<?=@$txtPassword?>" required></textarea>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-success" name="bsimpan">Simpan</button>
+                    </form>
+                    <br><br>
+                    
                     <!-- Content Row -->
                     <div class="row">
                         <!-- Begin Page Content -->
@@ -260,7 +354,12 @@
                                                 <td><?=$data['email']?></td>
                                                 <td><?=$data['status']?></td>
                                                 <td>
-                                                    <a href="pic.php?hal=edit&id=<?=$data['id']?>" class="btn btn-warning">Ubah Status</a>
+                                                    <a href="pic.php?hal=status&id=<?=$data['id']?>" class="btn btn-warning">Ubah Status</a>
+                                                    <a href="pic.php?hal=edit&id=<?=$data['id']?>" class="btn btn-warning"> Edit </a>
+                                                    <a href="pic.php?hal=hapus&id=<?=$data['id']?>" class="btn btn-danger"> Hapus </a>
+                                                </td>
+                                                <td>
+                                                    
                                                 </td>
                                             </tr>
                                             <?php endwhile; //penutup perulangan while ?>           
