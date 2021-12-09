@@ -5,7 +5,7 @@
   }
   $connection = mysqli_connect('localhost', 'root', '', 'form_it');
 
-$sql="select count(status_ticket) as open from complaint where status_ticket='open'";
+$sql="select count(status_ticket) as open from complaint WHERE (status_ticket='open') AND MONTH (tanggal_start) = MONTH (CURDATE())";
 $result=mysqli_query($connection,$sql);
 $data=mysqli_fetch_assoc($result);
 
@@ -14,12 +14,12 @@ $result1=mysqli_query($connection,$sql1);
 $data1=mysqli_fetch_assoc($result1);
 
 
-$sql2='select count(ticket) as "On Progress" from complaint where status_ticket="On Progress"';
+$sql2="select count(status_ticket) as 'On Progress' from complaint WHERE (status_ticket='On Progress' OR status_ticket='Hold') AND MONTH (tanggal_start) = MONTH (CURDATE())";
 $result2=mysqli_query($connection,$sql2);
 $data2=mysqli_fetch_assoc($result2);
 
 
-$sql3="select count(status_ticket) as closed from complaint where status_ticket='closed'";
+$sql3="select count(status_ticket) as closed from complaint WHERE (status_ticket='closed') AND MONTH (tanggal_start) = MONTH (CURDATE())";
 $result3=mysqli_query($connection,$sql3);
 $data3=mysqli_fetch_assoc($result3);
 ?>
