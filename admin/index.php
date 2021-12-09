@@ -427,15 +427,85 @@ $data3=mysqli_fetch_assoc($result3);
                                     <div class="chart pt-2 pb-1">
                                         <canvas id="myChart"></canvas>
                                     </div>
+
+
                                     <script>
-                                    let myChart = document.getElementById('myChart').getContext('2d');
+                        $(function () {
+         var ctx = document.getElementById("lingkaran").getContext('2d');
+            var data = {
+                datasets: [{
+                    data: [<?php echo $data['open'];?>,
+                        <?php echo $data2['On Progress'];?>,
+                        <?php echo $data3['closed'];?>],
+                    backgroundColor: [
+                        '#3c8dbc',
+                        '#f56954',
+                        '#f39c12',
+                    ],
+                }],
+                labels: [
+                    'Open',
+                    'On Progress',
+                    'Closed'
+                ]
+            };
+            var myDoughnutChart = new Chart(ctx, {
+                type: 'pie',
+                data: data,
+                options: {
+                    responsive: false,
+                    maintainAspectRatio: false,
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            boxWidth: 12
+                        }
+                    }
+                }
+            });
+
+            var ctx_2 = document.getElementById("layanan_subbagian").getContext('2d');
+            var data_2 = {
+                datasets: [{
+                    data: [10, 20, 30],
+                    backgroundColor: [
+                        '#3c8dbc',
+                        '#f56954',
+                        '#f39c12',
+                    ],
+                }],
+                labels: [
+                    'Request',
+                    'Layanan',
+                    'Problem'
+                ]
+            };
+            var myDoughnutChart_2 = new Chart(ctx_2, {
+                type: 'doughnut',
+                data: data_2,
+                options: {
+                    responsive: false,
+                    maintainAspectRatio: false,
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            boxWidth: 12
+                        }
+                    }
+                }
+            });
+        });
+                                    </script>
+                                    <script>
+                                        
+                                    var myChart = document.getElementById('myChart').getContext('2d');
 
                                     // Global Options
                                     Chart.defaults.global.defaultFontFamily = 'Lato';
                                     Chart.defaults.global.defaultFontSize = 12;
                                     Chart.defaults.global.defaultFontColor = '#777';
 
-                                    let massPopChart = new Chart(myChart, {
+                                   var massPopChart = new Chart(myChart, {
                                     type:'pie', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
                                     data:{
                                         labels:['Telat', 'On Progress', 'Tepat Waktu'],
