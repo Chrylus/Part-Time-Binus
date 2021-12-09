@@ -3,10 +3,10 @@
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-35959721-1"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-35959721-1');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-35959721-1');
     </script>
 
     <meta charset="utf-8">
@@ -43,7 +43,6 @@
 
     <link rel ="stylesheet" href = "//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-
 </head>
 
 <body class="page-home pd-t-0 ">
@@ -134,7 +133,7 @@
                 </h5>
                 <br>
                 <div class="select-complaint">Sampaikan Permintaan Anda</div>
-               <center><p><b>Pilih Klasifikasi Permintaan Anda</b></p></center>
+                <center><p><b>Pilih Klasifikasi Permintaan Anda</b></p></center>
                 <center>
                     <a href="#" class="button1 active">Office</a>
                     <a href="kelas.php" class="button1">Kelas</a>
@@ -143,6 +142,7 @@
                 </center>
                 <br>
             </div>
+            
             <div class="complaint-form-category">
                 <input type="text" name="nama" class="form-control" placeholder="Nama *" required></textarea>
             </div>

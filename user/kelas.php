@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang = "en">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-35959721-1"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-35959721-1');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-35959721-1');
     </script>
 
     <meta charset="utf-8">
@@ -43,7 +43,6 @@
 
     <link rel ="stylesheet" href = "//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-
 </head>
 
 <body class="page-home pd-t-0 ">
@@ -60,7 +59,6 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-
                 <a class="navbar-brand" href="#">
                     <img src="images/Binus Logo.png" alt="" class="img-responsive hidden-navbar-inverse">
                     <img src="images/Binus Logo.png" alt="" class="img-responsive hidden-navbar-default">
