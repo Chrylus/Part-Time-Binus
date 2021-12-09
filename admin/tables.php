@@ -27,9 +27,12 @@
 											 	email = '$_POST[email]',
 												no_telepon = '$_POST[no_Telepon]',
 											 	lokasi = '$_POST[lokasi]',
-                                                 problem = '$_POST[problem]',
-                                                  PIC=  '$_POST[PIC]',
-                                                 ticket = '$_POST[ticket]'
+                                                problem = '$_POST[problem]',
+                                                ticket = '$_POST[ticket]',
+                                                PIC=  '$_POST[PIC]',
+                                                status=  '$_POST[status]',
+                                                klasifikasi = '$_POST[klasifikasi]',
+                                                note = '$_POST[note]'
                                                 
 											 WHERE ID = '$_GET[ID]'
 										   ");
@@ -52,14 +55,18 @@
 		else
 		{
 			//Data akan disimpan Baru
-			$simpan = mysqli_query($connection, "INSERT INTO complaint (tanggal_end,nama, email, no_Telepon, lokasi, problem,PIC, ticket)
+			$simpan = mysqli_query($connection, "INSERT INTO complaint (tanggal_end, nama, email, no_Telepon, lokasi, problem, ticket, PIC, status, klasifikasi, note)
 										  VALUES ('$_POST[tanggal_end]','$_POST[nama]', 
 										  		 '$_POST[email]', 
 										  		 '$_POST[no_Telepon]', 
 										  		 '$_POST[lokasi]',
                                                 '$_POST[problem]',
+                                                '$_POST[ticket]',
                                                 '$_POST[PIC]',
-                                                '$_POST[ticket]'
+                                                '$_POST[status]',
+                                                '$_POST[klasifikasi]',
+                                                '$_POST[note]'
+                                                
                                                    )
 										 ");
 			if($simpan) //jika simpan sukses
@@ -95,7 +102,7 @@
 			if($data)
 			{
 				//Jika data ditemukan, maka data ditampung ke dalam variabel
-            
+                $txtTanggalEnd = $data['tanggal_end'];
 				$txtNama = $data['nama'];
                 $txtEmail = $data['email'];
                 $txtPhone = $data['no_Telepon'];
@@ -103,8 +110,10 @@
                 $txtProblem = $data['problem'];
                 $txtImage = $data['lampiran'];
                 $txtTiket = $data['ticket'];
-                 $txtPIC = $data['PIC'];
+                $txtPIC = $data['PIC'];
                 $txtstatuspengerjaan = $data['status'];
+                $txtKlasifikasi = $data ['klasifikasi'];
+                $txtNote = $data ['note'];
 			}
 		}
         else if($_GET['hal'] == "detail"){
@@ -121,7 +130,7 @@
                 $detProblem = $data1['problem'];
                 $detImage = $data1['lampiran'];
                 $detTiket = $data1['ticket'];
-                 $detPIC = $data1['PIC'];
+                $detPIC = $data1['PIC'];
                 $detstatuspengerjaan = $data1['status'];
                
 			}
@@ -230,7 +239,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Ticket:</h6>
-                        <a class="collapse-item" href="tables.php">All</a>
+                        <a class="collapse-item" href="#">All</a>
                         <a class="collapse-item" href="cards.html">Open</a>
                         <a class="collapse-item" href="buttons.html">Close</a>
                         <a class="collapse-item" href="cards.html">On Progress</a>
@@ -377,31 +386,44 @@
 	  <div class="card-body">
       <form method="post" action="">
         <div class="complaint-form-category">
-            <input type="text" name="tanggal_end" class="form-control" placeholder="tanggal selesai *" value="<?=@$txttanggalselesai?>" ></textarea>
+            <input type="date" name="tanggal_end" class="form-control" placeholder="tanggal selesai *" value="<?=@$txtTanggalEnd?>" ></textarea>
         </div>
         <div class="complaint-form-category">
-            <input type="text" name="nama" class="form-control" placeholder="Nama *" value="<?=@$txtNama?>" required></textarea>
+            <input type="text" name="nama" class="form-control" placeholder="Nama *" value="<?=@$txtNama?>"></textarea>
         </div>
         <div class="complaint-form-category">
-            <input type="text" name="email" class="form-control" placeholder="Email *" value="<?=@$txtEmail?>" required></textarea>
+            <input type="text" name="email" class="form-control" placeholder="Email *" value="<?=@$txtEmail?>"></textarea>
         </div>
         <div class="complaint-form-category">
-            <input type="text" name="no_Telepon" class="form-control" placeholder="Nomor Telepon *"value="<?=@$txtPhone?>" required></textarea>
+            <input type="text" name="no_Telepon" class="form-control" placeholder="Nomor Telepon *"value="<?=@$txtPhone?>"></textarea>
         </div>
         <div class="complaint-form-category">
-            <input type="text" name="lokasi" class="form-control" placeholder="Lokasi *" value="<?=@$txtLocation?>" required></textarea>
+            <input type="text" name="lokasi" class="form-control" placeholder="Lokasi *" value="<?=@$txtLocation?>"></textarea>
         </div>
         <div class="complaint-form-category">
-            <input type="text" name="problem" class="form-control" placeholder="problem *" value="<?=@$txtProblem?>" required></textarea>
+            <input type="text" name="problem" class="form-control" placeholder="problem *" value="<?=@$txtProblem?>"></textarea>
         </div>
         <div class="complaint-form-category">
-            <input type="text" name="ticket" class="form-control" placeholder="tiket *" value="<?=@$txtTiket?>" required></textarea>
+            <input type="text" name="ticket" class="form-control" placeholder="tiket *" value="<?=@$txtTiket?>"></textarea>
         </div>
         <div class="complaint-form-category">
             <input type="text" name="PIC" class="form-control" placeholder="PIC *" value="<?=@$txtPIC?>" ></textarea>
         </div>
         <div class="complaint-form-category">
-            <input type="text" name="status pengerjaan" class="form-control" placeholder="status pengerjaan *" value="<?=@$txtstatuspengerjaan?>" required></textarea>
+            <input type="text" name="status" class="form-control" placeholder="Status *" value="<?=@$txtstatuspengerjaan?>" ></textarea>
+        </div>
+        <div class="complaint-form-category">
+            <input list ="text" name="klasifikasi" class="form-control" placeholder="Klasifikasi *" value="<?=@$txtKlasifikasi?>" ></textarea>
+            <datalist id="text">
+                    <option value="OS">
+                    <option value="Application">
+                    <option value="Hardware">
+                    <option value="Network">
+                    <option value="Human Error">
+                    <option value="Class">
+        </div>
+        <div class="complaint-form-category">
+            <input type="text" name="note" class="form-control" placeholder="Note *" value="<?=@$txtNote?>" ></textarea>
         </div>
             <br><br>
 	    	<button type="submit" class="btn btn-success" name="bsimpan">Simpan</button>

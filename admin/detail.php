@@ -104,9 +104,11 @@
                 $detProblem = $data1['problem'];
                 $detImage = $data1['lampiran'];
                 $detTiket = $data1['ticket'];
-                 $detPIC = $data1['PIC'];
+                $detPIC = $data1['PIC'];
                 $detstatuspengerjaan = $data1['status'];
                 $detstatusticket=$data1['status_ticket'];
+                $detNote=$data1['note'];
+                $detKlasifikasi=$data1['klasifikasi'];
 			}
         
         }
@@ -214,7 +216,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Ticket:</h6>
-                        <a class="collapse-item" href="tables.php">All</a>
+                        <a class="collapse-item" href="#">All</a>
                         <a class="collapse-item" href="cards.html">Open</a>
                         <a class="collapse-item" href="buttons.html">Close</a>
                         <a class="collapse-item" href="cards.html">On Progress</a>
@@ -400,12 +402,12 @@
     </tr>
     <tr>
       <th scope="row">Note</th>
-      <td colspan="2"><?=$detPIC?></td>
+      <td colspan="2"><?=$detNote?></td>
       
     </tr>
     <tr>
       <th scope="row">Klasifikasi</th>
-      <td colspan="2"><?=$detPIC?></td>
+      <td colspan="2"><?=$detKlasifikasi?></td>
       
     </tr>
     <tr>
