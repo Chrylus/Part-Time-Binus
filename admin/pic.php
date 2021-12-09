@@ -188,10 +188,10 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Ticket:</h6>
                         <a class="collapse-item" href="tables.php">All</a>
-                        <a class="collapse-item" href="cards.html">Open</a>
-                        <a class="collapse-item" href="buttons.html">Close</a>
-                        <a class="collapse-item" href="cards.html">On Progress</a>
-                        <a class="collapse-item" href="cards.html">Overdue</a>
+                        <a class="collapse-item" href="#">Open</a>
+                        <a class="collapse-item" href="#">Close</a>
+                        <a class="collapse-item" href="#">On Progress</a>
+                        <a class="collapse-item" href="#">Overdue</a>
                     </div>
                 </div>
             </li>
@@ -354,7 +354,7 @@
                                                 <td><?=$data['email']?></td>
                                                 <td><?=$data['status']?></td>
                                                 <td>
-                                                    <a href="pic.php?hal=status&id=<?=$data['id']?>" class="btn btn-warning">Ubah Status</a>
+                                                    <a href="pic.php?hal=status&id=<?=$data['id']?>" class="btn btn-success">Ubah Status</a>
                                                     <a href="pic.php?hal=edit&id=<?=$data['id']?>" class="btn btn-warning"> Edit </a>
                                                     <a href="pic.php?hal=hapus&id=<?=$data['id']?>" class="btn btn-danger"> Hapus </a>
                                                 </td>

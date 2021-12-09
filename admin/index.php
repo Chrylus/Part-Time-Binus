@@ -20,6 +20,14 @@
     $sql3="select count(status_ticket) as closed from complaint WHERE (status_ticket='closed') AND MONTH (tanggal_start) = MONTH (CURDATE()) AND YEAR (tanggal_start) = YEAR (CURDATE())";
     $result3=mysqli_query($connection,$sql3);
     $data3=mysqli_fetch_assoc($result3);
+
+    $completed="select count(status) as completed from complaint WHERE (status='Completed') AND MONTH (tanggal_start) = MONTH (CURDATE()) AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result4=mysqli_query($connection,$completed);
+    $data4=mysqli_fetch_assoc($result4);
+
+    $overdue="select count(status) as overdue from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = MONTH (CURDATE()) AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result5=mysqli_query($connection,$overdue);
+    $data5=mysqli_fetch_assoc($result5);
 ?>
 
 <!DOCTYPE html>
@@ -433,9 +441,9 @@
          var ctx = document.getElementById("lingkaran").getContext('2d');
             var data = {
                 datasets: [{
-                    data: [<?php echo $data['open'];?>,
+                    data: [<?php echo $data4['completed'];?>,
                         <?php echo $data2['On Progress'];?>,
-                        <?php echo $data3['closed'];?>],
+                        <?php echo $data5['overdue'];?>],
                     backgroundColor: [
                         '#3c8dbc',
                         '#f56954',
@@ -507,13 +515,13 @@
                                    var massPopChart = new Chart(myChart, {
                                     type:'pie', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
                                     data:{
-                                        labels:['Telat', 'On Progress', 'Tepat Waktu'],
+                                        labels:['Tepat Waktu', 'On Progress', 'Telat'],
                                         datasets:[{
                                         label:'Population',
                                         data:[
-                                            <?php echo $data['open'];?>,
+                                            <?php echo $data4['completed'];?>,
                                             <?php echo $data2['On Progress'];?>,
-                                            <?php echo $data3['closed'];?>
+                                            <?php echo $data5['overdue'];?>
                                             
                                         ],
                                         //backgroundColor:'green',
