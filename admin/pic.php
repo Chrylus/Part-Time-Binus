@@ -1,8 +1,8 @@
 <?php 
-  session_start();
-  if(!isset($_SESSION["id"])){
-    header("location:login.php");
-  }
+    session_start();
+    if(!isset($_SESSION["id"])){
+        header("location:login.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -19,9 +19,7 @@
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -29,7 +27,6 @@
     <!-- Table sort -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
-
 </head>
 
 <body id="page-top">
@@ -63,10 +60,7 @@
                             if($_GET['hal'] == "status")
                             {
                                 //Data akan di edit
-                                $status = mysqli_query($connection,   "UPDATE admin 
-                                                                    SET status = CASE WHEN status = 'Online' THEN 'Offline' ELSE 'Online' END
-                                                                    WHERE id = '$_GET[id]'",
-                                                                    );
+                                $status = mysqli_query($connection,   "UPDATE admin SET status = CASE WHEN status = 'Online' THEN 'Offline' ELSE 'Online' END WHERE id = '$_GET[id]'", );
                                 if($status) //jika edit sukses
                                 {
                                     echo "<script>
@@ -88,7 +82,6 @@
                                 if($data)
                                 {
                                     //Jika data ditemukan, maka data ditampung ke dalam variabel
-                                
                                     $txtNama = $data['nama'];
                                     $txtEmail = $data['email'];
                                     $txtPassword = $data['password'];
@@ -370,11 +363,13 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <!-- Content Row -->
                     <div class="row">
+
                 </div>
                 <!-- /.container-fluid -->
+
             </div>
             <!-- End of Main Content -->
 
