@@ -181,7 +181,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Ticket:</h6>
                         <a class="collapse-item" href="tables.php">All</a>
-                        <a class="collapse-item" href="#">Open</a>
+                        <a class="collapse-item" href="tables_open.php">Open</a>
                         <a class="collapse-item" href="#">Close</a>
                         <a class="collapse-item" href="#">On Progress</a>
                         <a class="collapse-item" href="#">Overdue</a>

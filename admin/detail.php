@@ -125,19 +125,6 @@
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
 </head>
 
-<script>
-    function loadData(id) {
-        $.ajax({
-            url: "tables.php",
-            method: "POST",
-            data: {get_data: 1, id: id},
-            success: function (response) {
-                console.log(response);
-            }
-        });
-    }
-</script> 
-
 <body id="page-top">
     <!-- Page Wrapper -->
     <div id="wrapper">

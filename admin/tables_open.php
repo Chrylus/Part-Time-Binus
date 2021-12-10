@@ -33,21 +33,21 @@
 			{
 				echo "<script>
 						alert('Edit data suksess!');
-						document.location='tables.php';
+						document.location='tables_open.php';
 				     </script>";
 			}
 			else
 			{
 				echo "<script>
 						alert('Edit data GAGAL!!');
-						document.location='tables.php';
+						document.location='tables_open.php';
 				     </script>";
 			}
 		}
 		else
 		{
 			//Data akan disimpan Baru
-			$simpan = mysqli_query($connection, "INSERT INTO complaint (tanggal_end, nama, email, no_Telepon, lokasi, problem, ticket, PIC,status_ticket, status, klasifikasi, note)
+			$simpan = mysqli_query($connection, "INSERT INTO complaint (tanggal_end, nama, email, no_Telepon, lokasi, problem, ticket, PIC, status, klasifikasi, note)
 										        VALUES ('$_POST[tanggal_end]','$_POST[nama]', 
 										  		'$_POST[email]', 
 										  		'$_POST[no_Telepon]', 
@@ -55,7 +55,6 @@
                                                 '$_POST[problem]',
                                                 '$_POST[ticket]',
                                                 '$_POST[PIC]',
-                                                '$_POST[status_ticket]',
                                                 '$_POST[status]',
                                                 '$_POST[klasifikasi]',
                                                 '$_POST[note]')");
@@ -63,14 +62,14 @@
 			{
 				echo "<script>
 						alert('Simpan data suksess!');
-						document.location='tables.php';
+						document.location='tables_open.php';
 				     </script>";
 			}
 			else
 			{
 				echo "<script>
 						alert('Simpan data GAGAL!!');
-						document.location='tables.php';
+						document.location='tables_open.php';
 				     </script>";
 			}
 		}
@@ -127,7 +126,7 @@
             {
 				echo "<script>
 						alert('Hapus Data Suksess!!');
-						document.location='tables.php';
+						document.location='tables_open.php';
 				     </script>";
 			}
 		}
@@ -200,8 +199,8 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Ticket:</h6>
-                        <a class="collapse-item" href="#">All</a>
-                        <a class="collapse-item" href="tables_open.php">Open</a>
+                        <a class="collapse-item" href="tables.php">All</a>
+                        <a class="collapse-item" href="#">Open</a>
                         <a class="collapse-item" href="buttons.html">Close</a>
                         <a class="collapse-item" href="cards.html">On Progress</a>
                         <a class="collapse-item" href="cards.html">Overdue</a>
@@ -349,7 +348,7 @@
                         <br><br>
                         <button type="submit" class="btn btn-success" name="bsimpan">Simpan</button>
                         <button type="reset" class="btn btn-danger" name="breset">Kosongkan</button>
-                        <a href="tables.php?hal=hapus&ID=<?=$data['ID']?>" 
+                        <a href="tables_open.php?hal=hapus&ID=<?=$data['ID']?>" 
                                 onclick="return confirm('Apakah yakin ingin menghapus data ini?')" class="btn btn-danger"> Hapus </a>
                 </form>
                 <div class="modal fade" id="demoModal">
@@ -387,70 +386,45 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Command</th>
-                                            <th>Tanggal_Masuk</th>
-                                            <th>Tanggal_Selesai</th>
-                                            <th>Tiket</th>
+                                            <th>Ticket</th>
                                             <th>Nama</th>
-                                            <th>Email</th>
+                                            <th>Tanggal_Masuk</th>
+                                            <th>problem</th>
                                             <th>No_Telepon</th>
                                             <th>Lokasi</th>
-                                            <th>Problem</th>
-                                            <th>Lampiran</th>
-                                            <th>PIC</th>
-                                            <th>Status_Tiket</th>
-                                            <th>Status_Pengerjaan</th>
-                                            <th>Klasifikasi</th>
-                                            <th>Note</th>
+                                            <th>Command</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>No</th>
-                                            <th>Command</th>
-                                            <th>Tanggal_Masuk</th>
-                                            <th>Tanggal_Selesai</th>
-                                            <th>Tiket</th>
+                                            <th>Ticket</th>
                                             <th>Nama</th>
-                                            <th>Email</th>
+                                            <th>Tanggal_Masuk</th>
+                                            <th>problem</th>
                                             <th>No_Telepon</th>
                                             <th>Lokasi</th>
-                                            <th>Problem</th>
-                                            <th>Lampiran</th>
-                                            <th>PIC</th>
-                                            <th>Status_Tiket</th>
-                                            <th>Status_Pengerjaan</th>
-                                            <th>Klasifikasi</th>
-                                            <th>Note</th>
+                                            <th>Command</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        
                                         <?php
                                             $no = 1;
-                                            $tampil = mysqli_query($connection, "SELECT * from complaint order by ID desc");
+                                            $tampil = mysqli_query($connection, "SELECT * from complaint WHERE status_ticket = 'Open' order by ID desc");
                                             while($data = mysqli_fetch_array($tampil)) :
                                         ?>
                                         <tr>
                                             <td><?=$no++;?></td>
-                                            <td><center>
-                                                <a href="tables.php?hal=edit&ID=<?=$data['ID']?>" class="btn btn-warning"> Edit </a><br><br>
-                                                <a href="detail.php?hal=detail&ID=<?=$data['ID']?>" class="btn btn-warning" >Detail</a></center>
-                                            </td>
-                                            <td><?=$data['tanggal_start']?></td>
-                                            <td><?=$data['tanggal_end']?></td>
                                             <td><?=$data['ticket']?></td>
                                             <td><?=$data['nama']?></td>
-                                            <td><?=$data['email']?></td
-                                            ><td><?=$data['no_Telepon']?></td>
-                                             <td><?=$data['lokasi']?> </td>
+                                            <td><?=$data['tanggal_start']?></td>
                                             <td><?=$data['problem']?></td>
-                                            <td><?=$data['lampiran']?></td>
-                                            <td><?=$data['PIC']?></td>
-                                            <td><?=$data['status_ticket']?></td>
-                                            <td><?=$data['status']?></td>
-                                            <td><?=$data['klasifikasi']?></td>
-                                            <td><?=$data['note']?></td>
+                                            <td><?=$data['no_Telepon']?></td>
+                                            <td><?=$data['lokasi']?> </td>
+                                            <td>
+                                                <a href="tables_open.php?hal=edit&ID=<?=$data['ID']?>" class="btn btn-warning"> Edit </a>
+                                                <a href="detail_open.php?hal=detail&ID=<?=$data['ID']?>" class="btn btn-warning" >Detail</a>
+                                            </td>
                                         </tr>
                                         <?php endwhile; //penutup perulangan while ?>           
                                     </tbody>

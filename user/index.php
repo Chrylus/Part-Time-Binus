@@ -43,6 +43,71 @@
 
     <link rel ="stylesheet" href = "//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+    <nav id="leftMenu" class="navmenu navmenu-default navmenu-inverse navmenu-fixed-left offcanvas" role="navigation">
+        <ul class="nav navmenu-nav">
+                        <li role="presentation" class="  ">
+                                <a href="https://www.lapor.go.id/tentang" >
+                        Tentang Wadul
+                    </a>
+                
+                        </li>
+                    <li role="presentation" class="  ">
+                                <a href="https://www.lapor.go.id/statistik" >
+                        Statistik
+                    </a>
+                
+                        </li>
+                                <li role="presentation" class="d-block d-xs-none">
+                <div class="form-group">
+                    <form action="/search">
+                        <input type="search" class="form-control" name="q" placeholder="Kata kunci atau tracking ID..." autocomplete="off">
+                    </form>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- <header class="navbar-fixed-top navbar-inverse ">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle navbar-toggle-left" data-toggle="offcanvas" data-target="#leftMenu" data-canvas="body">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-left navbar-primary">
+                                <li role="presentation" class="  ">
+                                <a href="https://www.lapor.go.id/tentang" >
+                        Tentang Wadul
+                    </a>
+                
+                        </li>
+                    <li role="presentation" class="  ">
+                                <a href="https://www.lapor.go.id/statistik" >
+                        Statistik
+                    </a>
+                
+                        </li>
+                                                    </ul>
+
+                            <div class="nav navbar-nav navbar-right mg-l-10  hidden-sm">
+                    <a href="https://www.lapor.go.id/account/register" class="btn navbar-btn pull-right btn-outline-white">
+                        Daftar
+                    </a>
+            </div>
+                <ul class="nav navbar-nav navbar-right ">
+                    <li class="nav-login">
+                        <a href="#" data-toggle="modal" data-target="#modalLogin">Masuk</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>       -->
 </head>
 
 <body class="page-home pd-t-0 ">

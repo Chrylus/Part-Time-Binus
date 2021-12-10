@@ -2,17 +2,19 @@
     include ("connect_database.php");
 
     if(isset($_POST['submit'])) {
-        $tanggal_peminjaman = $_POST['tanggal'];
+        $tanggal_peminjaman = $_POST['tanggal_peminjaman'];
+        $tanggal_pengembalian = $_POST['tanggal_pengembalian']; //
         $nama = $_POST['nama'];
         $nomor_induk = $_POST['nomor_induk'];
         $no_Telepon = $_POST['no_Telepon'];
         $event = $_POST['event'];
         $waktu = $_POST['waktu'];
+        $waktu_pengembalian = $_POST['waktu_pengembalian'];
         $ruangan = $_POST['ruangan'];
         $peralatan = $_POST['peralatan'];
     
-        $sql = "INSERT INTO peminjaman (tanggal_peminjaman, nama, nomor_induk, no_Telepon, event, waktu, ruangan, peralatan)";
-        $sql .= "VALUES ('$tanggal_peminjaman', '$nama', '$nomor_induk', '$no_Telepon', '$event', '$waktu', '$ruangan', '$peralatan')";
+        $sql = "INSERT INTO peminjaman (tanggal_peminjaman, tanggal_pengembalian, nama, nomor_induk, no_Telepon, event, waktu, waktu_pengembalian, ruangan, peralatan)";
+        $sql .= "VALUES ('$tanggal_peminjaman', '$tanggal_pengembalian', '$nama', '$nomor_induk', '$no_Telepon', '$event', '$waktu', '$waktu_pengembalian', '$ruangan', '$peralatan')";
 
         $hasil = mysqli_query($connection, $sql);
 
