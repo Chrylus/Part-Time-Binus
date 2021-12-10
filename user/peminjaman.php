@@ -49,7 +49,7 @@
     <div class="loader-custom hidden"></div>
     <div id="search-bar"> </div>
 
-    <?php include "connect_database.php";?>
+    <?php include "connect_database.php"; ?>
 
     <header class="navbar-fixed-top navbar-inverse ">
         <div class="container">
@@ -121,7 +121,7 @@
         <div class="container">
             <div class="row">
             <div class="col-md-8 col-md-offset-2 mg-b-40">
-            <form action="connect_class.php" method="POST" class="complaint-form">
+        <form action="connect_peminjaman.php" method="POST" class="complaint-form" enctype="multipart/form-data">
             <div class="complaint-form-box">
                 <h5><span style="color: #15FF00">&#9677</span> Tim IT yang bertugas saat ini : 
                     <?php
@@ -135,23 +135,42 @@
                             }
                         }
                     ?>
-                </h5> 
-            <br>
+                </h5>
+                <br>
                 <div class="select-complaint"><center>Pilih Kategori Layanan</center></div>
                 <!-- <center><p><b>Pilih Klasifikasi Permintaan Anda</b></p></center> -->
                 <center>
-                    <a href="Index.php" class="button1">Office</a>
-                    <a href="#" class="button1 active">Kelas</a>
+                    <a href="index.php" class="button1">Office</a>
+                    <a href="kelas.php" class="button1">Kelas</a>
                     <a href="event.php" class="button1">Event</a>
-                    <a href="peminjaman.php" class="button1">Peminjaman</a>
+                    <a href="#" class="button1 active">Peminjaman</a>
                     <a href="search_ticket.php" class="button1">Cek Status Ticket</a>
                 </center>
                 <br>
                 <p>[Placeholder]</p>
                 <br>
             </div>
+            
             <div class="complaint-form-category">
-                <input list="text" name="lt_ruangan" class="form-control" placeholder="Lantai Ruangan *" required>
+                <input type="text" name="nama" class="form-control" placeholder="Nama *" required></textarea>
+            </div>
+            <div class="complaint-form-category">
+                <input type="text" name="nomor_induk" class="form-control" placeholder="Kode Dosen / Binusian ID *" required></textarea>
+            </div>
+            <div class="complaint-form-category">
+                <input type="text" name="no_Telepon" class="form-control" placeholder="Nomor Telepon *" required></textarea>
+            </div>
+            <div class="complaint-form-category">
+                <input type="text" name="event" class="form-control" placeholder="Nama Acara / Mata Kuliah *" required></textarea>
+            </div>
+            <div class="complaint-form-category">
+                <input type="date" name="tanggal" class="form-control" placeholder="Tanggal *" required></textarea>
+            </div>
+            <div class="complaint-form-category">
+                <input type="time" name="waktu" class="form-control" placeholder="Jam *" required></textarea>
+            </div>
+            <div class="complaint-form-category">
+                <input list="text" name="ruangan" class="form-control" placeholder="Ruangan *" required>
                 <datalist id="text">
                     <option value="Lantai 1">
                     <option value="Lantai 2">
@@ -159,11 +178,14 @@
                     <option value="Lantai 4">
             </div>
             <div class="complaint-form-category">
-                <input type="text" name="no_ruangan" class="form-control" placeholder="Nomor Ruangan *" required></textarea>
+                <input list="text2" name="peralatan" class="form-control" placeholder="Peralatan yang dipinjam *" required>
+                <datalist id="text2">
+                    <option value="Wacom Intuos">
+                    <option value="Camera Lumenz">
+                    <option value="Speaker Jabra">
+                    <option value="Webcam USB">
             </div>
-            <div class="complaint-form-category">
-                <textarea name="problem" id="" rows="6" class="form-control textarea-flex autosize" placeholder="Ketik Masalah Anda *" required></textarea>
-            </div>
+
             <div class="complaint-form-footer">
                 <div class="row-flex flex-align-between">
                     <input class="btn btn-primary" id="submit-complaint" type="submit" value="CREATE TICKET" name="submit" data-target="#data_submit">

@@ -123,7 +123,7 @@
             <div class="col-md-8 col-md-offset-2 mg-b-40">
         <form action="connect_user.php" method="POST" class="complaint-form" enctype="multipart/form-data">
             <div class="complaint-form-box">
-                <h5>&#x1f7e2;Tim IT yang bertugas saat ini : 
+                <h5><span style="color: #15FF00">&#9677</span> Tim IT yang bertugas saat ini : 
                     <?php
                         include ("connect_database.php");
                         $admin = "SELECT * FROM admin WHERE status = 'Online'";
@@ -143,10 +143,11 @@
                     <a href="#" class="button1 active">Office</a>
                     <a href="kelas.php" class="button1">Kelas</a>
                     <a href="event.php" class="button1">Event</a>
+                    <a href="peminjaman.php" class="button1">Peminjaman</a>
                     <a href="search_ticket.php" class="button1">Cek Status Ticket</a>
                 </center>
                 <br>
-                <p>Pilih Klasifikasi Permintaan Anda</p>
+                <p>[Placeholder]</p>
                 <br>
             </div>
             
