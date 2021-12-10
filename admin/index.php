@@ -32,58 +32,109 @@ header("Refresh: 300");
     $data5=mysqli_fetch_assoc($result5);
 
 
-    $chart1="select count(status) as completed from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = 12 AND YEAR (tanggal_start) = YEAR (CURDATE())";
+
+
+
+
+    $chart1="select count(status) as overdue from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = 1 AND YEAR (tanggal_start) = YEAR (CURDATE())";
     $result6=mysqli_query($connection,$chart1);
     $data6=mysqli_fetch_assoc($result6);
 
+    $chart2="select count(status) as overdue from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = 2 AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result7=mysqli_query($connection,$chart2);
+    $data7=mysqli_fetch_assoc($result7);
 
-
-    // $chart2="select count(status) as completed from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = MONTH (2) AND YEAR (tanggal_start) = YEAR (CURDATE())";
-    // $result7=mysqli_query($connection,$chart2);
-    // $data7=mysqli_fetch_assoc($result7);
-
-    // $chart3="select count(status) as completed from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = MONTH (3) AND YEAR (tanggal_start) = YEAR (CURDATE())";
-    // $result8=mysqli_query($connection,$chart3);
-    // $data8=mysqli_fetch_assoc($result8);
-
-    // $chart4="select count(status) as completed from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = MONTH (4) AND YEAR (tanggal_start) = YEAR (CURDATE())";
-    // $result9=mysqli_query($connection,$chart4);
-    // $data9=mysqli_fetch_assoc($result9);
+    $chart3="select count(status) as overdue from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = 3 AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result8=mysqli_query($connection,$chart3);
+    $data8=mysqli_fetch_assoc($result8);
     
-    // $chart5="select count(status) as completed from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = MONTH (5) AND YEAR (tanggal_start) = YEAR (CURDATE())";
-    // $result10=mysqli_query($connection,$chart5);
-    // $data10=mysqli_fetch_assoc($result10);
+    $chart4="select count(status) as overdue from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = 4 AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result9=mysqli_query($connection,$chart4);
+    $data9=mysqli_fetch_assoc($result9);
 
-    // $chart6="select count(status) as completed from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = MONTH (6) AND YEAR (tanggal_start) = YEAR (CURDATE())";
-    // $result11=mysqli_query($connection,$chart6);
-    // $data11=mysqli_fetch_assoc($result11);
+    $chart5="select count(status) as overdue from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = 5 AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result10=mysqli_query($connection,$chart5);
+    $data10=mysqli_fetch_assoc($result10);
 
-    // $chart7="select count(status) as completed from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = MONTH (7) AND YEAR (tanggal_start) = YEAR (CURDATE())";
-    // $result12=mysqli_query($connection,$chart7);
-    // $data12=mysqli_fetch_assoc($result12);
+    $chart6="select count(status) as overdue from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = 6 AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result11=mysqli_query($connection,$chart6);
+    $data11=mysqli_fetch_assoc($result11);
 
-    // $chart8="select count(status) as completed from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = MONTH (8) AND YEAR (tanggal_start) = YEAR (CURDATE())";
-    // $result13=mysqli_query($connection,$chart8);
-    // $data13=mysqli_fetch_assoc($result13);
+    $chart7="select count(status) as overdue from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = 7 AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result12=mysqli_query($connection,$chart7);
+    $data12=mysqli_fetch_assoc($result12);
 
-    // $chart9="select count(status) as completed from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = MONTH (9) AND YEAR (tanggal_start) = YEAR (CURDATE())";
-    // $result14=mysqli_query($connection,$chart9);
-    // $data14=mysqli_fetch_assoc($result14);
+    $chart8="select count(status) as overdue from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = 8 AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result13=mysqli_query($connection,$chart8);
+    $data13=mysqli_fetch_assoc($result13);
 
-    // $chart10="select count(status) as completed from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = MONTH (10) AND YEAR (tanggal_start) = YEAR (CURDATE())";
-    // $result15=mysqli_query($connection,$chart10);
-    // $data15=mysqli_fetch_assoc($result15);
+    $chart9="select count(status) as overdue from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = 9 AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result14=mysqli_query($connection,$chart9);
+    $data14=mysqli_fetch_assoc($result14);
 
-    // $chart11="select count(status) as completed from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = MONTH (11) AND YEAR (tanggal_start) = YEAR (CURDATE())";
-    // $result16=mysqli_query($connection,$chart11);
-    // $data16=mysqli_fetch_assoc($result16);
+    $chart10="select count(status) as overdue from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = 10 AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result15=mysqli_query($connection,$chart10);
+    $data15=mysqli_fetch_assoc($result15);
+
+    $chart11="select count(status) as overdue from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = 11 AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result16=mysqli_query($connection,$chart11);
+    $data16=mysqli_fetch_assoc($result16);
+
+    $chart12="select count(status) as overdue from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = 12 AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result17=mysqli_query($connection,$chart12);
+    $data17=mysqli_fetch_assoc($result17);
 
 
-    // $chart12="select count(status) as completed from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = MONTH ('12') AND YEAR (tanggal_start) = YEAR (CURDATE())";
-    // $result17=mysqli_query($connection,$chart12);
-    // $data17=mysqli_fetch_assoc($result17);
+    //select count(ticket) as ticket from complaint WHERE
+    
 
+    $chart13="select count(ticket) as ticket from complaint WHERE MONTH (tanggal_start) = 1 AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result18=mysqli_query($connection,$chart13);
+    $data18=mysqli_fetch_assoc($result18);
 
+    $chart14="select count(ticket) as ticket from complaint WHERE MONTH (tanggal_start) = 2 AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result19=mysqli_query($connection,$chart14);
+    $data19=mysqli_fetch_assoc($result19);
+
+    $chart15="select count(ticket) as ticket from complaint WHERE MONTH (tanggal_start) = 3 AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result20=mysqli_query($connection,$chart15);
+    $data20=mysqli_fetch_assoc($result20);
+    
+    $chart16="select count(ticket) as ticket from complaint WHERE MONTH (tanggal_start) = 4 AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result21=mysqli_query($connection,$chart16);
+    $data21=mysqli_fetch_assoc($result21);
+
+    $chart17="select count(ticket) as ticket from complaint WHERE MONTH (tanggal_start) = 5 AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result22=mysqli_query($connection,$chart17);
+    $data22=mysqli_fetch_assoc($result22);
+
+    $chart18="select count(ticket) as ticket from complaint WHERE MONTH (tanggal_start) = 6 AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result23=mysqli_query($connection,$chart18);
+    $data23=mysqli_fetch_assoc($result23);
+
+    $chart19="select count(ticket) as ticket from complaint WHERE MONTH (tanggal_start) = 7 AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result24=mysqli_query($connection,$chart19);
+    $data24=mysqli_fetch_assoc($result24);
+
+    $chart20="select count(ticket) as ticket from complaint WHERE MONTH (tanggal_start) = 8 AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result25=mysqli_query($connection,$chart20);
+    $data25=mysqli_fetch_assoc($result25);
+
+    $chart21="select count(ticket) as ticket from complaint WHERE MONTH (tanggal_start) = 9 AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result26=mysqli_query($connection,$chart21);
+    $data26=mysqli_fetch_assoc($result26);
+
+    $chart22="select count(ticket) as ticket from complaint WHERE MONTH (tanggal_start) = 10 AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result27=mysqli_query($connection,$chart22);
+    $data27=mysqli_fetch_assoc($result27);
+
+    $chart23="select count(ticket) as ticket from complaint WHERE MONTH (tanggal_start) = 11 AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result28=mysqli_query($connection,$chart23);
+    $data28=mysqli_fetch_assoc($result28);
+
+    $chart24="select count(ticket) as ticket from complaint WHERE MONTH (tanggal_start) = 12 AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result29=mysqli_query($connection,$chart24);
+    $data29=mysqli_fetch_assoc($result29);
 ?>
 
 <!DOCTYPE html>
@@ -346,7 +397,7 @@ header("Refresh: 300");
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                     On Progress Ticket</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $data2['On Progress'];?></div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $data5['overdue'];?></div>
                                             </div>
                                             <div class="col-auto">
                                             <i class="fas fa-ticket-alt fa-2x text-gray-300"></i>
@@ -419,7 +470,7 @@ header("Refresh: 300");
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Total Tiket</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -465,6 +516,7 @@ header("Refresh: 300");
                        
                                     </script>
                                     <script>
+                                        
                                         
                                     var myChart = document.getElementById('myChart').getContext('2d');
 
@@ -535,16 +587,39 @@ header("Refresh: 300");
             var datafirst = {
                
                     label: "Total Telat",
-                    data: [<?php echo $data6['Overdue'];?>
-                        
+                    data: [<?php echo $data6['overdue'];?>,
+                            <?php echo $data7['overdue'];?>,
+                            <?php echo $data8['overdue'];?>,
+                            <?php echo $data9['overdue'];?>,
+                            <?php echo $data10['overdue'];?>,
+                            <?php echo $data11['overdue'];?>,
+                            <?php echo $data12['overdue'];?>,
+                            <?php echo $data13['overdue'];?>,
+                            <?php echo $data14['overdue'];?>,
+                            <?php echo $data15['overdue'];?>,
+                            <?php echo $data16['overdue'];?>,
+                            <?php echo $data17['overdue'];?>,
                         ],
                     backgroundColor: 'rgba(255, 99, 132, 0.6)'
                    
             };
             var datasecond = {
                
-               label: "Total ",
-               data: [0, 59, 75, 20, 20, 55, 40],
+               label: "Total Tiket semua",
+               data: [<?php echo $data18['ticket'];?>,
+                    <?php echo $data19['ticket'];?>,
+                    <?php echo $data20['ticket'];?>,
+                    <?php echo $data21['ticket'];?>,
+                    <?php echo $data22['ticket'];?>,
+                    <?php echo $data23['ticket'];?>,
+                    <?php echo $data24['ticket'];?>,
+                    <?php echo $data25['ticket'];?>,
+                    <?php echo $data26['ticket'];?>,
+                    <?php echo $data27['ticket'];?>,
+                    <?php echo $data28['ticket'];?>,
+                    <?php echo $data29['ticket'];?>
+                        
+                        ],
                backgroundColor: 'rgba(54, 162, 235, 0.6)'
                
               
