@@ -43,6 +43,26 @@
 
     <link rel ="stylesheet" href = "//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+    <nav id="leftMenu" class="navmenu navmenu-default navmenu-inverse navmenu-fixed-left offcanvas" role="navigation">
+        <ul class="nav navmenu-nav">
+            <li role="presentation" class="  active">
+                <a href="#" >
+                    Layanan IT
+                </a>
+            </li>
+            <li role="presentation" class="  ">
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" >
+                    Artikel
+                </a>
+            </li>
+            <li role="presentation" class="  ">
+                <a href="../admin/login.php" >
+                    Admin
+                </a>
+            </li>
+        </ul>
+    </nav>
 </head>
 
 <body class="page-home pd-t-0 ">
@@ -54,11 +74,12 @@
     <header class="navbar-fixed-top navbar-inverse ">
         <div class="container">
             <div class="navbar-header">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+                <button type="button" class="navbar-toggle navbar-toggle-left" data-toggle="offcanvas" data-target="#leftMenu" data-canvas="body">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
                 <a class="navbar-brand" href="#">
                     <img src="images/Binus Logo.png" alt="" class="img-responsive hidden-navbar-inverse">
                     <img src="images/Binus Logo.png" alt="" class="img-responsive hidden-navbar-default">

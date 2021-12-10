@@ -202,21 +202,21 @@
                         <h6 class="collapse-header">Ticket:</h6>
                         <a class="collapse-item" href="#">All</a>
                         <a class="collapse-item" href="tables_open.php">Open</a>
-                        <a class="collapse-item" href="buttons.html">Close</a>
-                        <a class="collapse-item" href="cards.html">On Progress</a>
-                        <a class="collapse-item" href="cards.html">Overdue</a>
+                        <a class="collapse-item" href="#">Close</a>
+                        <a class="collapse-item" href="#">On Progress</a>
+                        <a class="collapse-item" href="#">Overdue</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Artikel</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Event</span></a>
             </li>
@@ -231,7 +231,7 @@
                     <span>PIC</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Reminder</span></a>
             </li>
