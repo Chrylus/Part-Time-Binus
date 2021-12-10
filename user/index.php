@@ -69,12 +69,17 @@
                 <ul class="nav navbar-nav navbar-left navbar-primary">
                     <li role="presentation" class="  ">
                         <a href="#" >
-                            Komplain
+                            Layanan IT
                         </a>
                     </li>
                     <li role="presentation" class="  ">
                         <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" >
                             Artikel
+                        </a>
+                    </li>
+                    <li role="presentation" class="  ">
+                        <a href="../admin/login.php" >
+                            Admin
                         </a>
                     </li>
             </div>
@@ -84,8 +89,8 @@
     <section id="hero">
         <div class="container">
             <div class="block block-aspiration">
-                <div class="h2">Permintaan Bantuan Layanan Tim IT Binus@Malang</div>
-                <p>Sampaikan permintaan Anda langsung kepada unit kerja yang berwenang</p>
+                <div class="h2">Layanan IT Operation Binus@Malang</div>
+                <!-- <p>Sampaikan permintaan Anda langsung kepada unit kerja yang berwenang</p> -->
                 <hr>
             </div>
         </div>
@@ -103,11 +108,11 @@
         if(isset($_GET['Ticket'])){
         $Pesan=$_GET['Ticket'];
         echo    "<script type = 'text/javascript'>
-                    Swal.fire({
+                    Swal.fire(
                         'Ticket Berhasil Dibuat',
                         'Mohon Catat Nomor Ticket Anda : <b>$Pesan</b>',
                         'success'
-                    })
+                    )
                 </script>";
         }
     ?>
@@ -118,28 +123,30 @@
             <div class="col-md-8 col-md-offset-2 mg-b-40">
         <form action="connect_user.php" method="POST" class="complaint-form" enctype="multipart/form-data">
             <div class="complaint-form-box">
-                <h5>Tim IT yang bertugas saat ini : 
-                <?php
-                    include ("connect_database.php");
-                    $admin = "SELECT * FROM admin WHERE status = 'Online'";
-                    $nama_admin = mysqli_query($connection, $admin);
-                    if (mysqli_num_rows($nama_admin) > 0) {
-                        while ($row = mysqli_fetch_array($nama_admin)) {
-                            echo $row['nama'];
-                            echo " | ";
+                <h5>&#x1f7e2;Tim IT yang bertugas saat ini : 
+                    <?php
+                        include ("connect_database.php");
+                        $admin = "SELECT * FROM admin WHERE status = 'Online'";
+                        $nama_admin = mysqli_query($connection, $admin);
+                        if (mysqli_num_rows($nama_admin) > 0) {
+                            while ($row = mysqli_fetch_array($nama_admin)) {
+                                echo $row['nama'];
+                                echo " | ";
+                            }
                         }
-                    }
-                ?>
+                    ?>
                 </h5>
                 <br>
-                <div class="select-complaint">Sampaikan Permintaan Anda</div>
-                <center><p><b>Pilih Klasifikasi Permintaan Anda</b></p></center>
+                <div class="select-complaint"><center>Pilih Kategori Layanan</center></div>
+                <!-- <center><p><b>Pilih Klasifikasi Permintaan Anda</b></p></center> -->
                 <center>
                     <a href="#" class="button1 active">Office</a>
                     <a href="kelas.php" class="button1">Kelas</a>
                     <a href="event.php" class="button1">Event</a>
                     <a href="search_ticket.php" class="button1">Cek Status Ticket</a>
                 </center>
+                <br>
+                <p>Pilih Klasifikasi Permintaan Anda</p>
                 <br>
             </div>
             

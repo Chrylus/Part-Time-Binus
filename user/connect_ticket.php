@@ -29,13 +29,38 @@ include ("connect_database.php");
 			
 			while($results = mysqli_fetch_array($raw_results)){
 			// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
-			
-				echo "<p><h3>".$results['ticket']."</h3>".$results['status_ticket']."</p>";
-				// posts results gotten from database(title and text) you can also show id ($results['id'])
-				$no_tiket = 'No Ticket : ' . $results ['ticket'] . ' |';
-				$name = 'Nama : ' . $results ['nama'] . ' |';
-				$pic = 'PIC : ' . $results ['PIC'] . ' |';
-				$x = 'Status : ' . $results ['status_ticket'];
+				
+				if ($results ['status_ticket'] == 'Open') {
+					echo "<p><h3>".$results['ticket']."</h3>".$results['status_ticket']."</p>";
+					// posts results gotten from database(title and text) you can also show id ($results['id'])
+					$no_tiket = 'No Ticket : ' . $results ['ticket'] . ' |';
+					$name = 'Nama : ' . $results ['nama'] . ' |';
+					$pic = 'PIC : ' . $results ['PIC'] . ' |';
+					$x = 'Status : ' . 'Dalam Antrian';
+				}
+				else if ($results ['status_ticket'] == 'On Progress') {
+					echo "<p><h3>".$results['ticket']."</h3>".$results['status_ticket']."</p>";
+					// posts results gotten from database(title and text) you can also show id ($results['id'])
+					$no_tiket = 'No Ticket : ' . $results ['ticket'] . ' |';
+					$name = 'Nama : ' . $results ['nama'] . ' |';
+					$pic = 'PIC : ' . $results ['PIC'] . ' |';
+					$x = 'Status : ' . 'Sedang Dikerjakan';
+				}
+				else if ($results ['status_ticket'] == 'Closed') {
+					echo "<p><h3>".$results['ticket']."</h3>".$results['status_ticket']."</p>";
+					// posts results gotten from database(title and text) you can also show id ($results['id'])
+					$no_tiket = 'No Ticket : ' . $results ['ticket'] . ' |';
+					$name = 'Nama : ' . $results ['nama'] . ' |';
+					$pic = 'PIC : ' . $results ['PIC'] . ' |';
+					$x = 'Status : ' . 'Selesai';
+				} else {
+					echo "<p><h3>".$results['ticket']."</h3>".$results['status_ticket']."</p>";
+					// posts results gotten from database(title and text) you can also show id ($results['id'])
+					$no_tiket = 'No Ticket : ' . $results ['ticket'] . ' |';
+					$name = 'Nama : ' . $results ['nama'] . ' |';
+					$pic = 'PIC : ' . $results ['PIC'] . ' |';
+					$x = 'Status : ' . $results ['status_ticket'];
+				}
 			}
 			
 		}
