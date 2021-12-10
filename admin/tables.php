@@ -307,7 +307,7 @@
 	            <div class="card-body">
                 <form method="post" action="">
                     <div class="complaint-form-category">
-                        <input type="date" name="tanggal_end" class="form-control" placeholder="tanggal selesai *" value="<?=@$txtTanggalEnd?>" ></textarea>
+                        <input type="date" name="tanggal_end" class="form-control" placeholder="Tanggal Selesai *" value="<?=@$txtTanggalEnd?>" ></textarea>
                     </div>
                     <div class="complaint-form-category">
                         <input type="text" name="nama" class="form-control" placeholder="Nama *" value="<?=@$txtNama?>"></textarea>
@@ -322,10 +322,10 @@
                         <input type="text" name="lokasi" class="form-control" placeholder="Lokasi *" value="<?=@$txtLocation?>"></textarea>
                     </div>
                     <div class="complaint-form-category">
-                        <input type="text" name="problem" class="form-control" placeholder="problem *" value="<?=@$txtProblem?>"></textarea>
+                        <input type="text" name="problem" class="form-control" placeholder="Problem *" value="<?=@$txtProblem?>"></textarea>
                     </div>
                     <div class="complaint-form-category">
-                        <input type="text" name="ticket" class="form-control" placeholder="tiket *" value="<?=@$txtTiket?>"></textarea>
+                        <input type="text" name="ticket" class="form-control" placeholder="Tiket *" value="<?=@$txtTiket?>"></textarea>
                     </div>
                     <div class="complaint-form-category">
                         <input type="text" name="PIC" class="form-control" placeholder="PIC *" value="<?=@$txtPIC?>" ></textarea>
