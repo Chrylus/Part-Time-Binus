@@ -47,7 +47,7 @@
 		else
 		{
 			//Data akan disimpan Baru
-			$simpan = mysqli_query($connection, "INSERT INTO complaint (tanggal_end, nama, email, no_Telepon, lokasi, problem, ticket, PIC, status, klasifikasi, note)
+			$simpan = mysqli_query($connection, "INSERT INTO complaint (tanggal_end, nama, email, no_Telepon, lokasi, problem, ticket, PIC,status_ticket, status, klasifikasi, note)
 										        VALUES ('$_POST[tanggal_end]','$_POST[nama]', 
 										  		'$_POST[email]', 
 										  		'$_POST[no_Telepon]', 
@@ -55,6 +55,7 @@
                                                 '$_POST[problem]',
                                                 '$_POST[ticket]',
                                                 '$_POST[PIC]',
+                                                '$_POST[status_ticket]',
                                                 '$_POST[status]',
                                                 '$_POST[klasifikasi]',
                                                 '$_POST[note]')");
@@ -397,7 +398,8 @@
                                             <th>Problem</th>
                                             <th>Lampiran</th>
                                             <th>PIC</th>
-                                            <th>Status</th>
+                                            <th>Status_Tiket</th>
+                                            <th>Status_Pengerjaan</th>
                                             <th>Klasifikasi</th>
                                             <th>Note</th>
                                         </tr>
@@ -416,7 +418,8 @@
                                             <th>Problem</th>
                                             <th>Lampiran</th>
                                             <th>PIC</th>
-                                            <th>Status</th>
+                                            <th>Status_Tiket</th>
+                                            <th>Status_Pengerjaan</th>
                                             <th>Klasifikasi</th>
                                             <th>Note</th>
                                         </tr>
@@ -444,6 +447,7 @@
                                             <td><?=$data['problem']?></td>
                                             <td><?=$data['lampiran']?></td>
                                             <td><?=$data['PIC']?></td>
+                                            <td><?=$data['status_ticket']?></td>
                                             <td><?=$data['status']?></td>
                                             <td><?=$data['klasifikasi']?></td>
                                             <td><?=$data['note']?></td>

@@ -30,6 +30,59 @@ header("Refresh: 300");
     $overdue="select count(status) as overdue from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = MONTH (CURDATE()) AND YEAR (tanggal_start) = YEAR (CURDATE())";
     $result5=mysqli_query($connection,$overdue);
     $data5=mysqli_fetch_assoc($result5);
+
+
+    $chart1="select count(status) as completed from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = MONTH ('01') AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result6=mysqli_query($connection,$chart1);
+    $data6=mysqli_fetch_assoc($result6);
+
+
+    $chart2="select count(status) as completed from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = MONTH ('02') AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result7=mysqli_query($connection,$chart2);
+    $data7=mysqli_fetch_assoc($result7);
+
+    $chart3="select count(status) as completed from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = MONTH ('03') AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result8=mysqli_query($connection,$chart3);
+    $data8=mysqli_fetch_assoc($result8);
+
+    $chart4="select count(status) as completed from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = MONTH ('04') AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result9=mysqli_query($connection,$chart4);
+    $data9=mysqli_fetch_assoc($result9);
+    
+    $chart5="select count(status) as completed from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = MONTH ('05') AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result10=mysqli_query($connection,$chart5);
+    $data10=mysqli_fetch_assoc($result10);
+
+    $chart6="select count(status) as completed from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = MONTH ('06') AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result11=mysqli_query($connection,$chart6);
+    $data11=mysqli_fetch_assoc($result11);
+
+    $chart7="select count(status) as completed from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = MONTH ('07') AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result12=mysqli_query($connection,$chart7);
+    $data12=mysqli_fetch_assoc($result12);
+
+    $chart8="select count(status) as completed from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = MONTH ('08') AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result13=mysqli_query($connection,$chart8);
+    $data13=mysqli_fetch_assoc($result13);
+
+    $chart9="select count(status) as completed from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = MONTH ('09') AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result14=mysqli_query($connection,$chart9);
+    $data14=mysqli_fetch_assoc($result14);
+
+    $chart10="select count(status) as completed from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = MONTH ('10') AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result15=mysqli_query($connection,$chart10);
+    $data15=mysqli_fetch_assoc($result15);
+
+    $chart11="select count(status) as completed from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = MONTH ('11') AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result16=mysqli_query($connection,$chart11);
+    $data16=mysqli_fetch_assoc($result16);
+
+
+    $chart12="select count(status) as completed from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = MONTH ('12') AND YEAR (tanggal_start) = YEAR (CURDATE())";
+    $result17=mysqli_query($connection,$chart12);
+    $data17=mysqli_fetch_assoc($result17);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -395,6 +448,7 @@ header("Refresh: 300");
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div
+                                
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary">Status Tiket</h6>
                                     
@@ -469,6 +523,7 @@ header("Refresh: 300");
                                     }
                                     });
                                 </script>
+                                
                                  <script>
         $(function () {/*from   w ww .  ja va2 s  . c o  m*/
             var ctx = document.getElementById("layanan").getContext('2d');
@@ -479,7 +534,19 @@ header("Refresh: 300");
             var datafirst = {
                
                     label: "Total Telat",
-                    data: [0, 59, 75, 20, 20, 55, 40],
+                    data: [<?php echo $data6['overdue'];?>, 
+                            <?php echo $data7['overdue'];?>, 
+                            <?php echo $data8['overdue'];?>, 
+                            <?php echo $data9['overdue'];?>, 
+                            <?php echo $data10['overdue'];?>, 
+                            <?php echo $data11['overdue'];?>, 
+                            <?php echo $data12['overdue'];?>,
+                            <?php echo $data13['overdue'];?>, 
+                            <?php echo $data14['overdue'];?>, 
+                            <?php echo $data15['overdue'];?>,
+                            <?php echo $data16['overdue'];?>
+                        
+                        ],
                     backgroundColor: 'rgba(255, 99, 132, 0.6)'
                    
             };
@@ -550,17 +617,17 @@ header("Refresh: 300");
     
       </script> 
                                     
-                                    <!-- <div class="mt-4 text-center small">
+                                     <div class="mt-4 text-center small">
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> Direct
+                                            <b>Telat = <?= $data5['overdue'] /   ($data5['overdue'] + $data2['On Progress'] + $data4['completed'])    * 100 ."%";?></b>
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> Social
+                                        <b>|  On Progress = <?= $data2['On Progress'] /   ($data5['overdue'] + $data2['On Progress']+ $data4['completed'])    * 100 ."%";?></b>
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> Referral
+                                        <b>|  Tepat Waktu = <?= $data4['completed']  /   ($data5['overdue'] + $data2['On Progress'] + $data4['completed'])    * 100 ."%";?></b>
                                         </span>
-                                    </div> -->
+                                    </div> 
                                 </div>
                             </div>
                         </div>
