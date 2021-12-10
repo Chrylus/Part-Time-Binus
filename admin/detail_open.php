@@ -307,7 +307,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">Lampiran</th>
-                                <td colspan="2"><a href = "../lampiranimage/<?=$detImage?>"><?=$detImage?></a></td>
+                                <td colspan="2"><a href = "../lampiranimage/<?=$detImage?>" target="_blank"><?=$detImage?></a></td>
                             </tr>
                             <tr>
                                 <th scope="row">PIC</th>
