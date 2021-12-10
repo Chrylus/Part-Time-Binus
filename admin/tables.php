@@ -386,28 +386,43 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Ticket</th>
-                                            <th>Nama</th>
+                                            <th>Command</th>
                                             <th>Tanggal_Masuk</th>
-                                            <th>problem</th>
+                                            <th>Tanggal_Selesai</th>
+                                            <th>Tiket</th>
+                                            <th>Nama</th>
+                                            <th>Email</th>
                                             <th>No_Telepon</th>
                                             <th>Lokasi</th>
-                                            <th>Command</th>
+                                            <th>Problem</th>
+                                            <th>Lampiran</th>
+                                            <th>PIC</th>
+                                            <th>Status</th>
+                                            <th>Klasifikasi</th>
+                                            <th>Note</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>No</th>
-                                            <th>Ticket</th>
-                                            <th>Nama</th>
+                                            <th>Command</th>
                                             <th>Tanggal_Masuk</th>
-                                            <th>problem</th>
+                                            <th>Tanggal_Selesai</th>
+                                            <th>Tiket</th>
+                                            <th>Nama</th>
+                                            <th>Email</th>
                                             <th>No_Telepon</th>
                                             <th>Lokasi</th>
-                                            <th>Command</th>
+                                            <th>Problem</th>
+                                            <th>Lampiran</th>
+                                            <th>PIC</th>
+                                            <th>Status</th>
+                                            <th>Klasifikasi</th>
+                                            <th>Note</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
+                                        
                                         <?php
                                             $no = 1;
                                             $tampil = mysqli_query($connection, "SELECT * from complaint order by ID desc");
@@ -415,16 +430,23 @@
                                         ?>
                                         <tr>
                                             <td><?=$no++;?></td>
+                                            <td><center>
+                                                <a href="tables.php?hal=edit&ID=<?=$data['ID']?>" class="btn btn-warning"> Edit </a><br><br>
+                                                <a href="detail.php?hal=detail&ID=<?=$data['ID']?>" class="btn btn-warning" >Detail</a></center>
+                                            </td>
+                                            <td><?=$data['tanggal_start']?></td>
+                                            <td><?=$data['tanggal_end']?></td>
                                             <td><?=$data['ticket']?></td>
                                             <td><?=$data['nama']?></td>
-                                            <td><?=$data['tanggal_start']?></td>
+                                            <td><?=$data['email']?></td
+                                            ><td><?=$data['no_Telepon']?></td>
+                                             <td><?=$data['lokasi']?> </td>
                                             <td><?=$data['problem']?></td>
-                                            <td><?=$data['no_Telepon']?></td>
-                                            <td><?=$data['lokasi']?> </td>
-                                            <td>
-                                                <a href="tables.php?hal=edit&ID=<?=$data['ID']?>" class="btn btn-warning"> Edit </a>
-                                                <a href="detail.php?hal=detail&ID=<?=$data['ID']?>" class="btn btn-warning" >Detail</a>
-                                            </td>
+                                            <td><?=$data['lampiran']?></td>
+                                            <td><?=$data['PIC']?></td>
+                                            <td><?=$data['status']?></td>
+                                            <td><?=$data['klasifikasi']?></td>
+                                            <td><?=$data['note']?></td>
                                         </tr>
                                         <?php endwhile; //penutup perulangan while ?>           
                                     </tbody>

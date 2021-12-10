@@ -1,8 +1,10 @@
 <?php 
+header("Refresh: 300");
     session_start();
     if(!isset($_SESSION["id"])){
         header("location:login.php");
     }
+
     $connection = mysqli_connect('localhost', 'root', '', 'form_it');
 
     $sql="select count(status_ticket) as open from complaint WHERE (status_ticket='open') AND MONTH (tanggal_start) = MONTH (CURDATE()) AND YEAR (tanggal_start) = YEAR (CURDATE())";
@@ -50,7 +52,8 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script> 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
@@ -269,6 +272,7 @@
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Open Ticket </div>
                                                 <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $data['open'];?></div>
+                                               
                                             </div>
                                             <div class="col-auto">
                                             <i class="fas fa-ticket-alt fa-2x text-gray-300"></i>
@@ -380,7 +384,7 @@
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
+                                    <canvas id="layanan" ></canvas> 
                                     </div>
                                 </div>
                             </div>
@@ -403,71 +407,7 @@
 
 
                                     <script>
-                        $(function () {
-         var ctx = document.getElementById("lingkaran").getContext('2d');
-            var data = {
-                datasets: [{
-                    data: [<?php echo $data4['completed'];?>,
-                        <?php echo $data2['On Progress'];?>,
-                        <?php echo $data5['overdue'];?>],
-                    backgroundColor: [
-                        '#3c8dbc',
-                        '#f56954',
-                        '#f39c12',
-                    ],
-                }],
-                labels: [
-                    'Open',
-                    'On Progress',
-                    'Closed'
-                ]
-            };
-            var myDoughnutChart = new Chart(ctx, {
-                type: 'pie',
-                data: data,
-                options: {
-                    responsive: false,
-                    maintainAspectRatio: false,
-                    legend: {
-                        position: 'bottom',
-                        labels: {
-                            boxWidth: 12
-                        }
-                    }
-                }
-            });
-
-            var ctx_2 = document.getElementById("layanan_subbagian").getContext('2d');
-            var data_2 = {
-                datasets: [{
-                    data: [10, 20, 30],
-                    backgroundColor: [
-                        '#3c8dbc',
-                        '#f56954',
-                        '#f39c12',
-                    ],
-                }],
-                labels: [
-                    'Request',
-                    'Layanan',
-                    'Problem'
-                ]
-            };
-            var myDoughnutChart_2 = new Chart(ctx_2, {
-                type: 'doughnut',
-                data: data_2,
-                options: {
-                    responsive: false,
-                    maintainAspectRatio: false,
-                    legend: {
-                        position: 'bottom',
-                        labels: {
-                            boxWidth: 12
-                        }
-                    }
-                }
-            });
-        });
+                       
                                     </script>
                                     <script>
                                         
@@ -481,7 +421,7 @@
                                    var massPopChart = new Chart(myChart, {
                                     type:'pie', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
                                     data:{
-                                        labels:['Tepat Waktu', 'On Progress', 'Telat'],
+                                        labels:['Tepat Waktu : <?php echo $data4['completed'];?>', 'On Progress: <?php echo $data2['On Progress'];?>', 'Telat: <?php echo $data5['overdue'];?>'],
                                         datasets:[{
                                         label:'Population',
                                         data:[
@@ -494,11 +434,7 @@
                                         backgroundColor:[
                                             'rgba(255, 99, 132, 0.6)',
                                             'rgba(54, 162, 235, 0.6)',
-                                            'rgba(255, 206, 86, 0.6)',
-                                            'rgba(75, 192, 192, 0.6)',
-                                            'rgba(153, 102, 255, 0.6)',
-                                            'rgba(255, 159, 64, 0.6)',
-                                            'rgba(255, 99, 132, 0.6)'
+                                            'rgba(255, 206, 86, 0.6)'
                                         ],
                                         borderWidth:1,
                                         borderColor:'#777',
@@ -533,6 +469,86 @@
                                     }
                                     });
                                 </script>
+                                 <script>
+        $(function () {/*from   w ww .  ja va2 s  . c o  m*/
+            var ctx = document.getElementById("layanan").getContext('2d');
+            Chart.defaults.global.defaultFontFamily = 'Lato';
+            Chart.defaults.global.defaultFontSize = 12;
+            Chart.defaults.global.defaultFontColor = '#777';
+
+            var datafirst = {
+               
+                    label: "Total Telat",
+                    data: [0, 59, 75, 20, 20, 55, 40],
+                    backgroundColor: 'rgba(255, 99, 132, 0.6)'
+                   
+            };
+            var datasecond = {
+               
+               label: "Total ",
+               data: [0, 59, 75, 20, 20, 55, 40],
+               backgroundColor: 'rgba(54, 162, 235, 0.6)'
+               
+              
+       };
+
+       var data = {
+  
+
+
+                
+                labels: [
+                    'Januari',
+                    'Februari',
+                    'Maret',
+                    'April',
+                    'Mei',
+                    'Juni',
+                    'Juli',
+                    'Agustus',
+                    'September',
+                    'Oktober',
+                    'November',
+                    'Desember'
+                ],
+                datasets: [datafirst, datasecond]
+                
+                };
+
+            
+            var myDoughnutChart = new Chart(ctx, {
+                type: 'line',
+                data: data,
+                options:{
+                // title:{
+                 // display:true,
+                // text:'Placeholder',
+                 // fontSize:20
+                 // },
+                 legend:{
+                         display:true,
+                        position:'right',
+                labels:{
+                         fontColor:'#000'
+                        }
+                     },
+                layout:{
+                        padding:{
+                                left:0,
+                                right:0,
+                                bottom:80,
+                                top:0
+                                 }
+                            },
+                        tooltips:{
+                                enabled:true
+                                }
+                         }
+            });
+
+        });
+    
+      </script> 
                                     
                                     <!-- <div class="mt-4 text-center small">
                                         <span class="mr-2">
@@ -664,7 +680,13 @@
                             </div>
 
                         </div>
-
+                       
+   </head> 
+   <body> 
+      
+      <!-- <div> 
+         <canvas id="layanan_subbagian" width="240px" height="240px"></canvas> 
+      </div>   -->
                         <div class="col-lg-6 mb-4">
 
                             <!-- Illustrations -->
