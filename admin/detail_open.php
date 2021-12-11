@@ -189,6 +189,11 @@
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Event</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="tables_peminjaman.php">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Peminjaman</span></a>
+            </li>
 
             <div class="sidebar-heading">
                 Administrator
