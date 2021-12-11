@@ -264,6 +264,10 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
+                    <nav class="navbar navbar-light bg-light">
+                            <a class="navbar-brand" href="../user/index.php">Back To User Page</a>
+                    </nav>
+
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <div class="topbar-divider d-none d-sm-block"></div>
