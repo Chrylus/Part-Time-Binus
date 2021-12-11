@@ -315,12 +315,17 @@
 	            </div>
 	            <div class="card-body">
                 <form method="post" action="">
+                    Tanggal Peminjaman
                     <div class="complaint-form-category">
                         <input type="date" name="tanggal_peminjaman" class="form-control" placeholder="Tanggal Peminjaman *" value="<?=@$txttanggal_peminjaman?>" ></textarea>
                     </div>
+                    <br>
+                    Tanggal Pengembalian
                     <div class="complaint-form-category">
                         <input type="date" name="tanggal_pengembalian" class="form-control" placeholder="Tanggal Pengembalian *" value="<?=@$txttanggal_pengembalian?>" ></textarea>
                     </div>
+                    <br>
+
                     <div class="complaint-form-category">
                         <input type="text" name="nama" class="form-control" placeholder="Nama *" value="<?=@$txtnama?>"></textarea>
                     </div>
@@ -333,12 +338,17 @@
                     <div class="complaint-form-category">
                         <input type="text" name="event" class="form-control" placeholder="Event *" value="<?=@$txtevent?>"></textarea>
                     </div>
+                    <br>
+                    Waktu Peminjaman
                     <div class="complaint-form-category">
                         <input type="time" name="waktu" class="form-control" placeholder="Waktu Peminjaman *" value="<?=@$txtwaktu?>"></textarea>
                     </div>
+                    <br>
+                    Waktu Pengembalian
                     <div class="complaint-form-category">
                         <input type="time" name="waktu_pengembalian" class="form-control" placeholder="Waktu Pengembalian *" value="<?=@$txtwaktu_pengembalian?>"></textarea>
                     </div>
+                    <br>
                     <div class="complaint-form-category">
                         <input type="text" name="ruangan" class="form-control" placeholder="Ruangan *" value="<?=@$txtruangan?>"></textarea>
                     </div>
@@ -394,13 +404,13 @@
                                             <th>Tiket</th>
                                             <th>Tanggal Pengajuan </th>
                                             <th>Tanggal Peminjaman </th>
-                                            <th>Tanggal Pengembalian </th>
+                                            <!-- <th>Tanggal Pengembalian </th> -->
                                             <th>Nama</th>
                                             <th>Nomor Induk </th>
                                             <th>No_Telepon</th>
                                             <th>Event</th>
                                             <th>Waktu Peminjaman</th>
-                                            <th>Waktu Pengembalian</th>
+                                            <!-- <th>Waktu Pengembalian</th> -->
                                             <th>Ruangan</th>
                                             <th>Peralatan</th>
                                             <th>Status</th>
@@ -413,13 +423,13 @@
                                             <th>Tiket</th>
                                             <th>Tanggal Pengajuan </th>
                                             <th>Tanggal Peminjaman </th>
-                                            <th>Tanggal Pengembalian </th>
+                                            <!-- <th>Tanggal Pengembalian </th> -->
                                             <th>Nama</th>
                                             <th>Nomor Induk </th>
                                             <th>No_Telepon</th>
                                             <th>Event</th>
                                             <th>Waktu Peminjaman</th>
-                                            <th>Waktu Pengembalian</th>
+                                            <!-- <th>Waktu Pengembalian</th> -->
                                             <th>Ruangan</th>
                                             <th>Peralatan</th>
                                             <th>Status</th>
@@ -439,14 +449,14 @@
                                             </td>
                                             <td><?=$data['ticket']?></td>
                                             <td><?=$data['tanggal_start']?></td>
-                                            <td><?=$data['tanggal_peminjaman']?></td>
-                                            <td><?=$data['tanggal_pengembalian']?></td>
+                                            <td><?=$data['tanggal_peminjaman']?> - <?=$data['tanggal_pengembalian']?></td>
+                                            <!-- <td><?=$data['tanggal_pengembalian']?></td> -->
                                             <td><?=$data['nama']?></td>
                                             <td><?=$data['nomor_induk']?></td>
                                             <td><?=$data['no_Telepon']?></td>
                                             <td><?=$data['event']?></td>
-                                            <td><?=$data['waktu']?></td>
-                                            <td><?=$data['waktu_pengembalian']?></td>
+                                            <td><?=$data['waktu']?> - <?=$data['waktu_pengembalian']?></td>
+                                            <!-- <td><?=$data['waktu_pengembalian']?></td> -->
                                             <td><?=$data['ruangan']?></td>
                                             <td><?=$data['peralatan']?></td>
                                             <td><?=$data['status']?></td>

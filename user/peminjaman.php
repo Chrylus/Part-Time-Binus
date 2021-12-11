@@ -183,19 +183,26 @@
             </div>
             <div class="complaint-form-category">
                 <input type="text" name="event" class="form-control" placeholder="Nama Acara / Mata Kuliah *" required></textarea>
+                <br>
             </div>
+            
+            <b>Tanggal Peminjaman</b>
             <div class="complaint-form-category">
                 <input type="date" name="tanggal_peminjaman" class="form-control" placeholder="Tanggal *" required></textarea>
             </div>
+            <b>Tanggal Pengembalian</b>
             <div class="complaint-form-category">
                 <input type="date" name="tanggal_pengembalian" class="form-control" placeholder="Tanggal *" required></textarea>
             </div>
+            <b>Waktu Peminjaman</b>
             <div class="complaint-form-category">
                 <input type="time" name="waktu" class="form-control" placeholder="Jam *" required></textarea>
             </div>
+            <b>Waktu Pengembalian</b>
             <div class="complaint-form-category">
                 <input type="time" name="waktu_pengembalian" class="form-control" placeholder="Jam *" required></textarea>
             </div>
+            <br>
             <div class="complaint-form-category">
                 <input list="text" name="ruangan" class="form-control" placeholder="Ruangan *" required>
                 <datalist id="text">

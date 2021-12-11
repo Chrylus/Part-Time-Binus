@@ -317,9 +317,11 @@
 	            </div>
 	            <div class="card-body">
                 <form method="post" action="">
+                    Tanggal Selesai
                     <div class="complaint-form-category">
                         <input type="date" name="tanggal_end" class="form-control" placeholder="Tanggal Selesai *" value="<?=@$txtTanggalEnd?>" ></textarea>
                     </div>
+                    <br>
                     <div class="complaint-form-category">
                         <input type="text" name="nama" class="form-control" placeholder="Nama *" value="<?=@$txtNama?>"></textarea>
                     </div>
