@@ -32,10 +32,6 @@ header("Refresh: 300");
     $data5=mysqli_fetch_assoc($result5);
 
 
-
-
-
-
     $chart1="select count(status) as overdue from complaint WHERE (status='Overdue') AND MONTH (tanggal_start) = 1 AND YEAR (tanggal_start) = YEAR (CURDATE())";
     $result6=mysqli_query($connection,$chart1);
     $data6=mysqli_fetch_assoc($result6);
@@ -85,9 +81,6 @@ header("Refresh: 300");
     $data17=mysqli_fetch_assoc($result17);
 
 
-    //select count(ticket) as ticket from complaint WHERE
-    
-
     $chart13="select count(ticket) as ticket from complaint WHERE MONTH (tanggal_start) = 1 AND YEAR (tanggal_start) = YEAR (CURDATE())";
     $result18=mysqli_query($connection,$chart13);
     $data18=mysqli_fetch_assoc($result18);
@@ -135,10 +128,6 @@ header("Refresh: 300");
     $chart24="select count(ticket) as ticket from complaint WHERE MONTH (tanggal_start) = 12 AND YEAR (tanggal_start) = YEAR (CURDATE())";
     $result29=mysqli_query($connection,$chart24);
     $data29=mysqli_fetch_assoc($result29);
-
-
-	
-    
 ?>
 
 <!DOCTYPE html>
@@ -224,10 +213,10 @@ header("Refresh: 300");
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Ticket:</h6>
                         <a class="collapse-item" href="tables.php">All</a>
-                        <a class="collapse-item" href="cards.html">Open</a>
-                        <a class="collapse-item" href="buttons.html">Close</a>
-                        <a class="collapse-item" href="cards.html">On Progress</a>
-                        <a class="collapse-item" href="cards.html">Overdue</a>
+                        <a class="collapse-item" href="tables_open.php">Open</a>
+                        <a class="collapse-item" href="tables_close.php">Close</a>
+                        <a class="collapse-item" href="tables_on_progress.php">On Progress</a>
+                        <a class="collapse-item" href="tables_overdue.php">Overdue</a>
                     </div>
                 </div>
             </li>
@@ -235,16 +224,20 @@ header("Refresh: 300");
             <!-- Nav Item - Utilities Collapse Menu -->
             
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Artikel</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Event</span></a>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link" href="tables_peminjaman.php">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Peminjaman</span></a>
+            </li>
 
             <div class="sidebar-heading">
                 Administrator
@@ -256,7 +249,7 @@ header("Refresh: 300");
                     <span>PIC</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Reminder</span></a>
             </li>
@@ -373,7 +366,7 @@ header("Refresh: 300");
 
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <a href = "#">
+                            <a href = "tables_open.php">
                                 <div class="card border-left-primary shadow h-100 py-2">
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
@@ -394,7 +387,7 @@ header("Refresh: 300");
 
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <a href = "#">
+                            <a href = "tables_on_progress.php">
                                 <div class="card border-left-success shadow h-100 py-2">
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
@@ -414,7 +407,7 @@ header("Refresh: 300");
 
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <a href = "#">
+                            <a href = "tables_close.php">
                                 <div class="card border-left-info shadow h-100 py-2">
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
@@ -445,7 +438,7 @@ header("Refresh: 300");
 
                         <!-- Pending Requests Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <a href = "#">
+                            <a href = "tables.php">
                                 <div class="card border-left-warning shadow h-100 py-2">
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
