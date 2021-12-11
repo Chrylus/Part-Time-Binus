@@ -161,7 +161,7 @@ header("Refresh: 300");
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script> 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body id="page-top">
@@ -698,7 +698,20 @@ header("Refresh: 300");
                             </div>
                         </div>
                     </div>
-
+                    <div class="wrapper">
+    <header>To Do List</header>
+    <div class="inputField">
+      <input type="text" placeholder="Add your new todo">
+      <button><i class="fas fa-plus"></i></button>
+    </div>
+    <ul class="todoList">
+      <!-- data are comes from local storage -->
+    </ul>
+    <div class="footer">
+      <span>You have <span class="pendingTasks"></span> pending tasks</span>
+      <button>Clear All</button>
+    </div>
+  </div>
                     <!-- Content Row -->
                     <div class="row">
 
@@ -921,7 +934,7 @@ header("Refresh: 300");
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
-
+    <script src="js/script.js"></script>
 </body>
 
 </html>
