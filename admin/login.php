@@ -25,7 +25,7 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-gradient" style="background-color: #0090D1;">
 
     <div class="container">
 
@@ -38,7 +38,8 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image" style="display: flex!important; align-items:center; justify-content:center;">
+                            <img src="https://1.bp.blogspot.com/-ubZ9dGTHkeo/YJEZqDJbLII/AAAAAAAAE5s/KnA48vbj4ykbbdNVIHBbLbLWxf2NIrn_QCLcBGAsYHQ/w1200-h630-p-k-no-nu/Logo%2BBinus%2BUniversity.png" alt="" style="width:100%">
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
@@ -78,13 +79,13 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" class="btn btn-dark btn-user btn-block" style="background-color: #0090D1;">
                                             Login
                                         </button>
-                                        <hr>
+                                        
                                         
                                     </form>
-                                    <hr>
+                                   
                                    
                                     
                                 </div>
