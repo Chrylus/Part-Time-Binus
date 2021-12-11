@@ -182,9 +182,9 @@
                         <h6 class="collapse-header">Ticket:</h6>
                         <a class="collapse-item" href="tables.php">All</a>
                         <a class="collapse-item" href="tables_open.php">Open</a>
-                        <a class="collapse-item" href="#">Close</a>
-                        <a class="collapse-item" href="#">On Progress</a>
-                        <a class="collapse-item" href="#">Overdue</a>
+                        <a class="collapse-item" href="tables_close.php">Close</a>
+                        <a class="collapse-item" href="tables_on_progress.php">On Progress</a>
+                        <a class="collapse-item" href="tables_overdue.php">Overdue</a>
                     </div>
                 </div>
             </li>

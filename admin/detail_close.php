@@ -30,14 +30,14 @@
 			{
 				echo "<script>
 						alert('Edit data suksess!');
-						document.location='tables_open.php';
+						document.location='tables_close.php';
 				     </script>";
 			}
 			else
 			{
 				echo "<script>
 						alert('Edit data GAGAL!!');
-						document.location='tables_open.php';
+						document.location='tables_close.php';
 				     </script>";
 			}
 		}
@@ -59,14 +59,14 @@
 			{
 				echo "<script>
 						alert('Simpan data suksess!');
-						document.location='tables_open.php';
+						document.location='tables_close.php';
 				     </script>";
 			}
 			else
 			{
 				echo "<script>
 						alert('Simpan data GAGAL!!');
-						document.location='tables_open.php';
+						document.location='tables_close.php';
 				     </script>";
 			}
 		}
@@ -169,8 +169,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Ticket:</h6>
                         <a class="collapse-item" href="tables.php">All</a>
-                        <a class="collapse-item" href="#">Open</a>
-                        <a class="collapse-item" href="tables_close.php">Close</a>
+                        <a class="collapse-item" href="tables_open.php">Open</a>
+                        <a class="collapse-item" href="#">Close</a>
                         <a class="collapse-item" href="tables_on_progress.php">On Progress</a>
                         <a class="collapse-item" href="tables_overdue.php">Overdue</a>
                     </div>
@@ -180,7 +180,7 @@
             <!-- Nav Item - Utilities Collapse Menu -->
             
             <li class="nav-item">
-                <a class="nav-link" href="#l">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Artikel</span></a>
             </li>
@@ -373,7 +373,7 @@
                                     <tbody>
                                         <?php
                                             $no = 1;
-                                            $tampil = mysqli_query($connection, "SELECT * from complaint WHERE status_ticket = 'Open' order by ID desc");
+                                            $tampil = mysqli_query($connection, "SELECT * from complaint WHERE status_ticket = 'Closed' order by ID desc");
                                             while($data = mysqli_fetch_array($tampil)) :
                                         ?>
                                         <tr>
@@ -385,8 +385,8 @@
                                             <td><?=$data['no_Telepon']?></td>
                                             <td><?=$data['lokasi']?> </td>
                                             <td>
-                                                <a href="tables_open.php?hal=edit&ID=<?=$data['ID']?>" class="btn btn-warning"> Edit </a>
-                                                <a href="detail_open.php?hal=detail&ID=<?=$data['ID']?>" class="btn btn-warning" >Detail</a>
+                                                <a href="tables_close.php?hal=edit&ID=<?=$data['ID']?>" class="btn btn-warning"> Edit </a>
+                                                <a href="detail_close.php?hal=detail&ID=<?=$data['ID']?>" class="btn btn-warning" >Detail</a>
                                             </td>
                                         </tr>
                                         <?php endwhile; //penutup perulangan while ?>           
