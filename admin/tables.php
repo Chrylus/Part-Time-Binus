@@ -32,7 +32,7 @@
 			if($edit) //jika edit sukses
 			{
 				echo "<script>
-						alert('Edit data suksess!');
+						alert('Edit data Sukses!');
 						document.location='tables.php';
 				     </script>";
 			}
@@ -62,7 +62,7 @@
 			if($simpan) //jika simpan sukses
 			{
 				echo "<script>
-						alert('Simpan data suksess!');
+						alert('Simpan data Sukses!');
 						document.location='tables.php';
 				     </script>";
 			}
@@ -126,7 +126,7 @@
 			if($hapus)
             {
 				echo "<script>
-						alert('Hapus Data Suksess!!');
+						alert('Hapus Data Sukses!!');
 						document.location='tables.php';
 				     </script>";
 			}

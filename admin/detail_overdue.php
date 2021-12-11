@@ -29,7 +29,7 @@
 			if($edit) //jika edit sukses
 			{
 				echo "<script>
-						alert('Edit data suksess!');
+						alert('Edit data Sukses!');
 						document.location='tables_overdue.php';
 				     </script>";
 			}
@@ -58,7 +58,7 @@
 			if($simpan) //jika simpan sukses
 			{
 				echo "<script>
-						alert('Simpan data suksess!');
+						alert('Simpan data Sukses!');
 						document.location='tables_overdue.php';
 				     </script>";
 			}
