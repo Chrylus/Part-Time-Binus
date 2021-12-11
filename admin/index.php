@@ -135,6 +135,10 @@ header("Refresh: 300");
     $chart24="select count(ticket) as ticket from complaint WHERE MONTH (tanggal_start) = 12 AND YEAR (tanggal_start) = YEAR (CURDATE())";
     $result29=mysqli_query($connection,$chart24);
     $data29=mysqli_fetch_assoc($result29);
+
+
+	
+    
 ?>
 
 <!DOCTYPE html>
@@ -360,7 +364,7 @@ header("Refresh: 300");
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="background-color:#0090D1"><i
+                        <a target="_blank"href="data.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="background-color:#0090D1"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
 
