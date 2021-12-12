@@ -147,7 +147,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Table Peminjaman Ticket</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -450,7 +450,7 @@
                                             <td><?=$data['ticket']?></td>
                                             <td><?=$data['tanggal_start']?></td>
                                             <td><?=$data['tanggal_peminjaman']?> - <?=$data['tanggal_pengembalian']?></td>
-                                            <!-- <td><?=$data['tanggal_pengembalian']?></td> -->
+                                          
                                             <td><?=$data['nama']?></td>
                                             <td><?=$data['nomor_induk']?></td>
                                             <td><?=$data['no_Telepon']?></td>

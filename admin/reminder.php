@@ -23,7 +23,7 @@ header("Refresh: 300");
     <meta name="author" content="">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Reminder</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -115,7 +115,12 @@ header("Refresh: 300");
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Event</span></a>
             </li>
-
+            
+            <li class="nav-item">
+                <a class="nav-link" href="tables_peminjaman.php">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Peminjaman</span></a>
+            </li>
 
             <div class="sidebar-heading">
                 Administrator
@@ -236,7 +241,24 @@ header("Refresh: 300");
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         
-                        
+                    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                            <a class="btn btn-primary" href="logout.php">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>  
     <!-- End of Page Wrapper -->
     <div class="wrapper">
     <header>To Do List</header>
