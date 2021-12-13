@@ -242,6 +242,12 @@
                     <span>Reminder</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="report.php">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Report</span>
+                </a>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
