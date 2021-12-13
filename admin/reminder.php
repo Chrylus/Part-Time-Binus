@@ -132,7 +132,7 @@ header("Refresh: 300");
                     <span>PIC</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="reminder.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Reminder</span></a>
             </li>

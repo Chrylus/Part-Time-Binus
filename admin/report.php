@@ -84,13 +84,10 @@ header("Refresh: 300");
                 
                 <div class="sidebar-brand-text mx-3">
                     <?php 
-                if (isset($_SESSION["id"])) {              
-                     echo($_SESSION['nama']);
-                            }
-                
-                            ?>    
-                
-                
+                        if (isset($_SESSION["id"])) {              
+                            echo($_SESSION['nama']);
+                        }
+                    ?>    
                 </div>
                 
             </a>
@@ -140,7 +137,7 @@ header("Refresh: 300");
                     <span>Artikel</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="tables_event.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Event</span></a>
             </li>
@@ -171,6 +168,7 @@ header("Refresh: 300");
                     <span>Report</span>
                 </a>
             </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
