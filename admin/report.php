@@ -274,7 +274,7 @@ header("Refresh: 300");
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false"  style="background-color:#0090D1">
-                    <i class="fas fa-download fa-sm text-white-50"></i> Generate Complain
+                    <i class="fas fa-download fa-sm text-white-50"></i> Laporan Complain
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary"> All</a>
@@ -296,7 +296,7 @@ header("Refresh: 300");
                 </div>
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false"  style="background-color:#0090D1">
-                    <i class="fas fa-download fa-sm text-white-50"></i> Generate Peminjaman
+                    <i class="fas fa-download fa-sm text-white-50"></i> Laporan Peminjaman
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a target="_blank"href="data2.php" class=" dropdown-item btn btn-sm btn-primary"> All</a>
@@ -319,7 +319,7 @@ header("Refresh: 300");
                 
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false"  style="background-color:#0090D1">
-                    <i class="fas fa-download fa-sm text-white-50"></i> Generate Event
+                    <i class="fas fa-download fa-sm text-white-50"></i> Laporan Event
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a target="_blank"href="data3.php" class=" dropdown-item btn btn-sm btn-primary"> All</a>
