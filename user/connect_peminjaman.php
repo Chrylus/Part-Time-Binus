@@ -22,7 +22,7 @@
         $result = $ticket -> fetch_assoc();
         $x = $result ['ticket'];
 
-        $email_from = 'noreply@lembahtumpang.xyz';
+        $email_from = 'noreply@itmalang@dtlcreate.com';
         $to       = "$email";
         $subject  = 'Your Recepient';
         $message  =  "Tiket Anda:$x\n";
