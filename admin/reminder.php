@@ -70,7 +70,7 @@ header("Refresh: 300");
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
@@ -95,10 +95,10 @@ header("Refresh: 300");
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Ticket:</h6>
                         <a class="collapse-item" href="tables.php">All</a>
-                        <a class="collapse-item" href="cards.html">Open</a>
-                        <a class="collapse-item" href="buttons.html">Close</a>
-                        <a class="collapse-item" href="cards.html">On Progress</a>
-                        <a class="collapse-item" href="cards.html">Overdue</a>
+                        <a class="collapse-item" href="tables_open.php">Open</a>
+                        <a class="collapse-item" href="tables_close.php">Close</a>
+                        <a class="collapse-item" href="tables_on_progress.php">On Progress</a>
+                        <a class="collapse-item" href="tables_overdue.php">Overdue</a>
                     </div>
                 </div>
             </li>
@@ -106,12 +106,12 @@ header("Refresh: 300");
             <!-- Nav Item - Utilities Collapse Menu -->
             
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Artikel</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Event</span></a>
             </li>
@@ -131,8 +131,8 @@ header("Refresh: 300");
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>PIC</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Reminder.php.html">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Reminder</span></a>
             </li>
