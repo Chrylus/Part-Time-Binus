@@ -8,7 +8,7 @@ if(isset($_GET['bulan'])){
     $setSql = "SELECT `ID`, `tanggal_start`, `tanggal_end`, `nama`, `email`, `no_Telepon`, `lokasi`, `problem`, `lampiran`, `ticket`, `PIC`, `status_ticket`, `status`, `klasifikasi`, `note` FROM `complaint` where MONTH (tanggal_start) = $bulan AND YEAR (tanggal_start) = YEAR (CURDATE())";  
     $setRec = mysqli_query($connection, $setSql);
     $columnHeader = '';  
-    $columnHeader = "ID" . "\t" . "Tanggal Start" . "\t" . "Tanggal End" . "\t " . "Nama" . "\t" . "Email" . "\t" . "No Telepon" . "\t" . "Lokasi" . "\t" . "Problem" . "\t" . "Lampiran" . "\t" . "Ticket" . "\t" . "PIC" . "\t" . "Status Ticket" . "\t" . "Status" . "\t" . "Klasifikasi" . "\t" . "Note";  
+    $columnHeader = "ID" . "\t" . "Tanggal Pengajuan" . "\t" . "Tanggal End" . "\t " . "Nama" . "\t" . "Email" . "\t" . "No Telepon" . "\t" . "Lokasi" . "\t" . "Problem" . "\t" . "Lampiran" . "\t" . "Ticket" . "\t" . "PIC" . "\t" . "Status Ticket" . "\t" . "Status" . "\t" . "Klasifikasi" . "\t" . "Note";  
     
     $setData = '';  
   
@@ -23,7 +23,7 @@ while ($rec = mysqli_fetch_row($setRec)) {
   
   
 header("Content-type: application/octet-stream");  
-header("Content-Disposition: attachment; filename=Data.xls");  
+header("Content-Disposition: attachment; filename=DataComplain.xls");  
 header("Pragma: no-cache");  
 header("Expires: 0");  
   
@@ -33,7 +33,7 @@ else {
     $setSql = "SELECT `ID`, `tanggal_start`, `tanggal_end`, `nama`, `email`, `no_Telepon`, `lokasi`, `problem`, `lampiran`, `ticket`, `PIC`, `status_ticket`, `status`, `klasifikasi`, `note` FROM `complaint` where YEAR (tanggal_start) = YEAR (CURDATE())";  
     $setRec = mysqli_query($connection, $setSql);
     $columnHeader = '';  
-$columnHeader = "ID" . "\t" . "Tanggal Start" . "\t" . "Tanggal End" . "\t " . "Nama" . "\t" . "Email" . "\t" . "No Telepon" . "\t" . "Lokasi" . "\t" . "Problem" . "\t" . "Lampiran" . "\t" . "Ticket" . "\t" . "PIC" . "\t" . "Status Ticket" . "\t" . "Status" . "\t" . "Klasifikasi" . "\t" . "Note";  
+$columnHeader = "ID" . "\t" . "Tanggal Pengajuan" . "\t" . "Tanggal End" . "\t " . "Nama" . "\t" . "Email" . "\t" . "No Telepon" . "\t" . "Lokasi" . "\t" . "Problem" . "\t" . "Lampiran" . "\t" . "Ticket" . "\t" . "PIC" . "\t" . "Status Ticket" . "\t" . "Status" . "\t" . "Klasifikasi" . "\t" . "Note";  
    
 $setData = '';  
   
@@ -48,7 +48,7 @@ while ($rec = mysqli_fetch_row($setRec)) {
   
   
 header("Content-type: application/octet-stream");  
-header("Content-Disposition: attachment; filename=Data.xls");  
+header("Content-Disposition: attachment; filename=DataComplain.xls");  
 header("Pragma: no-cache");  
 header("Expires: 0");  
   

@@ -12,7 +12,7 @@ if(isset($_GET['bulan'])){
     $setSql = "SELECT `ID`, `tanggal_start`, `tanggal_peminjaman`, `tanggal_pengembalian`, `nama`, `nomor_induk`, `no_Telepon`, `event`, `waktu`, `waktu_pengembalian`, `ruangan`, `peralatan`, `ticket`, `status` FROM `peminjaman` where MONTH (tanggal_start) = $bulan AND YEAR (tanggal_start) = YEAR (CURDATE())";  
     $setRec = mysqli_query($connection, $setSql);  
     $columnHeader = '';  
-    $columnHeader = "ID" . "\t" . "Tanggal Start" . "\t" . "Tanggal End" . "\t " . "Nama" . "\t" . "Email" . "\t" . "No Telepon" . "\t" . "Lokasi" . "\t" . "Problem" . "\t" . "Lampiran" . "\t" . "Ticket" . "\t" . "PIC" . "\t" . "Status Ticket" . "\t" . "Status" . "\t" . "Klasifikasi" . "\t" . "Note";  
+    $columnHeader = "ID" . "\t" . "Tanggal Pengajuan" . "\t" . "Tanggal Peminjaman" . "\t " . "tanggal Pengembalian" . "\t" . "Nama" . "\t" . "No Induk" . "\t" . "No Telepon" . "\t" . "Event" . "\t" . "Waktu" . "\t" . "Waktu Pengembalian" . "\t" . "Ruangan" . "\t" . "Peralatan" . "\t" . "Tiket" . "\t" . "Status";  
    
     $setData = '';  
   
@@ -25,7 +25,7 @@ if(isset($_GET['bulan'])){
         $setData .= trim($rowData) . "\n";  
     }
     header("Content-type: application/octet-stream");  
-    header("Content-Disposition: attachment; filename=Data.xls");  
+    header("Content-Disposition: attachment; filename=DataPeminjaman.xls");  
     header("Pragma: no-cache");  
     header("Expires: 0");  
       
@@ -35,7 +35,7 @@ else {
     $setSql = "SELECT `ID`, `tanggal_start`, `tanggal_peminjaman`, `tanggal_pengembalian`, `nama`, `nomor_induk`, `no_Telepon`, `event`, `waktu`, `waktu_pengembalian`, `ruangan`, `peralatan`, `ticket`, `status` FROM `peminjaman` where YEAR (tanggal_start) = YEAR (CURDATE()) ";  
     $setRec = mysqli_query($connection, $setSql); 
     $columnHeader = '';  
-    $columnHeader = "ID" . "\t" . "Tanggal Start" . "\t" . "Tanggal End" . "\t " . "Nama" . "\t" . "Email" . "\t" . "No Telepon" . "\t" . "Lokasi" . "\t" . "Problem" . "\t" . "Lampiran" . "\t" . "Ticket" . "\t" . "PIC" . "\t" . "Status Ticket" . "\t" . "Status" . "\t" . "Klasifikasi" . "\t" . "Note";  
+    $columnHeader = "ID" . "\t" . "Tanggal Pengajuan" . "\t" . "Tanggal Peminjaman" . "\t " . "tanggal Pengembalian" . "\t" . "Nama" . "\t" . "No Induk" . "\t" . "No Telepon" . "\t" . "Event" . "\t" . "Waktu" . "\t" . "Waktu Pengembalian" . "\t" . "Ruangan" . "\t" . "Peralatan" . "\t" . "Tiket" . "\t" . "Status";  
    
     $setData = '';  
   
@@ -48,7 +48,7 @@ else {
         $setData .= trim($rowData) . "\n";  
     }
     header("Content-type: application/octet-stream");  
-    header("Content-Disposition: attachment; filename=Data.xls");  
+    header("Content-Disposition: attachment; filename=DataPeminjaman.xls");  
     header("Pragma: no-cache");  
     header("Expires: 0");  
       
