@@ -358,9 +358,9 @@
                     <div class="complaint-form-category">
                         <input list="text" name="status" class="form-control" placeholder="Status *" value="<?=@$txtstatus?>"></textarea>
                         <datalist id="text">
-                                <option value="Belum Mulai">
-                                <option value="Sedang Berlangsung">
-                                <option value="Sudah Selesai">
+                                <option value="Open">
+                                <option value="On Progress">
+                                <option value="Closed">
                     </div>
 
                     <br><br>
