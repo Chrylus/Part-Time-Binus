@@ -130,7 +130,7 @@
 			if($hapus)
             {
 				echo "<script>
-						alert('Hapus Data Suksess!!');
+						alert('Hapus Data Sukses!!');
 						document.location='tables_event.php';
 				     </script>";
 			}
