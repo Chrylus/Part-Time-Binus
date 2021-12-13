@@ -217,7 +217,7 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="tables_event.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Artikel</span></a>
             </li>

@@ -3,7 +3,7 @@
     if(!isset($_SESSION["id"])){
         header("location:login.php");
     }
-    
+ 
 	//Koneksi Database
     $connection = mysqli_connect('localhost', 'root', '', 'form_it');
     if(!$connection) {
@@ -16,60 +16,63 @@
 		if($_GET['hal'] == "edit")
 		{
 			//Data akan di edit
-			$edit = mysqli_query($connection, "UPDATE complaint set
-                                                tanggal_end='$_POST[tanggal_end]',
-											 	nama = '$_POST[nama]',
-											 	email = '$_POST[email]',
-												no_telepon = '$_POST[no_Telepon]',
-											 	lokasi = '$_POST[lokasi]',
-                                                problem = '$_POST[problem]',
-                                                ticket = '$_POST[ticket]',
-                                                PIC=  '$_POST[PIC]',
-                                                status=  '$_POST[status]',
-                                                klasifikasi = '$_POST[klasifikasi]',
-                                                note = '$_POST[note]'
+			$edit = mysqli_query($connection, "UPDATE event set
+                                                tanggal_mulai = '$_POST[tanggal_mulai]',
+                                                tanggal_selesai = '$_POST[tanggal_selesai]', 
+                                                nama = '$_POST[nama]', 
+                                                nomor_induk = '$_POST[nomor_induk]', 
+                                                no_Telepon = '$_POST[no_Telepon]',
+                                                event = '$_POST[event]',
+                                                waktu_mulai = '$_POST[waktu_mulai]',
+                                                waktu_selesai = '$_POST[waktu_selesai]',
+                                                ruangan = '$_POST[ruangan]',
+                                                detail_event = '$_POST[detail_event]',
+                                                status = '$_POST[status]'
 											 WHERE ID = '$_GET[ID]'");
 			if($edit) //jika edit sukses
 			{
 				echo "<script>
 						alert('Edit data Sukses!');
-						document.location='tables_overdue.php';
+						document.location='tables.php';
 				     </script>";
 			}
 			else
 			{
 				echo "<script>
 						alert('Edit data GAGAL!!');
-						document.location='tables_overdue.php';
+						document.location='tables.php';
 				     </script>";
 			}
 		}
+       
 		else
 		{
 			//Data akan disimpan Baru
-			$simpan = mysqli_query($connection, "INSERT INTO complaint (tanggal_end, nama, email, no_Telepon, lokasi, problem, ticket, PIC, status, klasifikasi, note)
-										        VALUES ('$_POST[tanggal_end]','$_POST[nama]', 
-										  		'$_POST[email]', 
-										  		'$_POST[no_Telepon]', 
-										  		'$_POST[lokasi]',
-                                                '$_POST[problem]',
-                                                '$_POST[ticket]',
-                                                '$_POST[PIC]',
-                                                '$_POST[status]',
-                                                '$_POST[klasifikasi]',
-                                                '$_POST[note]')");
+			$simpan = mysqli_query($connection, "INSERT INTO event (tanggal_mulai, tanggal_selesai, nama, nomor_induk, no_Telepon, event, waktu_mulai, waktu_selesai, ruangan, detail_event, status)
+										        VALUES (
+                                                '$_POST[tanggal_mulai]',
+                                                '$_POST[tanggal_selesai]', 
+										  		'$_POST[nama]', 
+										  		'$_POST[nomor_induk]', 
+										  		'$_POST[no_Telepon]',
+                                                '$_POST[event]',
+                                                '$_POST[waktu_mulai]',
+                                                '$_POST[waktu_selesai]',
+                                                '$_POST[ruangan]',
+                                                '$_POST[detail_event]',
+                                                '$_POST[status]')");
 			if($simpan) //jika simpan sukses
 			{
 				echo "<script>
 						alert('Simpan data Sukses!');
-						document.location='tables_overdue.php';
+						document.location='tables.php';
 				     </script>";
 			}
 			else
 			{
 				echo "<script>
 						alert('Simpan data GAGAL!!');
-						document.location='tables_overdue.php';
+						document.location='tables.php';
 				     </script>";
 			}
 		}
@@ -79,57 +82,27 @@
 	if(isset($_GET['hal']))
 	{
 		//Pengujian jika edit Data
-		if($_GET['hal'] == "edit")
-		{
-			//Tampilkan Data yang akan diedit
-			$tampil = mysqli_query($connection, "SELECT * FROM complaint WHERE ID = '$_GET[ID]' ");
-			$data = mysqli_fetch_array($tampil);
-			if($data)
-			{
-				//Jika data ditemukan, maka data ditampung ke dalam variabel
-                $txtTanggalEnd = $data['tanggal_end'];
-				$txtNama = $data['nama'];
-                $txtEmail = $data['email'];
-                $txtPhone = $data['no_Telepon'];
-                $txtLocation = $data['lokasi'];
-                $txtProblem = $data['problem'];
-                $txtImage = $data['lampiran'];
-                $txtTiket = $data['ticket'];
-                $txtPIC = $data['PIC'];
-                $txtstatuspengerjaan = $data['status'];
-                $txtKlasifikasi = $data ['klasifikasi'];
-                $txtNote = $data ['note'];
-			}
-		}
-        else if($_GET['hal'] == "detail"){
-            $detail = mysqli_query($connection, "SELECT * FROM complaint WHERE ID = '$_GET[ID]' ");
+        if($_GET['hal'] == "detail"){
+            $detail = mysqli_query($connection, "SELECT * FROM event WHERE ID = '$_GET[ID]' ");
 			$data1 = mysqli_fetch_array($detail);
 			if($data1)
 			{
 				//Jika data ditemukan, maka data ditampung ke dalam variabel
-				$detNama = $data1['nama'];
-                $detEmail = $data1['email'];
-                $detPhone = $data1['no_Telepon'];
-                $detLocation = $data1['lokasi'];
-                $detProblem = $data1['problem'];
-                $detImage = $data1['lampiran'];
-                $detTiket = $data1['ticket'];
-                $detPIC = $data1['PIC'];
-                $detstatuspengerjaan = $data1['status'];
+                $dettanggal_start = $data1['tanggal_start'];
+                $dettanggal_mulai = $data1['tanggal_mulai'];
+                $dettanggal_selesai = $data1['tanggal_selesai'];
+                $detnama = $data1['nama'];
+                $detnomor_induk = $data1['nomor_induk'];
+                $detno_Telepon = $data1['no_Telepon'];
+                $detevent = $data1['event'];
+                $detwaktu_mulai = $data1['waktu_mulai'];
+                $detwaktu_selesai = $data1['waktu_selesai'];
+                $detruangan = $data1['ruangan'];
+                $detdetail_event = $data1['detail_event'];
+                $detstatus = $data1['status'];
+                $detticket = $data1['ticket'];
 			}
         }
-		else if ($_GET['hal'] == "hapus")
-		{
-			//Persiapan hapus data
-			$hapus = mysqli_query($connection, "DELETE FROM complaint WHERE ID = '$_GET[ID]' ");
-			if($hapus)
-            {
-				echo "<script>
-						alert('Hapus Data Suksess!!');
-						document.location='overdue.php';
-				     </script>";
-			}
-		}
 	}
 ?>
 
@@ -142,7 +115,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Table Overdue Ticket</title>
+    <title>SB Admin 2 - Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -179,6 +152,7 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
+
             <!-- Nav Item - Dashboard -->
             <li class="nav-item ">
                 <a class="nav-link" href="index.php">
@@ -190,7 +164,7 @@
             <hr class="sidebar-divider">
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item active" >
+            <li class="nav-item" >
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
@@ -199,27 +173,28 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Ticket:</h6>
-                        <a class="collapse-item" href="tables.php">All</a>
+                        <a class="collapse-item" href="#">All</a>
                         <a class="collapse-item" href="tables_open.php">Open</a>
                         <a class="collapse-item" href="tables_close.php">Close</a>
                         <a class="collapse-item" href="tables_on_progress.php">On Progress</a>
-                        <a class="collapse-item" href="#">Overdue</a>
+                        <a class="collapse-item" href="tables_overdue.php">Overdue</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
+            
             <li class="nav-item">
                 <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Artikel</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="tables_event.php">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Event</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="tables_peminjaman.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Peminjaman</span></a>
@@ -239,6 +214,7 @@
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Reminder</span></a>
             </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -268,18 +244,15 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">
                                     <?php 
-                                        if (isset($_SESSION["id"])) 
-                                        {              
-                                        echo($_SESSION['nama']);
+                                        if (isset($_SESSION["id"])) {              
+                                            echo($_SESSION['nama']);
                                         }
-                                        else 
-                                        {
-                                        echo "Login";
+                                        else {
+                                            echo "Login";
                                         }
                                     ?>
                                 </span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             
                             <!-- Dropdown - User Information -->
@@ -287,97 +260,90 @@
                                 aria-labelledby="userDropdown">
                                 <div class="dropdown-divider"></div>
                                 <?php
-                                    if (isset($_SESSION["id"])) 
-                                    {              
+                                    if (isset($_SESSION["id"])) {              
                                         echo '<a href="logout.php" class="dropdown-item"  data-toggle="modal" data-target="#logoutModal">
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Logout </a>';
                                     }
-                                    else 
-                                    {
+                                    else {
                                         echo '<a href="login.php" class="dropdown-item"  >
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Login </a>';
                                     }
-                                    ?>
+                                ?>
                             </div>
                         </li>
                     </ul>
                 </nav>
-                <!-- End of Topbar -->
-                <div class="card-header  text-white" style="background-color:#0090D1">
-	                Form Input Data
-	            </div>
-	            <div class="card-body">
-                <form method="post" action="">
-                    Tanggal Selesai
-                    <div class="complaint-form-category">
-                        <input type="date" name="tanggal_end" class="form-control" placeholder="Tanggal Selesai *" value="<?=@$txtTanggalEnd?>" ></textarea>
-                    </div>
+                <div class="container-fluid">
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-4 text-gray-800">Detail Data</h1>
                     <br>
-                    <div class="complaint-form-category">
-                        <input type="text" name="nama" class="form-control" placeholder="Nama *" value="<?=@$txtNama?>"></textarea>
-                    </div>
-                    <div class="complaint-form-category">
-                        <input type="text" name="email" class="form-control" placeholder="Email *" value="<?=@$txtEmail?>"></textarea>
-                    </div>
-                    <div class="complaint-form-category">
-                        <input type="text" name="no_Telepon" class="form-control" placeholder="Nomor Telepon *"value="<?=@$txtPhone?>"></textarea>
-                    </div>
-                    <div class="complaint-form-category">
-                        <input type="text" name="lokasi" class="form-control" placeholder="Lokasi *" value="<?=@$txtLocation?>"></textarea>
-                    </div>
-                    <div class="complaint-form-category">
-                        <input type="text" name="problem" class="form-control" placeholder="problem *" value="<?=@$txtProblem?>"></textarea>
-                    </div>
-                    <div class="complaint-form-category">
-                        <input type="text" name="ticket" class="form-control" placeholder="tiket *" value="<?=@$txtTiket?>"></textarea>
-                    </div>
-                    <div class="complaint-form-category">
-                        <input type="text" name="PIC" class="form-control" placeholder="PIC *" value="<?=@$txtPIC?>" ></textarea>
-                    </div>
-                    <div class="complaint-form-category">
-                        <input type="text" name="status" class="form-control" placeholder="Status *" value="<?=@$txtstatuspengerjaan?>" ></textarea>
-                    </div>
-                    <div class="complaint-form-category">
-                        <input list ="text" name="klasifikasi" class="form-control" placeholder="Klasifikasi *" value="<?=@$txtKlasifikasi?>" ></textarea>
-                        <datalist id="text">
-                                <option value="OS">
-                                <option value="Application">
-                                <option value="Hardware">
-                                <option value="Network">
-                                <option value="Human Error">
-                                <option value="Class">
-                    </div>
-                    <div class="complaint-form-category">
-                        <input type="text" name="note" class="form-control" placeholder="Note *" value="<?=@$txtNote?>" ></textarea>
-                    </div>
-                        <br><br>
-                        <button type="submit" class="btn btn-success" name="bsimpan">Simpan</button>
-                        <button type="reset" class="btn btn-danger" name="breset">Kosongkan</button>
-                        <a href="tables_overdue.php?hal=hapus&ID=<?=$data['ID']?>" 
-                                onclick="return confirm('Apakah yakin ingin menghapus data ini?')" class="btn btn-danger"> Hapus </a>
-                </form>
-                <div class="modal fade" id="demoModal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h2 class="modal-title">Please confirm!</h2>
-                                <button type="button" class="close" data-dismiss="modal">
-                                    <span>&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <?=$detEmail?>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Confirm</button>
-                            </div>
-                        </div>
-                    </div>
+                    <table class="table table-bordered">
+                        <!-- <thead>
+                            <tr>
+                                <th scope="col">Kategori</th>
+                                <th scope="col">Data</th>
+                            </tr>
+                        </thead> -->
+                        <tbody>
+                            <tr>
+                                <th scope="row">Tiket</th>
+                                <td><?=$detticket?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Tanggal Pengajuan</th>
+                                <td><?=$dettanggal_start?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Tanggal Peminjaman</th>
+                                <td><?=$dettanggal_mulai?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Tanggal Pengembalian</th>
+                                <td><?=$dettanggal_selesai?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Nama</th>
+                                <td><?=$detnama?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Nomor Induk</th>
+                                <td><?=$detnomor_induk?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Nomor Telepon</th>
+                                <td><?=$detno_Telepon?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Event</th>
+                                <td><?=$detevent?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Waktu Peminjaman</th>
+                                <td><?=$detwaktu_mulai?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Waktu Pengembalian</th>
+                                <td><?=$detwaktu_selesai?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ruangan</th>
+                                <td><?=$detruangan?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Peralatan</th>
+                                <td><?=$detdetail_event?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Status</th>
+                                <td><?=$detstatus?></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
+                <!-- End of Topbar -->
                 <br><br>
-
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Page Heading -->
@@ -390,48 +356,63 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
+                                <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Ticket</th>
-                                            <th>Nama</th>
-                                            <th>Tanggal_Masuk</th>
-                                            <th>problem</th>
-                                            <th>No_Telepon</th>
-                                            <th>Lokasi</th>
                                             <th>Command</th>
+                                            <th>Tiket</th>
+                                            <th>Tanggal Pengajuan </th>
+                                            <th>Tanggal Acara </th>
+                                            <th>Nama</th>
+                                            <th>Nomor Induk </th>
+                                            <th>No_Telepon</th>
+                                            <th>Event</th>
+                                            <th>Waktu Acara</th>
+                                            <th>Ruangan</th>
+                                            <th>Detail Event</th>
+                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>No</th>
-                                            <th>Ticket</th>
-                                            <th>Nama</th>
-                                            <th>Tanggal_Masuk</th>
-                                            <th>problem</th>
-                                            <th>No_Telepon</th>
-                                            <th>Lokasi</th>
                                             <th>Command</th>
+                                            <th>Tiket</th>
+                                            <th>Tanggal Pengajuan </th>
+                                            <th>Tanggal Acara </th>
+                                            <th>Nama</th>
+                                            <th>Nomor Induk </th>
+                                            <th>No_Telepon</th>
+                                            <th>Event</th>
+                                            <th>Waktu Acara</th>
+                                            <th>Ruangan</th>
+                                            <th>Detail Event</th>
+                                            <th>Status</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <?php
+                                    <?php
                                             $no = 1;
-                                            $tampil = mysqli_query($connection, "SELECT * from complaint WHERE status = 'Overdue' order by ID desc");
+                                            $tampil = mysqli_query($connection, "SELECT * from event order by ID desc");
                                             while($data = mysqli_fetch_array($tampil)) :
                                         ?>
                                         <tr>
                                             <td><?=$no++;?></td>
-                                            <td><?=$data['ticket']?></td>
-                                            <td><?=$data['nama']?></td>
-                                            <td><?=$data['tanggal_start']?></td>
-                                            <td><?=$data['problem']?></td>
-                                            <td><?=$data['no_Telepon']?></td>
-                                            <td><?=$data['lokasi']?> </td>
-                                            <td>
-                                                <a href="tables_overdue.php?hal=edit&ID=<?=$data['ID']?>" class="btn btn-warning"> Edit </a>
-                                                <a href="detail_overdue.php?hal=detail&ID=<?=$data['ID']?>" class="btn btn-warning" >Detail</a>
+                                            <td><center>
+                                                <a href="tables_event.php?hal=edit&ID=<?=$data['ID']?>" class="btn btn-warning"> Edit </a><br><br>
+                                                <a href="detail_event.php?hal=detail&ID=<?=$data['ID']?>" class="btn btn-warning" >Detail</a></center>
                                             </td>
+                                            <td><?=$data['ticket']?></td>
+                                            <td><?=$data['tanggal_start']?></td>
+                                            <td><?=$data['tanggal_mulai']?> - <?=$data['tanggal_selesai']?></td>
+                                            <td><?=$data['nama']?></td>
+                                            <td><?=$data['nomor_induk']?></td>
+                                            <td><?=$data['no_Telepon']?></td>
+                                            <td><?=$data['event']?></td>
+                                            <td><?=$data['waktu_mulai']?> - <?=$data['waktu_selesai']?></td>
+                                            <td><?=$data['ruangan']?></td>
+                                            <td><?=$data['detail_event']?></td>
+                                            <td><?=$data['status']?></td>
                                         </tr>
                                         <?php endwhile; //penutup perulangan while ?>           
                                     </tbody>
@@ -440,6 +421,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- /.container-fluid -->
             </div>
             <!-- End of Main Content -->
 
@@ -463,8 +445,7 @@
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -498,6 +479,5 @@
 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
-
 </body>
 </html>

@@ -220,12 +220,12 @@
                     <span>Artikel</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="tables_event.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Event</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="peminjaman.php">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Peminjaman</span></a>
             </li>
