@@ -205,19 +205,9 @@
             <br>
             <div class="complaint-form-category">
                 <input list="text" name="ruangan" class="form-control" placeholder="Ruangan *" required>
-                <datalist id="text">
-                    <option value="Lantai 1">
-                    <option value="Lantai 2">
-                    <option value="Lantai 3">
-                    <option value="Lantai 4">
             </div>
             <div class="complaint-form-category">
-                <input list="text2" name="peralatan" class="form-control" placeholder="Peralatan yang dipinjam *" required>
-                <datalist id="text2">
-                    <option value="Wacom Intuos">
-                    <option value="Camera Lumenz">
-                    <option value="Speaker Jabra">
-                    <option value="Webcam USB">
+                <input list="text" name="peralatan" class="form-control" placeholder="Peralatan yang dipinjam *" required>
             </div>
 
             <div class="complaint-form-footer">

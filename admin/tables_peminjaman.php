@@ -356,14 +356,20 @@
                         <input type="text" name="peralatan" class="form-control" placeholder="Peralatan *" value="<?=@$txtperalatan?>"></textarea>
                     </div>
                     <div class="complaint-form-category">
-                        <input type="text" name="status" class="form-control" placeholder="Status *" value="<?=@$txtstatus?>"></textarea>
+                        <input list="text" name="status" class="form-control" placeholder="Status *" value="<?=@$txtstatus?>"></textarea>
+                        <datalist id="text">
+                                <option value="Belum Diambil">
+                                <option value="Terpinjam">
+                                <option value="Sudah Dikembalikan">
                     </div>
-                                        
-                        <br><br>
-                        <button type="submit" class="btn btn-success" name="bsimpan">Simpan</button>
-                        <button type="reset" class="btn btn-danger" name="breset">Kosongkan</button>
-                        <a href="tables_peminjaman.php?hal=hapus&ID=<?=$data['ID']?>" 
-                                onclick="return confirm('Apakah yakin ingin menghapus data ini?')" class="btn btn-danger"> Hapus </a>
+
+                    <br><br>
+                    
+                    <button type="submit" class="btn btn-success" name="bsimpan">Simpan</button>
+                    <button type="reset" class="btn btn-danger" name="breset">Kosongkan</button>
+                    <a href="tables_peminjaman.php?hal=hapus&ID=<?=$data['ID']?>" 
+                        onclick="return confirm('Apakah yakin ingin menghapus data ini?')" class="btn btn-danger"> Hapus 
+                    </a>
                 </form>
                 <div class="modal fade" id="demoModal">
                     <div class="modal-dialog">
