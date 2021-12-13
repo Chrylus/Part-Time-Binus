@@ -73,7 +73,7 @@ header("Refresh: 300");
             <li class="nav-item active">
                 <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Reminder</span></a>
+                    <span>Dashboard</span></a>
             </li>
 
             <!-- Divider -->
