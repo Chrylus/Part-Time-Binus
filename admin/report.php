@@ -7,6 +7,35 @@ header("Refresh: 300");
 
     $connection = mysqli_connect('localhost', 'root', '', 'form_it');
 
+
+    if(isset($_POST['hal']))
+	{
+		//Pengujian Apakah data akan diedit atau disimpan baru
+		if($_GET['hal'] == "All")
+		{
+            $setSql = "SELECT * FROM `complaint` where ID = '$_GET[ID]'";  
+            $setRec = mysqli_query($connection, $setSql); 
+            $data = mysqli_fetch_array($setRec);
+            if($data){
+            $columnHeader = '';  
+            $columnHeader = "ID" . "\t" . "Tanggal Start" . "\t" . "Tanggal Peminjaman" . "\t " . "Tanggal Pengembalian" . "\t" . "Nama" . "\t" . "Nomor Induk" . "\t" . "No Telepon" . "\t" . "Event" . "\t" . "Waktu" . "\t" . "Waktu Pengembalian" . "\t" . "Ruangan" . "\t" . "Peralatan" . "\t" . "Tiket" . "\t" . "Status";  
+            
+            $setData = '';  
+            
+            while ($rec = mysqli_fetch_row($setRec)) {  
+                $rowData = '';  
+                foreach ($rec as $value) {  
+                    $value = '"' . $value . '"' . "\t";  
+                    $rowData .= $value;  
+                }  
+                $setData .= trim($rowData) . "\n";  
+
+
+            }
+            
+}  
+		}
+    }
     
 ?>
 
@@ -244,19 +273,19 @@ header("Refresh: 300");
                     <i class="fas fa-download fa-sm text-white-50"></i> Generate Complain
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > All</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Januari</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Februari</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Maret</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > April</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Mei</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Juni</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Juli</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Agustus</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > September</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Oktober</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > November</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Desember</a>   
+                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary"> All</a>
+                    <a target="_blank"href="data.php?bulan=1" class=" dropdown-item btn btn-sm btn-primary" > Januari</a>
+                    <a target="_blank"href="data.php?bulan=2" class=" dropdown-item btn btn-sm btn-primary" > Februari</a>
+                    <a target="_blank"href="data.php?bulan=3" class=" dropdown-item btn btn-sm btn-primary" > Maret</a>
+                    <a target="_blank"href="data.php?bulan=4" class=" dropdown-item btn btn-sm btn-primary" > April</a>
+                    <a target="_blank"href="data.php?bulan=5" class=" dropdown-item btn btn-sm btn-primary" > Mei</a>
+                    <a target="_blank"href="data.php?bulan=6" class=" dropdown-item btn btn-sm btn-primary" > Juni</a>
+                    <a target="_blank"href="data.php?bulan=7" class=" dropdown-item btn btn-sm btn-primary" > Juli</a>
+                    <a target="_blank"href="data.php?bulan=8" class=" dropdown-item btn btn-sm btn-primary" > Agustus</a>
+                    <a target="_blank"href="data.php?bulan=9" class=" dropdown-item btn btn-sm btn-primary" > September</a>
+                    <a target="_blank"href="data.php?bulan=10" class=" dropdown-item btn btn-sm btn-primary" > Oktober</a>
+                    <a target="_blank"href="data.php?bulan=11" class=" dropdown-item btn btn-sm btn-primary" > November</a>
+                    <a target="_blank"href="data.php?bulan=12" class=" dropdown-item btn btn-sm btn-primary" > Desember</a>   
                     
                     </div>
                     
@@ -266,19 +295,19 @@ header("Refresh: 300");
                     <i class="fas fa-download fa-sm text-white-50"></i> Generate Peminjaman
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > All</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Januari</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Februari</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Maret</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > April</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Mei</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Juni</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Juli</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Agustus</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > September</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Oktober</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > November</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Desember</a>   
+                    <a target="_blank"href="data2.php" class=" dropdown-item btn btn-sm btn-primary"> All</a>
+                    <a target="_blank"href="data2.php?bulan=1" class=" dropdown-item btn btn-sm btn-primary" > Januari</a>
+                    <a target="_blank"href="data2.php?bulan=2" class=" dropdown-item btn btn-sm btn-primary" > Februari</a>
+                    <a target="_blank"href="data2.php?bulan=3" class=" dropdown-item btn btn-sm btn-primary" > Maret</a>
+                    <a target="_blank"href="data2.php?bulan=4" class=" dropdown-item btn btn-sm btn-primary" > April</a>
+                    <a target="_blank"href="data2.php?bulan=5" class=" dropdown-item btn btn-sm btn-primary" > Mei</a>
+                    <a target="_blank"href="data2.php?bulan=6" class=" dropdown-item btn btn-sm btn-primary" > Juni</a>
+                    <a target="_blank"href="data2.php?bulan=7" class=" dropdown-item btn btn-sm btn-primary" > Juli</a>
+                    <a target="_blank"href="data2.php?bulan=8" class=" dropdown-item btn btn-sm btn-primary" > Agustus</a>
+                    <a target="_blank"href="data2.php?bulan=9" class=" dropdown-item btn btn-sm btn-primary" > September</a>
+                    <a target="_blank"href="data2.php?bulan=10" class=" dropdown-item btn btn-sm btn-primary" > Oktober</a>
+                    <a target="_blank"href="data2.php?bulan=11" class=" dropdown-item btn btn-sm btn-primary" > November</a>
+                    <a target="_blank"href="data2.php?bulan=12" class=" dropdown-item btn btn-sm btn-primary" > Desember</a>     
                     
                     </div>
                     
@@ -289,19 +318,19 @@ header("Refresh: 300");
                     <i class="fas fa-download fa-sm text-white-50"></i> Generate Event
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > All</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Januari</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Februari</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Maret</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > April</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Mei</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Juni</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Juli</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Agustus</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > September</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Oktober</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > November</a>
-                    <a target="_blank"href="data.php" class=" dropdown-item btn btn-sm btn-primary" > Desember</a>   
+                    <a target="_blank"href="data3.php" class=" dropdown-item btn btn-sm btn-primary"> All</a>
+                    <a target="_blank"href="data3.php?bulan=1" class=" dropdown-item btn btn-sm btn-primary" > Januari</a>
+                    <a target="_blank"href="data3.php?bulan=2" class=" dropdown-item btn btn-sm btn-primary" > Februari</a>
+                    <a target="_blank"href="data3.php?bulan=3" class=" dropdown-item btn btn-sm btn-primary" > Maret</a>
+                    <a target="_blank"href="data3.php?bulan=4" class=" dropdown-item btn btn-sm btn-primary" > April</a>
+                    <a target="_blank"href="data3.php?bulan=5" class=" dropdown-item btn btn-sm btn-primary" > Mei</a>
+                    <a target="_blank"href="data3.php?bulan=6" class=" dropdown-item btn btn-sm btn-primary" > Juni</a>
+                    <a target="_blank"href="data3.php?bulan=7" class=" dropdown-item btn btn-sm btn-primary" > Juli</a>
+                    <a target="_blank"href="data3.php?bulan=8" class=" dropdown-item btn btn-sm btn-primary" > Agustus</a>
+                    <a target="_blank"href="data3.php?bulan=9" class=" dropdown-item btn btn-sm btn-primary" > September</a>
+                    <a target="_blank"href="data3.php?bulan=10" class=" dropdown-item btn btn-sm btn-primary" > Oktober</a>
+                    <a target="_blank"href="data3.php?bulan=11" class=" dropdown-item btn btn-sm btn-primary" > November</a>
+                    <a target="_blank"href="data3.php?bulan=12" class=" dropdown-item btn btn-sm btn-primary" > Desember</a>   
                     
                     </div>
                     
