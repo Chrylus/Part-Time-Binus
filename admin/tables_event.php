@@ -315,12 +315,12 @@
 	            </div>
 	            <div class="card-body">
                 <form method="post" action="">
-                    Tanggal Peminjaman
+                    Tanggal Mulai
                     <div class="complaint-form-category">
                         <input type="date" name="tanggal_mulai" class="form-control" placeholder="Tanggal Mulai *" value="<?=@$txttanggal_mulai?>" ></textarea>
                     </div>
                     <br>
-                    Tanggal Pengembalian
+                    Tanggal Selesai
                     <div class="complaint-form-category">
                         <input type="date" name="tanggal_selesai" class="form-control" placeholder="Tanggal Selesai *" value="<?=@$txttanggal_selesai?>" ></textarea>
                     </div>
@@ -339,12 +339,12 @@
                         <input type="text" name="event" class="form-control" placeholder="Event *" value="<?=@$txtevent?>"></textarea>
                     </div>
                     <br>
-                    Waktu Peminjaman
+                    Waktu Mulai
                     <div class="complaint-form-category">
                         <input type="time" name="waktu_mulai" class="form-control" placeholder="Waktu Mulai *" value="<?=@$txtwaktu_mulai?>"></textarea>
                     </div>
                     <br>
-                    Waktu Pengembalian
+                    Waktu Selesai
                     <div class="complaint-form-category">
                         <input type="time" name="waktu_selesai" class="form-control" placeholder="Waktu Pengembalian *" value="<?=@$txtwaktu_selesai?>"></textarea>
                     </div>
