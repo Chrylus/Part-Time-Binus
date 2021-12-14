@@ -14,7 +14,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../admin/css/site.css">
+        <link rel="stylesheet" href="../admin/css/richtext.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="../admin/js/jquery.richtext.js"></script>
     <title>PIC</title>
 
     <!-- Custom fonts for this template-->
@@ -310,9 +314,7 @@
                 <input type="file" name="lampiran" class="form-control" accept="image/*" required></textarea>
             
                     </div>
-                    <div class="complaint-form-category"> 
-                    <textarea name="isi" id="isi" class="form-control"value="<?=@$txtgambar?>" rows="10"></textarea>
-                    </div>
+          
                         <br>
                         <button type="submit" class="btn btn-success" name="bsimpan">Simpan</button>
                     </form>
@@ -453,6 +455,7 @@
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
     <script src="js/artikel.js"></script>
+    
 
 </body>
 

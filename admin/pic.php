@@ -81,7 +81,7 @@
                                     //Jika data ditemukan, maka data ditampung ke dalam variabel
                                     $txtNama = $data['nama'];
                                     $txtEmail = $data['email'];
-                                    $txtPassword = $data['password'];
+                                    $txtPassword = md5($data['password']);
                                 }
                             }
                             else if ($_GET['hal'] == "hapus")
@@ -103,10 +103,11 @@
                             if($_GET['hal'] == "edit")
                             {
                                 //Data akan di edit
+                                $md5=md5($_POST['password']);
                                 $edit = mysqli_query($connection, "UPDATE admin set
                                                                     nama = '$_POST[nama]',
                                                                     email = '$_POST[email]',
-                                                                    password = '$_POST[password]'
+                                                                    password = '$md5'
                                                                 WHERE id = '$_GET[id]'
                                                             ");
                                 if($edit) //jika edit sukses
@@ -127,10 +128,11 @@
                             else
                             {
                                 //Data akan disimpan Baru
+                              $md5=md5($_POST['password']);
                                 $simpan = mysqli_query($connection, "INSERT INTO admin (nama, email, password, status)
                                                             VALUES ('$_POST[nama]', 
                                                                     '$_POST[email]', 
-                                                                    '$_POST[password]', 
+                                                                    '$md5', 
                                                                     'Offline'
                                                                     )
                                                             ");
@@ -332,6 +334,7 @@
                                                     <th>Email</th>
                                                     <th>Status</th>
                                                     <th>Command</th>
+                                                    
                                                 </tr>
                                             </thead>
                                             <!-- <tfoot>

@@ -6,7 +6,7 @@ $koneksi = new mysqli('localhost', 'root', '', 'form_it');
  
 $email = $_POST['email']; //menampung data yang dikirim dari input username
 $password = $_POST['password']; //menampung data yang dikirim dari input password
- 
+//  $passwordmd5=md5($password);
 // $data = mysqli_query($koneksi,"SELECT * from customer WHERE email='$email' and password='$password'");
 //untuk mencari data yang sesuai di database yang sesuai dengan inputan
  $data=$koneksi->query("SELECT * from admin WHERE email='$email' and password='$password'");
@@ -17,7 +17,7 @@ $row=mysqli_fetch_object($data);
 $cek_login = mysqli_num_rows($data);
 //menghitung jumlah data yang didapat
  
- 
+
 if($cek_login > 0) //jika data yang ditemukan lebih dari 0
 {
 $_SESSION['email'] = $email;
