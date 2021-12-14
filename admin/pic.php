@@ -103,7 +103,7 @@
                             if($_GET['hal'] == "edit")
                             {
                                 //Data akan di edit
-                                $md5=md5($_POST['password']);
+                                $md5=$_POST['password'];
                                 $edit = mysqli_query($connection, "UPDATE admin set
                                                                     nama = '$_POST[nama]',
                                                                     email = '$_POST[email]',
@@ -128,7 +128,7 @@
                             else
                             {
                                 //Data akan disimpan Baru
-                              $md5=md5($_POST['password']);
+                              $md5=$_POST['password'];
                                 $simpan = mysqli_query($connection, "INSERT INTO admin (nama, email, password, status)
                                                             VALUES ('$_POST[nama]', 
                                                                     '$_POST[email]', 
