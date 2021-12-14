@@ -1,6 +1,6 @@
 <?php
-$connection = new mysqli('localhost', 'root', '');  
-mysqli_select_db($connection, 'form_it');  
+include ("koneksi.php");
+
 
 
 if(isset($_GET['bulan'])){

@@ -1,4 +1,4 @@
 <?php
 
-$koneksi = new mysqli('localhost', 'root', '', 'form_it');
+$connection = new mysqli('localhost', 'root', '', 'form_it');
 ?>

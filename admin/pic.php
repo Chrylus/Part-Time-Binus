@@ -49,10 +49,7 @@
                             echo($_SESSION['nama']);
                         }
 
-                        $connection = mysqli_connect('localhost', 'root', '', 'form_it');
-                        if(!$connection) {
-                            die("Database connection failed");
-                        }
+                        include ("koneksi.php");
 
                         //Pengujian Apakah data absensi
                         if(isset($_GET['hal']))

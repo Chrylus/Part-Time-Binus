@@ -1,14 +1,13 @@
+
 <?php
+    include ("koneksi.php");
     session_start();
     if(!isset($_SESSION["id"])){
         header("location:login.php");
     }
  
 	//Koneksi Database
-    $connection = mysqli_connect('localhost', 'root', '', 'form_it');
-    if(!$connection) {
-        die("Database connection failed");
-    }
+  
 
 	if(isset($_POST['bsimpan']))
 	{

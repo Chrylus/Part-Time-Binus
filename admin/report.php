@@ -5,8 +5,7 @@ header("Refresh: 300");
         header("location:login.php");
     }
 
-    $connection = mysqli_connect('localhost', 'root', '', 'form_it');
-
+    include ("koneksi.php");
 
     if(isset($_POST['hal']))
 	{
