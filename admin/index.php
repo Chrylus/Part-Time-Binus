@@ -160,6 +160,7 @@
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="../user/images/Binus Logo.png">
 </head>
 
 <body id="page-top">

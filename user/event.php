@@ -24,7 +24,7 @@
     <meta name="apple-mobile-web-app-title" content="LAPOR!">
     <meta name="application-name" content="LAPOR!">
     <meta name="theme-color" content="#ffffff">
-
+    <link rel="icon" href="../Part-Time-Binus/user/images/Binus Logo.png">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 

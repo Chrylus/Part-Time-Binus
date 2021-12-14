@@ -14910,7 +14910,7 @@ header .navbar-header .navbar-brand {
   }
 }
 header .navbar-header .navbar-brand img {
-  height: 100px;
+  height: 65px;
 }
 @media (min-width: 768px) {
   header .navbar-header .navbar-brand {
