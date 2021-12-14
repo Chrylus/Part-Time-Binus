@@ -417,7 +417,7 @@
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"> Open Ticket Peminjaman</div>
+                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"> Ticket Peminjaman</div>
                                                 <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $data30['open_peminjaman'];?></div>
                                             </div>
                                             <div class="col-auto">
@@ -436,7 +436,7 @@
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"> Open Ticket Event</div>
+                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"> Ticket Event</div>
                                                 <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $data31['open_event'];?></div>
                                             </div>
                                             <div class="col-auto">
