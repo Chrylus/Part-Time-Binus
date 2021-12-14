@@ -12026,7 +12026,7 @@ img.jssocials-share-logo {
   margin-left: 0;
 }
 .block-filter .filter-item.filter-search {
-  input: height: 50px;
+  height: 50px;
 }
 .block-filter .filter-item.filter-dropdown label {
   display: inline-block;

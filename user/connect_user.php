@@ -14,10 +14,10 @@
         $ekstensi = strtoLower(end($ekstensi_gambar_upload));
     
         if(!in_array($ekstensi, $ekstensi_gambar)){
-            header("Location: index.php");
+            header("Location: ../index.php");
             exit;
         } else if($_FILES['lampiran']['size'] > 2097152){
-            header("Location: index.php");
+            header("Location: ../index.php");
             exit;
         }
     
@@ -58,7 +58,7 @@
         }
         else {
             mail($to,$subject,$message,$headers); 
-            header("location:index.php?Ticket=$x");
+            header("location:../index.php?Ticket=$x");
         }
     }
 ?>

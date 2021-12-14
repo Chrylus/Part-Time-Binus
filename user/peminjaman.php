@@ -161,14 +161,14 @@
                 <div class="select-complaint"><center>Pilih Kategori Layanan</center></div>
                 <!-- <center><p><b>Pilih Klasifikasi Permintaan Anda</b></p></center> -->
                 <center>
-                    <a href="index.php" class="button1">Office</a>
+                    <a href="../index.php" class="button1">Helpdesk</a>
                     <a href="kelas.php" class="button1">Kelas</a>
                     <a href="event.php" class="button1">Event</a>
                     <a href="#" class="button1 active">Peminjaman</a>
                     <a href="search_ticket.php" class="button1">Cek Status Ticket</a>
                 </center>
                 <br>
-                <p>[Placeholder]</p>
+                <p>Sampaikan request terkait peminjaman alat IT dengan mengisi form berikut</p>
                 <br>
             </div>
             

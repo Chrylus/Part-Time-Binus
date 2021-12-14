@@ -32,7 +32,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
     <!-- App Styles -->
-    <link href= 'index.css' rel="stylesheet">
+    <link href= 'user/index.css' rel="stylesheet">
 
     <script src="https://www.lapor.go.id/themes/lapor/assets/sweetalert2/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="https://www.lapor.go.id/plugins/responsiv/uploader/assets/css/uploader.css">
@@ -57,7 +57,7 @@
                 </a>
             </li>
             <li role="presentation" class="  ">
-                <a href="../admin/login.php" >
+                <a href="admin/login.php" >
                     Admin
                 </a>
             </li>
@@ -69,7 +69,7 @@
     <div class="loader-custom hidden"></div>
     <div id="search-bar"> </div>
 
-    <?php include "connect_database.php"; ?>
+    <?php include "user/connect_database.php"; ?>
 
     <header class="navbar-fixed-top navbar-inverse ">
         <div class="container">
@@ -81,8 +81,8 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                    <img src="images/Binus Logo.png" alt="" class="img-responsive hidden-navbar-inverse">
-                    <img src="images/Binus Logo.png" alt="" class="img-responsive hidden-navbar-default">
+                    <img src="user/images/Binus Logo.png" alt="" class="img-responsive hidden-navbar-inverse">
+                    <img src="user/images/Binus Logo.png" alt="" class="img-responsive hidden-navbar-default">
                 </a>
             </div>
 
@@ -99,7 +99,7 @@
                         </a>
                     </li>
                     <li role="presentation" class="  ">
-                        <a href="../admin/login.php" >
+                        <a href="admin/login.php" >
                             Admin
                         </a>
                     </li>
@@ -142,11 +142,11 @@
         <div class="container">
             <div class="row">
             <div class="col-md-8 col-md-offset-2 mg-b-40">
-        <form action="connect_user.php" method="POST" class="complaint-form" enctype="multipart/form-data">
+        <form action="user/connect_user.php" method="POST" class="complaint-form" enctype="multipart/form-data">
             <div class="complaint-form-box">
                 <h5><span style="color: #15FF00">&#9677</span> Tim IT yang bertugas saat ini : 
                     <?php
-                        include ("connect_database.php");
+                        include ("user/connect_database.php");
                         $admin = "SELECT * FROM admin WHERE status = 'Online'";
                         $nama_admin = mysqli_query($connection, $admin);
                         if (mysqli_num_rows($nama_admin) > 0) {
@@ -161,14 +161,14 @@
                 <div class="select-complaint"><center>Pilih Kategori Layanan</center></div>
                 <!-- <center><p><b>Pilih Klasifikasi Permintaan Anda</b></p></center> -->
                 <center>
-                    <a href="#" class="button1 active">Office</a>
-                    <a href="kelas.php" class="button1">Kelas</a>
-                    <a href="event.php" class="button1">Event</a>
-                    <a href="peminjaman.php" class="button1">Peminjaman</a>
-                    <a href="search_ticket.php" class="button1">Cek Status Ticket</a>
+                    <a href="#" class="button1 active">Helpdesk</a>
+                    <a href="user/kelas.php" class="button1">Kelas</a>
+                    <a href="user/event.php" class="button1">Event</a>
+                    <a href="user/peminjaman.php" class="button1">Peminjaman</a>
+                    <a href="user/search_ticket.php" class="button1">Cek Status Ticket</a>
                 </center>
                 <br>
-                <p>[Placeholder]</p>
+                <p>Sampaikan keluhan anda terkait permasalahan IT dengan mengisi form berikut</p>
                 <br>
             </div>
             
