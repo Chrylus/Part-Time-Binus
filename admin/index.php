@@ -634,15 +634,30 @@
                                     
                                     <div class="mt-4 text-center small">
                                         <span class="mr-2">
-                                            <b>Telat = <?= $data5['overdue'] /   ($data5['overdue'] + $data2['On Progress'] + $data4['completed'])    * 100 ."%";?></b>
+                                            <?php
+                                                if ($data5['overdue'] != '0'){
+                                                    $dat = $data5["overdue"] /   ($data5["overdue"] + $data2["On Progress"] + $data4["completed"])    * 100 ."%";
+                                                    echo '<b>Telat = </b>' . $dat;
+                                                }
+                                            ?>
                                         </span>
                                         <span class="mr-2">
-                                            <b>|  On Progress = <?= $data2['On Progress'] /   ($data5['overdue'] + $data2['On Progress']+ $data4['completed'])    * 100 ."%";?></b>
+                                            <?php
+                                                if ($data2['On Progress'] != '0'){
+                                                    $dat1 = $data2["On Progress"] /   ($data5["overdue"] + $data2["On Progress"]+ $data4["completed"])    * 100 ."%";
+                                                    echo '<b>|  On Progress = </b>' . $dat1;
+                                                }
+                                            ?>
                                         </span>
                                         <span class="mr-2">
-                                            <b>|  Tepat Waktu = <?= $data4['completed']  /   ($data5['overdue'] + $data2['On Progress'] + $data4['completed'])    * 100 ."%";?></b>
+                                            <?php
+                                                if ($data4['completed'] != '0'){
+                                                    $dat2 = $data4["completed"]  /   ($data5["overdue"] + $data2["On Progress"] + $data4["completed"])    * 100 ."%";
+                                                    echo '<b>|  Tepat Waktu = </b>' . $dat2;
+                                                }
+                                            ?>
                                         </span>
-                                    </div> 
+                                    </div>
                                 </div>
                             </div>
                         </div>
