@@ -13,9 +13,6 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-    <!-- Pop Up Button -->
-    <link href="../../admin/css/sb-admin-2.min.css" rel="stylesheet">
-
     <!-- Place this data between the <head> tags of your website -->
     <title>Laporan Pengaduan Masalah BINUS@Malang</title>
 

@@ -1,9 +1,8 @@
 <?php
  
 session_start(); // untuk mengaktifkan session user
- 
- 
-include 'koneksi.php'; // untuk memanggil class koneksi agar terhubung dengan database
+
+$koneksi = new mysqli('localhost', 'root', '', 'form_it');
  
 $email = $_POST['email']; //menampung data yang dikirim dari input username
 $password = $_POST['password']; //menampung data yang dikirim dari input password
