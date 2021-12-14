@@ -314,7 +314,7 @@
                         </div>
                         <div class="complaint-form-category">
                       
-                <input type="file" name="gambar" class="form-control" accept="image/*"value="<?=@$txtgambar?>" required></textarea>
+                <input type="file" name="gambar" class="form-control" accept="image/*"value="<?=@$txtgambar?>" ></textarea>
             
                     </div>
                     <br>
@@ -350,8 +350,6 @@
                                                 <tr>
                                                     <th>No</th>
                                                     <th>Judul</th>
-                                                    <th>gambar</th>
-                                                    <th>isi</th>
                                                     <th>Admin</th>
                                                     <th>Tanggal</th>
                                                     <th>Status</th>
@@ -362,8 +360,6 @@
                                                 <tr>
                                                 <th>No</th>
                                                     <th>Judul</th>
-                                                    <th>gambar</th>
-                                                    <th>isi</th>
                                                     <th>Admin</th>
                                                     <th>Tanggal</th>
                                                     <th>Status</th>
@@ -379,8 +375,6 @@
                                             <tr>
                                                 <td><?=$no++;?></td>
                                                 <td><?=$data['judul']?></td>
-                                                <td><?=$data['gambar']?></td>
-                                                <td><?=$data['isi']?></td>
                                                 <td><?=$data['admin']?></td>
                                                 <td><?=$data['tanggal']?></td>
                                                 <td><?=$data['status']?></td>
