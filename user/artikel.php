@@ -1,3 +1,29 @@
+<?php
+    include '../admin/koneksi.php';
+   
+    
+    if(isset($_GET['cari'])){
+      $cari = $_GET['cari'];
+      $sql = "SELECT * FROM artikel WHERE status = '1' AND judul like '%$cari%' ORDER BY tanggal DESC, id_artikel DESC";
+    } else {
+      $sql = "SELECT * FROM artikel WHERE status = '1' ORDER BY tanggal DESC, id_artikel DESC";
+    }
+    $query = mysqli_query($connection,$sql);
+    $month = array('Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember');
+
+
+    $jumlahDataHalaman = 5;
+    $totalData = mysqli_num_rows($query);
+    $jumlahHalaman = ceil($totalData/$jumlahDataHalaman);
+
+    $halamanAktif = isset($_GET['halaman']) ? $_GET['halaman'] : 1;
+
+    $awalData = ($jumlahDataHalaman * $halamanAktif) - $jumlahDataHalaman;
+
+    $sql.=" LIMIT $awalData, $jumlahDataHalaman";
+    $query = mysqli_query($connection,$sql);
+
+?>
 <!DOCTYPE html>
 <html lang = "en">
 <head>
