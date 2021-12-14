@@ -280,7 +280,7 @@
                     </button>
 
                     <nav class="navbar navbar-light bg-light">
-                            <a class="navbar-brand" href="../user/index.php">Back To User Page</a>
+                            <a class="navbar-brand" href="../index.php">Back To User Page</a>
                     </nav>
 
                     <!-- Topbar Navbar -->

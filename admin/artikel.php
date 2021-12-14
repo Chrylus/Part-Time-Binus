@@ -14,6 +14,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="../admin/css/site.css">
         <link rel="stylesheet" href="../admin/css/richtext.min.css">
@@ -26,11 +27,13 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="icon" href="../user/images/Binus Logo.png">
+  
+
     <!-- Table sort -->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+    <link rel="icon" href="../user/images/Binus Logo.png">
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
 </head>
 
 <body id="page-top">
@@ -64,7 +67,7 @@
                             if($_GET['hal'] == "status")
                             {
                                 //Data akan di edit
-                                $status = mysqli_query($connection,   "UPDATE artikel SET status = CASE WHEN status = 'Tidak Ditampilkan' THEN 'Ditampilkan' ELSE 'Tidak Ditampilkan' END WHERE id = '$_GET[id]'", );
+                                $status = mysqli_query($connection,   "UPDATE artikel SET status = CASE WHEN status = 'Tidak Ditampilkan' THEN 'Ditampilkan' ELSE 'Tidak Ditampilkan' END WHERE ID = '$_GET[ID]'", );
                                 if($status) //jika edit sukses
                                 {
                                     echo "<script>
@@ -87,8 +90,8 @@
                                 {
                                     //Jika data ditemukan, maka data ditampung ke dalam variabel
                                     $txtjudul = $data['judul'];
-                                    $txtisi = $data['isi'];
                                     $txtgambar=$data['gambar'];
+                                    $txtisi = $data['isi'];
                                 }
                             }
                             else if ($_GET['hal'] == "hapus")
@@ -137,8 +140,8 @@
                                 $simpan = mysqli_query($connection, "INSERT INTO artikel (judul,gambar,isi,admin)
                                                             VALUES ('$_POST[judul]',
                                                                 '$_POST[gambar]',
-                                                                '$_POST[gambar]',
-                                                                    '$_SESSION[nama]'
+                                                                '$_POST[isi]',
+                                                                '$_SESSION[nama]'
                                                                     )
                                                             ");
                                 if($simpan) //jika simpan sukses
@@ -194,7 +197,7 @@
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Artikel</span></a>
@@ -214,7 +217,7 @@
                 Administrator
             </div>
 
-            <li class="nav-item active">
+            <li class="nav-item ">
                 <a class="nav-link" href="pic.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>PIC</span></a>
@@ -302,7 +305,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Data Administrator</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Tambah Artikel</h1>
                     </div>
                     <div class="card-body">
                     <form method="post" action="">
@@ -311,10 +314,21 @@
                         </div>
                         <div class="complaint-form-category">
                       
-                <input type="file" name="lampiran" class="form-control" accept="image/*" required></textarea>
+                <input type="file" name="gambar" class="form-control" accept="image/*"value="<?=@$txtgambar?>" required></textarea>
             
                     </div>
-          
+                    <br>
+                    <h5 class="h5 mb-0 text-gray-800">Isi Artikel</h5>
+                    <div class="complaint-form-category">
+                   
+                    <textarea class="content" name="isi" value="<?=@$txtisi?>"></textarea>
+                    </div>
+                    <script>
+                    $(document).ready(function() {
+                        $('.content').richText();
+                    
+                    });
+                    </script>
                         <br>
                         <button type="submit" class="btn btn-success" name="bsimpan">Simpan</button>
                     </form>
@@ -327,7 +341,7 @@
                             <!-- DataTales Example -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Admin Data</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Artikel Yang Aktif</h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -375,9 +389,7 @@
                                                     <a href="artikel.php?hal=edit&ID=<?=$data['ID']?>" class="btn btn-warning"> Edit </a>
                                                     <a href="artikel.php?hal=hapus&ID=<?=$data['ID']?>" class="btn btn-danger"> Hapus </a>
                                                 </td>
-                                                <td>
-                                                    
-                                                </td>
+                                                
                                             </tr>
                                             <?php endwhile; //penutup perulangan while ?>           
                                             </tbody>
@@ -439,11 +451,11 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
+    
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+   
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>

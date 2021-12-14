@@ -64,13 +64,13 @@
         ?>
                                     <form class="user" method="post" action="proses.php">
                                         <div class="form-group">
-                                            <input name="email"type="email" class="form-control form-control-user"
+                                            <input name="email"type="email" class="form-control form-control-user"style="height:calc(1.5em + .75rem + 2px);"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address..."required>
+                                                placeholder="Enter Email Address..."required >
                                         </div>
                                         <div class="form-group">
-                                            <input name="password"type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password"required>
+                                            <input name="password"type="password" class="form-control form-control-user"style="height:calc(1.5em + .75rem + 2px);"
+                                                id="exampleInputPassword" placeholder="Password"required >
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
