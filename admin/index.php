@@ -648,9 +648,9 @@
                         </div>
                     </div>
                     <div class="wrapper">
-                        <header>To Do List</header>
+                        <header>Reminder</header>
                         <div class="inputField">
-                            <input type="text" placeholder="Add your new todo">
+                            <input type="text" placeholder="Add your new reminder">
                             <button><i class="fas fa-plus"></i></button>
                         </div>
                         <ul class="todoList">
