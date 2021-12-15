@@ -11,7 +11,7 @@
     $result=mysqli_query($connection,$sql);
     $data=mysqli_fetch_assoc($result);
 
-    $sql1="select count(ticket) as ticket from complaint";
+    $sql1="select count(ticket) as ticket from complaint WHERE YEAR (tanggal_start) = YEAR (CURDATE())";
     $result1=mysqli_query($connection,$sql1);
     $data1=mysqli_fetch_assoc($result1);
 
