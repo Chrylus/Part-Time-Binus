@@ -16,7 +16,7 @@ include ("connect_database.php");
 		// makes sure nobody uses SQL injection
 		
 		$raw_results = mysqli_query($connection, "SELECT * FROM complaint
-			WHERE (`ticket` LIKE '%".$query."%') OR (`ticket` LIKE '%".$query."%')") or die(mysqli_error());
+			WHERE (`ticket` LIKE '%".$query."%') OR (`ticket` LIKE '%".$query."%')");
 			
 		// * means that it selects all fields, you can also write: `id`, `title`, `text`
 		// articles is the name of our table
