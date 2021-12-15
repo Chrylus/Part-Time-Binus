@@ -49,7 +49,7 @@
                 </a>
             </li>
             <li role="presentation" class="  ">
-                <a href="user/artikel.php" >
+                <a href="#" >
                     Artikel
                 </a>
             </li>
@@ -91,7 +91,7 @@
                         </a>
                     </li>
                     <li role="presentation" class="  ">
-                        <a href="user/artikel.php" >
+                        <a href="#" >
                             Artikel
                         </a>
                     </li>
