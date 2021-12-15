@@ -49,7 +49,7 @@
                 </a>
             </li>
             <li role="presentation" class="  ">
-                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" >
+                <a href="artikel.php" >
                     Artikel
                 </a>
             </li>
@@ -91,7 +91,7 @@
                         </a>
                     </li>
                     <li role="presentation" class="  ">
-                        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" >
+                        <a href="artikel.php" >
                             Artikel
                         </a>
                     </li>

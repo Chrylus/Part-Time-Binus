@@ -81,7 +81,7 @@
                                     //Jika data ditemukan, maka data ditampung ke dalam variabel
                                     $txtNama = $data['nama'];
                                     $txtEmail = $data['email'];
-                                    $txtPassword = md5($data['password']);
+                                    $txtPassword = $data['password'];
                                 }
                             }
                             else if ($_GET['hal'] == "hapus")
@@ -103,11 +103,11 @@
                             if($_GET['hal'] == "edit")
                             {
                                 //Data akan di edit
-                                $md5=$_POST['password'];
+                                $password=$_POST['password'];
                                 $edit = mysqli_query($connection, "UPDATE admin set
                                                                     nama = '$_POST[nama]',
                                                                     email = '$_POST[email]',
-                                                                    password = '$md5'
+                                                                    password = '$password'
                                                                 WHERE id = '$_GET[id]'
                                                             ");
                                 if($edit) //jika edit sukses
@@ -128,11 +128,11 @@
                             else
                             {
                                 //Data akan disimpan Baru
-                              $md5=$_POST['password'];
+                              $password=$_POST['password'];
                                 $simpan = mysqli_query($connection, "INSERT INTO admin (nama, email, password, status)
                                                             VALUES ('$_POST[nama]', 
                                                                     '$_POST[email]', 
-                                                                    '$md5', 
+                                                                    '$password', 
                                                                     'Offline'
                                                                     )
                                                             ");
@@ -308,7 +308,7 @@
                             <input type="text" name="email" class="form-control" placeholder="Email *" value="<?=@$txtEmail?>" required></textarea>
                         </div>
                         <div class="complaint-form-category">
-                            <input type="text" name="password" class="form-control" placeholder="Password   *" value="<?=@$txtPassword?>" required></textarea>
+                            <input type="password" name="password" class="form-control" placeholder="Password   *" value="<?=@$txtPassword?>" required></textarea>
                         </div>
                         <br>
                         <button type="submit" class="btn btn-success" name="bsimpan">Simpan</button>
